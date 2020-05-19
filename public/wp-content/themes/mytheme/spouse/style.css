@@ -7,3 +7,38 @@ Requires PHP: 5.2.4
 Description: Custom theme for spouse programs site.
 Author: Druid Oy
 */
+
+header {
+    padding-top: 25px;
+    height: 75px;
+    background-color: darkcyan;
+    color: white;
+}
+
+header .menu-container ul li a{
+    text-decoration: none;
+    color: white;
+}
+
+header .menu-container ul li a:hover{
+    color: black;
+}
+
+header .menu-container ul li{
+    display: inline-block;
+    padding-left: 10px;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+
+    background-color: #ffc107;
+    display: block;
+    padding: 15px 0px;
+}
+
+main {
+    padding: 20px 0px;
+}
