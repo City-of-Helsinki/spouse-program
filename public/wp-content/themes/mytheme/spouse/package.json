@@ -1,0 +1,8 @@
+{
+	"name": "spouse",
+	"version": "1.0.0",
+	"description": "Spouse theme",
+	"dependencies": {
+		"bootstrap": "^4.5.0"
+	}
+}
