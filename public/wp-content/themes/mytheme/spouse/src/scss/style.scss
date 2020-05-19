@@ -1,0 +1,26 @@
+/*!
+Theme Name: Spouse
+Text Domain: spouse
+Version: 1.0
+Requires at least: 4.7
+Requires PHP: 5.2.4
+Description: Custom theme for spouse programs site.
+Author: Druid Oy
+*/
+
+//
+// @file
+// This file includes all imports
+//
+
+// @charset 'UTF-8';
+
+@import 'lib/variables/*';
+@import 'lib/mixins/*';
+//@import 'lib/classes/*';
+//@import 'lib/animations/*';
+
+@import 'base/*';
+@import 'layout/*';
+@import 'component/**/*';
+//@import 'state/*';

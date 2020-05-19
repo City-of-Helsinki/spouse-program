@@ -1,5 +1,4 @@
-@charset "UTF-8";
-/*!
+/*
 Theme Name: Spouse
 Text Domain: spouse
 Version: 1.0
@@ -8,19 +7,13 @@ Requires PHP: 5.2.4
 Description: Custom theme for spouse programs site.
 Author: Druid Oy
 */
-footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  background-color: #f0e956;
-  display: block;
-  padding: 15px 0px;
-}
+
+@charset "UTF-8";
 
 header {
   padding-top: 25px;
   height: 75px;
-  background-color: #01a090;
+  background-color: darkcyan;
   color: white;
 }
 
@@ -34,7 +27,7 @@ header .menu-container ul li a {
   color: #fff;
 }
 
-header .menu-container ul li a:hover {
+header .menu-container ul li a:hover  {
   color: #000000;
 }
 

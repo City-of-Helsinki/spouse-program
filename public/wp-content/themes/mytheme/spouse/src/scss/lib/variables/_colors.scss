@@ -1,0 +1,41 @@
+//
+// @file
+// This file includes all variables related to colors
+//
+$black: #000000;
+$black-light: #191a1d;
+
+$white: #fff;
+$off-white: #ededed;
+$red: #e13200;
+$gray: #cfcfcf;
+$gray-lighter: #ebecee;
+$gray-light: #f6f6f6;
+$gray-dark: #9c9ca1;
+
+$cyan: #01a090;
+$yellow: #f0e956;
+$purple: #4b3f72;
+
+$error-dark: #b43b4b;
+$error-middle: #ce8f97;
+$error-light: #ffd6dc;
+$status-light: #e0f5cb;
+$status-middle: #a0c17b;
+$status-dark: #42671a;
+$warning-light: #fcf8e3;
+$warning-middle: #d4bc92;
+$warning-dark: #8a6d3b;
+
+$primary-color: $cyan;
+$secondary-color: $yellow;
+$tertiary-color: $purple;
+
+$link-color: $red;
+$link-color-hover: darken($red, 10%);
+
+$body-color: $black;
+$body-background: $white;
+
+$menu-background: rgba($black, 0.8);
+$menu-background-darker: rgba($black, .93);
