@@ -5,7 +5,9 @@ header {
   color: white;
   text-transform: uppercase;
 
-  .menu-container {
+  .header-main-content {
+    padding-right: 25px;
+
     ul {
       li {
         display: inline-block;
@@ -26,4 +28,8 @@ header {
       color: $white;
     }
   }
+}
+
+.mob-menu-logo-holder {
+  display: none;
 }

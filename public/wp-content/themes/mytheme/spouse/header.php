@@ -18,14 +18,14 @@ wp_body_open();
 <header id="site-header" role="banner">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-3">
+            <div class="header-left-content col-2 d-md-none col-xl-2">
             </div>
-            <div class="col-5">
-                <div class="menu-container nav">
+            <div class="col-6 col-sm-6 col-md-9">
+                <div class="header-main-content nav justify-content-end">
                   <?php wp_nav_menu( array( 'main_menu' => 'new-menu') ); ?>
                 </div>
             </div>
-            <div class="col-2">
+            <div class="header-right-content col-4 col-sm-4 col-md-3">
                 log in | sign up
             </div>
         </div>

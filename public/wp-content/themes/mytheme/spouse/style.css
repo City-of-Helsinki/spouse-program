@@ -25,21 +25,29 @@ header {
   text-transform: uppercase;
 }
 
-header .menu-container ul li {
+header .header-main-content {
+  padding-right: 25px;
+}
+
+header .header-main-content ul li {
   display: inline-block;
   padding-left: 30px;
 }
 
-header .menu-container ul li a {
+header .header-main-content ul li a {
   text-decoration: none;
   color: #fff;
 }
 
-header .menu-container ul li a:hover  {
+header .header-main-content ul li a:hover  {
   color: #000000;
 }
 
-header .menu-container ul li a {
+header .header-main-content ul li a {
   text-decoration: none;
   color: #fff;
+}
+
+.mob-menu-logo-holder {
+  display: none;
 }
