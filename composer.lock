@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3d7c2a9c5108ec3fcb3bfe50a88c7e1b",
+    "content-hash": "389d84ad05b47e2b0567f98f448ce042",
     "packages": [
         {
             "name": "composer/installers",
@@ -263,21 +263,39 @@
         },
         {
             "name": "wpackagist-plugin/contact-form-7",
-            "version": "5.1.8",
+            "version": "5.1.9",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/contact-form-7/",
-                "reference": "tags/5.1.8"
+                "reference": "tags/5.1.9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/contact-form-7.5.1.8.zip"
+                "url": "https://downloads.wordpress.org/plugin/contact-form-7.5.1.9.zip"
             },
             "require": {
                 "composer/installers": "~1.0"
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/contact-form-7/"
+        },
+        {
+            "name": "wpackagist-plugin/flamingo",
+            "version": "2.1.1",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/flamingo/",
+                "reference": "tags/2.1.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/flamingo.2.1.1.zip"
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/flamingo/"
         },
         {
             "name": "wpackagist-plugin/google-sitemap-generator",
@@ -332,6 +350,24 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/mobile-menu/"
+        },
+        {
+            "name": "wpackagist-plugin/modal-window",
+            "version": "5.0.5",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/modal-window/",
+                "reference": "trunk"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/modal-window.zip?timestamp=1589294480"
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/modal-window/"
         },
         {
             "name": "wpackagist-plugin/site-health-tool-manager",

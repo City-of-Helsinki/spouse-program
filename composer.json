@@ -16,7 +16,9 @@
         "wpackagist-plugin/google-sitemap-generator": "^4.1",
         "wpackagist-plugin/lumturio-wp-monitor": "^1.0",
         "wpackagist-plugin/site-health-tool-manager": "^1.1",
-        "wpackagist-plugin/mobile-menu": "^2.8"
+        "wpackagist-plugin/mobile-menu": "^2.8",
+        "wpackagist-plugin/flamingo": "^2.1",
+        "wpackagist-plugin/modal-window":"5.0.5"
     },
     "require-dev": {
         "wp-cli/wp-cli": "^2.4"
