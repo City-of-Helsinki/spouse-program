@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4dfad2e34ebabd6a15e95295d6f31a7f",
+    "content-hash": "3d7c2a9c5108ec3fcb3bfe50a88c7e1b",
     "packages": [
         {
             "name": "composer/installers",
@@ -316,6 +316,24 @@
             "homepage": "https://wordpress.org/plugins/lumturio-wp-monitor/"
         },
         {
+            "name": "wpackagist-plugin/mobile-menu",
+            "version": "2.8",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/mobile-menu/",
+                "reference": "tags/2.8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/mobile-menu.2.8.zip"
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/mobile-menu/"
+        },
+        {
             "name": "wpackagist-plugin/site-health-tool-manager",
             "version": "1.1",
             "source": {
@@ -332,24 +350,6 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/site-health-tool-manager/"
-        },
-        {
-            "name": "wpackagist-theme/bootstrap-basic4",
-            "version": "1.2.5",
-            "source": {
-                "type": "svn",
-                "url": "https://themes.svn.wordpress.org/bootstrap-basic4/",
-                "reference": "1.2.5"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://downloads.wordpress.org/theme/bootstrap-basic4.1.2.5.zip"
-            },
-            "require": {
-                "composer/installers": "~1.0"
-            },
-            "type": "wordpress-theme",
-            "homepage": "https://wordpress.org/themes/bootstrap-basic4/"
         }
     ],
     "packages-dev": [

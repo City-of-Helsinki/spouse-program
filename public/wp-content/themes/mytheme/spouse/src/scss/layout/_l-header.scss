@@ -3,12 +3,13 @@ header {
   height: 75px;
   background-color: $cyan;
   color: white;
+  text-transform: uppercase;
 
   .menu-container {
     ul {
       li {
         display: inline-block;
-        padding-left: 10px;
+        padding-left: 30px;
 
         a {
           text-decoration: none;
