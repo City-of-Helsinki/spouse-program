@@ -26,7 +26,9 @@ wp_body_open();
                 </div>
             </div>
             <div class="header-right-content col-4 col-sm-4 col-md-3">
-                log in | sign up
+                <span class="wow-modal-id-2">Log in</span>
+                |
+                <span class="wow-modal-id-1">Sign up</span>
             </div>
         </div>
     </div>

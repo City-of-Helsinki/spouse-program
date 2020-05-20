@@ -51,3 +51,57 @@ header .header-main-content ul li a {
 .mob-menu-logo-holder {
   display: none;
 }
+
+#wow-modal-window-1 {
+  background-color: #01a090 !important;
+  color: white;
+  text-transform: uppercase;
+}
+
+.wow-modal-overlay .modal-window-content h2 {
+  text-align: center;
+}
+
+.wow-modal-overlay .modal-window-content p {
+  margin: 0 auto;
+  width: 100%;
+  display: block;
+}
+
+.wow-modal-overlay .modal-window-content p label {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.wow-modal-overlay .modal-window-content p label input {
+  width: 100%;
+  border: 0;
+  border-radius: 5px;
+  height: 35px;
+}
+
+.wow-modal-overlay .modal-window-content p label textarea {
+  width: 100%;
+  border: 0;
+  border-radius: 5px;
+  height: 100px;
+}
+
+.wow-modal-overlay .modal-window-content p label input[type='checkbox'] {
+  width: 15px;
+  height: 15px;
+  border: 0;
+  zoom: 1.3;
+}
+
+.wow-modal-overlay .modal-window-content .wpcf7-submit {
+  padding: 15px 50px;
+  background-color: #fff;
+  color: #fff;
+  border: 0;
+  border-radius: 10px;
+  margin: 0 auto;
+  display: block;
+  color: #4b3f72;
+  text-transform: uppercase;
+}
