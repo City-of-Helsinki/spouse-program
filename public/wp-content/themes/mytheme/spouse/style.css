@@ -1,4 +1,3 @@
-@charset "UTF-8";
 /*!
 Theme Name: Spouse
 Text Domain: spouse
@@ -23,6 +22,21 @@ header {
   background-color: #01a090;
   color: white;
   text-transform: uppercase;
+  text-decoration: none;
+}
+
+header a {
+  text-decoration: none;
+  color: #fff;
+}
+
+header a:hover {
+  color: #4b3f72;
+}
+
+header .user-link:before {
+  content: '\f007';
+  padding-right: 5px;
 }
 
 header .header-main-content {
@@ -34,28 +48,129 @@ header .header-main-content ul li {
   padding-left: 30px;
 }
 
-header .header-main-content ul li a {
-  text-decoration: none;
-  color: #fff;
-}
-
-header .header-main-content ul li a:hover  {
-  color: #000000;
-}
-
-header .header-main-content ul li a {
-  text-decoration: none;
-  color: #fff;
+header .header-main-content ul li.current_page_item a {
+  text-decoration: underline;
+  text-underline: black;
 }
 
 .mob-menu-logo-holder {
   display: none;
 }
 
-#wow-modal-window-1 {
+.default-button, .wow-modal-window #loginform #wp-submit, .wow-modal-overlay .modal-window-content .wpcf7-submit {
+  padding: 15px 50px;
+  background-color: #fff;
+  color: #fff;
+  border: 0;
+  border-radius: 10px;
+  margin: 0 auto;
+  display: block;
+  color: #4b3f72;
+  text-transform: uppercase;
+  margin-top: 15px;
+  -webkit-transition: color 1.5s, background-color 0.5s;
+  transition: color 1.5s, background-color 0.5s;
+}
+
+.default-button:hover, .wow-modal-window #loginform #wp-submit:hover, .wow-modal-overlay .modal-window-content .wpcf7-submit:hover {
+  cursor: pointer;
+}
+
+label {
+  width: 100%;
+  margin-top: 10px;
+}
+
+input {
+  width: 100%;
+  border: 0;
+  border-radius: 5px;
+  height: 40px;
+  padding-left: 10px;
+  margin-top: 5px;
+}
+
+textarea {
+  width: 100%;
+  border: 0;
+  border-radius: 5px;
+  height: 100px;
+  padding-left: 10px;
+  margin-top: 5px;
+}
+
+input[type='checkbox'] {
+  width: 15px;
+  height: 15px;
+  border: 0;
+  zoom: 1.3;
+  padding-left: 10px;
+  margin-top: 5px;
+}
+
+.default-button, .wow-modal-window #loginform #wp-submit, .wow-modal-overlay .modal-window-content .wpcf7-submit {
+  width: auto;
+  padding: 10px 50px;
+  background-color: #fff;
+  color: #fff;
+  border: 0;
+  border-radius: 10px;
+  margin: 0 auto;
+  display: block;
+  color: #4b3f72;
+  text-transform: uppercase;
+  margin-top: 15px;
+  -webkit-transition: background-color 0.5s;
+  transition: background-color 0.5s;
+}
+
+.default-button:hover, .wow-modal-window #loginform #wp-submit:hover, .wow-modal-overlay .modal-window-content .wpcf7-submit:hover {
+  cursor: pointer;
+  background-color: #4b3f72;
+  color: white;
+}
+
+.wow-modal-window {
+  overflow: hidden;
+  position: relative;
   background-color: #01a090 !important;
   color: white;
   text-transform: uppercase;
+}
+
+.wow-modal-window span#modal-login {
+  text-decoration: underline;
+  cursor: pointer;
+  text-align: center;
+  display: block;
+  margin: 0 auto;
+}
+
+.wow-modal-window #loginform {
+  text-align: center;
+}
+
+.background-wave:before, .wow-modal-window:before {
+  content: '';
+  width: 1200px;
+  height: 1200px;
+  position: absolute;
+  left: 50px;
+  bottom: 0px;
+  -webkit-transform: rotate(-92deg);
+          transform: rotate(-92deg);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none' viewBox='0 0 2000 620'%3E%3Cpath fill='rgb(75, 63, 114)' fill-opacity='1' d='M0,192L34.3,208C68.6,224,137,256,206,272C274.3,288,343,288,411,272C480,256,549,224,617,224C685.7,224,754,256,823,256C891.4,256,960,224,1029,192C1097.1,160,1166,128,1234,117.3C1302.9,107,1371,117,1406,122.7L1440,128L1440,320L1405.7,320C1371.4,320,1303,320,1234,320C1165.7,320,1097,320,1029,320C960,320,891,320,823,320C754.3,320,686,320,617,320C548.6,320,480,320,411,320C342.9,320,274,320,206,320C137.1,320,69,320,34,320L0,320Z'%3E%3C/path%3E%3C/svg%3E");
+  background-position: bottom;
+}
+
+.wow-modal-overlay .mw-close-btn:before {
+  line-height: 14px !important;
+  font-size: 34px !important;
+  background-color: rgba(0, 0, 0, 0) !important;
+}
+
+.wow-modal-overlay .modal-window-content {
+  padding: 25px 20px;
 }
 
 .wow-modal-overlay .modal-window-content h2 {
@@ -66,42 +181,4 @@ header .header-main-content ul li a {
   margin: 0 auto;
   width: 100%;
   display: block;
-}
-
-.wow-modal-overlay .modal-window-content p label {
-  width: 100%;
-  margin-top: 10px;
-}
-
-.wow-modal-overlay .modal-window-content p label input {
-  width: 100%;
-  border: 0;
-  border-radius: 5px;
-  height: 35px;
-}
-
-.wow-modal-overlay .modal-window-content p label textarea {
-  width: 100%;
-  border: 0;
-  border-radius: 5px;
-  height: 100px;
-}
-
-.wow-modal-overlay .modal-window-content p label input[type='checkbox'] {
-  width: 15px;
-  height: 15px;
-  border: 0;
-  zoom: 1.3;
-}
-
-.wow-modal-overlay .modal-window-content .wpcf7-submit {
-  padding: 15px 50px;
-  background-color: #fff;
-  color: #fff;
-  border: 0;
-  border-radius: 10px;
-  margin: 0 auto;
-  display: block;
-  color: #4b3f72;
-  text-transform: uppercase;
 }

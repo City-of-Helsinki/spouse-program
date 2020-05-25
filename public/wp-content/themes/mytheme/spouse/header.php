@@ -26,9 +26,21 @@ wp_body_open();
                 </div>
             </div>
             <div class="header-right-content col-4 col-sm-4 col-md-3">
+                <?php
+                global $current_user; wp_get_current_user();
+                /** Popups created with wow modal window -plugin */
+                if (!is_user_logged_in()):
+                ?>
                 <span class="wow-modal-id-2">Log in</span>
                 |
                 <span class="wow-modal-id-1">Sign up</span>
+                <?php
+                else:
+                  ?>
+                    <a class="user-link" href="<?php echo get_edit_profile_url( $current_user->id ); ?>"><?php echo $current_user->user_login; ?></a>
+                  <?php
+                endif;
+                ?>
             </div>
         </div>
     </div>
