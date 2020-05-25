@@ -31,9 +31,9 @@ wp_body_open();
                 /** Popups created with wow modal window -plugin */
                 if (!is_user_logged_in()):
                 ?>
-                <span class="wow-modal-id-2">Log in</span>
+                <a href="#" class="wow-modal-id-2">Log in</a>
                 |
-                <span class="wow-modal-id-1">Sign up</span>
+                <a href="#" class="wow-modal-id-1">Sign up</a>
                 <?php
                 else:
                   ?>

@@ -15,7 +15,6 @@ function spouse_enqueue_scripts() {
 }
 add_action('wp_enqueue_scripts', 'spouse_enqueue_scripts');
 
-
 if ( function_exists('register_sidebar') ) {
   // Footer widget
   register_sidebar([
