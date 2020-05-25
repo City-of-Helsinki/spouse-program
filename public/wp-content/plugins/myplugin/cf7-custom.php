@@ -1,15 +1,13 @@
 <?php
-
-/*
-Plugin Name: Contact Form 7 customizations
-Description: Custom functionalities for contact form 7
-*/
+/**
+ * Plugin Name: CF7-custom
+ * Description: Contact form 7 custom functionalities
+ */
 
 // Catch sign in form submission
 add_action("wpcf7_before_send_mail", "spouse_create_user_on_signup_form_submission");
 
 function spouse_create_user_on_signup_form_submission(&$contact_form) {
-
   if ($contact_form->id() != 22) {
     return;
   }
@@ -23,7 +21,7 @@ function spouse_create_user_on_signup_form_submission(&$contact_form) {
 
   $result = wp_create_user($username, $password, $email);
 
-  if ( is_wp_error($result) ){
+  if (is_wp_error($result)) {
     return __('Could not create user.', 'custom');
   }
 
