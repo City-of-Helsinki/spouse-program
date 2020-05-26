@@ -66,12 +66,8 @@ Author: Druid Oy
 
 .main-content .main-content-container {
   padding: 10px 20px;
-  /*
-    background-image: url('./src/scss/icons/background-white.svg');
-    */
   background-repeat: no-repeat;
   background-size: cover;
-  backgroun-position-x: 500px;
   height: 750px;
 }
 
