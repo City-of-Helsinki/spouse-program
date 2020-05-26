@@ -16,11 +16,11 @@ Author: Druid Oy
 // @charset 'UTF-8';
 
 @import 'lib/variables/*';
-@import 'lib/mixins/*';
-//@import 'lib/classes/*';
-//@import 'lib/animations/*';
+// @import 'lib/mixins/*';
+// @import 'lib/classes/*';
+// @import 'lib/animations/*';
 
 @import 'base/*';
 @import 'layout/*';
-@import 'component/**/*';
-//@import 'state/*';
+@import 'component/*';
+// @import 'state/*';
