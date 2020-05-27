@@ -89,6 +89,58 @@
   h2 {
     text-align: center;
   }
+
+  .event {
+    height: 80px;
+    border: 1px solid gray;
+    background-color: white;
+    border-radius: 10px;
+
+    a {
+      text-decoration: none;
+      font-style: normal;
+      color: black;
+    }
+
+    .event-color {
+      height: 100%;
+      width: 10px;
+      float: left;
+      border-right: 1px solid gray;
+    }
+
+    .event-content {
+      width: 80%;
+      float: left;
+      padding: 5px;
+
+      .event-start {
+        height: 100px;
+        float:left;
+        padding: 20px 10px 0px 0px;
+      }
+      .event-name {
+        font-size: 1.5rem;
+      }
+
+      p {
+        margin-bottom: 0px;
+      }
+
+    }
+
+    .event-icon {
+      width: 5%;
+      padding: 5px 5px 0px 0px;
+      float: right;
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+
+  }
+
 }
 
 .clearfix::after {

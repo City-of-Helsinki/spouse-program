@@ -99,6 +99,57 @@ Author: Druid Oy
   text-align: center;
 }
 
+.events-column .event {
+  height: 80px;
+  border: 1px solid gray;
+  background-color: white;
+  border-radius: 10px;
+}
+
+.events-column .event a {
+  text-decoration: none;
+  font-style: normal;
+  color: black;
+}
+
+.events-column .event .event-color {
+  height: 100%;
+  width: 10px;
+  float: left;
+  border-right: 1px solid gray;
+}
+
+.events-column .event .event-content {
+  width: 80%;
+  float: left;
+  padding: 5px;
+}
+
+.events-column .event .event-content .event-start {
+  height: 100px;
+  float: left;
+  padding: 20px 10px 0px 0px;
+}
+
+.events-column .event .event-content .event-name {
+  font-size: 1.5rem;
+}
+
+.events-column .event .event-content p {
+  margin-bottom: 0px;
+}
+
+.events-column .event .event-icon {
+  width: 5%;
+  padding: 5px 5px 0px 0px;
+  float: right;
+}
+
+.events-column .event .event-icon img {
+  width: 100%;
+  height: auto;
+}
+
 .clearfix::after {
   content: "";
   clear: both;
