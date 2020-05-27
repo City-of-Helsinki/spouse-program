@@ -10,7 +10,7 @@ add_action( 'init', 'spouse_menu' );
 
 // add styles and javascripts
 function spouse_enqueue_scripts() {
-  wp_enqueue_style('bootstrap', get_template_directory_uri() . '/node_modules/bootstrap/dist/css/bootstrap.css');
+  wp_enqueue_style('bootstrap', get_template_directory_uri() . '/dist/bootstrap/dist/css/bootstrap.css');
   wp_enqueue_style('style', get_stylesheet_uri());
 }
 add_action('wp_enqueue_scripts', 'spouse_enqueue_scripts');
@@ -46,6 +46,10 @@ function spouse_get_events(){
   #get_posts($args);
 
   $posts = wp_get_recent_posts($args, OBJECT);
+
+  if(!$posts) {
+      return;
+  }
 
   foreach($posts as $post){
 
