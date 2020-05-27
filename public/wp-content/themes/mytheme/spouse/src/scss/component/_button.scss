@@ -1,0 +1,27 @@
+.button-defaults {
+  border-radius: 10px;
+  display: block;
+  text-transform:uppercase;
+  margin: 0 auto;
+  margin-top: 15px;
+  padding: 15px 50px;
+
+  @include transition(color 1.5s, background-color 0.5s);
+
+  &:hover {
+    cursor: pointer;
+  }
+
+}
+
+.button-white {
+  @extend .button-defaults;
+  background-color: $white;
+  color: $purple;
+}
+
+.button-purple {
+  @extend .button-defaults;
+  background-color: $purple;
+  color: $white;
+}

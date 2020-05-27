@@ -1,4 +1,4 @@
-/*
+/*!
 Theme Name: Spouse
 Text Domain: spouse
 Version: 1.0
@@ -7,3 +7,408 @@ Requires PHP: 5.2.4
 Description: Custom theme for spouse programs site.
 Author: Druid Oy
 */
+.cta-column {
+  padding: 0;
+  height: 750px;
+  position: relative;
+}
+
+.cta-column .cta-background {
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.cta-column .cta-background a {
+  /*display: block;*/
+  position: absolute;
+  bottom: 25px;
+  left: 36%;
+  right: 36%;
+  font-weight: bold;
+  height: 60px;
+  max-width: 200px;
+  border: 1px solid white;
+  background-color: #4b3f72;
+  text-align: center;
+  color: white;
+  padding-top: 15px;
+  border-radius: 20px;
+}
+
+.main-content {
+  position: relative;
+  background-color: #fff;
+  height: 750px;
+  padding: 0;
+}
+
+.main-content .main-content-container {
+  position: absolute;
+  float: left;
+  z-index: 9;
+  top: 0;
+  left: 0;
+}
+
+.main-content > img {
+  z-index: 1;
+  float: left;
+  display: block;
+  position: absolute;
+  top: 0px;
+  width: auto;
+  height: 100%;
+  margin-left: -150px;
+}
+
+.main-content .main-content-container {
+  padding: 10px 20px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 750px;
+}
+
+.main-content h1 {
+  font-size: 4.5rem;
+  text-align: center;
+  padding: 40px 0px;
+}
+
+.main-content .small-images {
+  position: absolute;
+  bottom: 20px;
+}
+
+.main-content .small-images img {
+  width: 100%;
+  height: auto;
+}
+
+.events-column {
+  background-color: #01a090;
+  padding-top: 50px;
+  background-image: url("./src/scss/icons/background-purple.svg");
+  background-size: cover;
+  min-height: 200px;
+}
+
+.events-column h2 {
+  text-align: center;
+}
+
+.events-column .event {
+  height: 80px;
+  border: 1px solid gray;
+  background-color: white;
+  border-radius: 10px;
+}
+
+.events-column .event a {
+  text-decoration: none;
+  font-style: normal;
+  color: black;
+}
+
+.events-column .event .event-color {
+  height: 100%;
+  width: 10px;
+  float: left;
+  border-right: 1px solid gray;
+}
+
+.events-column .event .event-content {
+  width: 80%;
+  float: left;
+  padding: 5px;
+}
+
+.events-column .event .event-content .event-start {
+  height: 100px;
+  float: left;
+  padding: 20px 10px 0px 0px;
+}
+
+.events-column .event .event-content .event-name {
+  font-size: 1.5rem;
+}
+
+.events-column .event .event-content p {
+  margin-bottom: 0px;
+}
+
+.events-column .event .event-icon {
+  width: 5%;
+  padding: 5px 5px 0px 0px;
+  float: right;
+}
+
+.events-column .event .event-icon img {
+  width: 100%;
+  height: auto;
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+@media (max-width: 1900px) {
+  .cta-column {
+    height: 750px;
+  }
+  .cta-column .cta-background {
+    background-size: cover;
+    background-position: 20% 0%;
+  }
+}
+
+@media (max-width: 2200px) {
+  .cta-column .cta-background {
+    background-size: cover;
+    background-position: 20% 0%;
+  }
+}
+
+@media (max-width: 2200px) {
+  .cta-column .cta-background {
+    background-size: cover;
+    background-position: 30% 0%;
+  }
+}
+
+@media (max-width: 1600px) {
+  .cta-column .cta-background {
+    background-size: cover;
+    background-position: 40% 0%;
+  }
+  .main-content > img {
+    display: none !important;
+  }
+  .main-content h1 {
+    font-size: 3rem;
+    padding: 20px 0px;
+  }
+}
+
+@media (max-width: 1450px) {
+  .cta-column {
+    height: 750px;
+  }
+  .cta-column .cta-background {
+    background-position: 30% 0%;
+  }
+  .main-content > img {
+    display: none !important;
+  }
+}
+
+@media (max-width: 1200px) {
+  .cta-column {
+    height: 350px;
+  }
+  .cta-column .cta-background {
+    background-position: 0% 30%;
+  }
+  .main-content > img {
+    display: none !important;
+  }
+}
+
+@media (max-width: 992px) {
+  .main-content {
+    height: auto;
+  }
+  .main-content .main-content-container {
+    float: none;
+    position: relative;
+  }
+  .main-content .small-images {
+    position: relative;
+  }
+}
+
+/*
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px
+ */
+footer {
+  width: 100%;
+  background-color: #f0e956;
+  display: block;
+  padding: 25px 0px;
+}
+
+header {
+  padding-top: 25px;
+  height: 75px;
+  background-color: #01a090;
+  color: white;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+header a {
+  text-decoration: none;
+  color: #fff;
+}
+
+header a:hover {
+  color: #4b3f72;
+}
+
+header .user-link:before {
+  content: '\f007';
+  padding-right: 5px;
+}
+
+header .header-main-content {
+  padding-right: 25px;
+}
+
+header .header-main-content ul li {
+  display: inline-block;
+  padding-left: 30px;
+}
+
+header .header-main-content ul li.current_page_item a {
+  text-decoration: underline;
+  text-underline: black;
+}
+
+.mob-menu-logo-holder {
+  display: none;
+}
+
+.button-defaults, .button-white, .button-purple {
+  border-radius: 10px;
+  display: block;
+  text-transform: uppercase;
+  margin: 0 auto;
+  margin-top: 15px;
+  padding: 15px 50px;
+  -webkit-transition: color 1.5s, background-color 0.5s;
+  transition: color 1.5s, background-color 0.5s;
+}
+
+.button-defaults:hover, .button-white:hover, .button-purple:hover {
+  cursor: pointer;
+}
+
+.button-white {
+  background-color: #fff;
+  color: #4b3f72;
+}
+
+.button-purple {
+  background-color: #4b3f72;
+  color: #fff;
+}
+
+label {
+  width: 100%;
+  margin-top: 10px;
+}
+
+input {
+  width: 100%;
+  border: 0;
+  border-radius: 5px;
+  height: 40px;
+  padding-left: 10px;
+  margin-top: 5px;
+}
+
+textarea {
+  width: 100%;
+  border: 0;
+  border-radius: 5px;
+  height: 100px;
+  padding-left: 10px;
+  margin-top: 5px;
+}
+
+input[type='checkbox'] {
+  width: 15px;
+  height: 15px;
+  border: 0;
+  zoom: 1.3;
+  padding-left: 10px;
+  margin-top: 5px;
+}
+
+.default-button, .wow-modal-window #loginform #wp-submit, .wow-modal-overlay .modal-window-content .wpcf7-submit {
+  width: auto;
+  padding: 10px 50px;
+  background-color: #fff;
+  color: #fff;
+  border: 0;
+  border-radius: 10px;
+  margin: 0 auto;
+  display: block;
+  color: #4b3f72;
+  text-transform: uppercase;
+  margin-top: 15px;
+  -webkit-transition: background-color 0.5s;
+  transition: background-color 0.5s;
+}
+
+.default-button:hover, .wow-modal-window #loginform #wp-submit:hover, .wow-modal-overlay .modal-window-content .wpcf7-submit:hover {
+  cursor: pointer;
+  background-color: #4b3f72;
+  color: white;
+}
+
+.wow-modal-window {
+  background-image: url("./src/scss/icons/background-purple.svg");
+  background-size: cover;
+  overflow: hidden;
+  position: relative;
+  background-color: #01a090 !important;
+  color: white;
+  text-transform: uppercase;
+}
+
+.wow-modal-window span#modal-login {
+  text-decoration: underline;
+  cursor: pointer;
+  text-align: center;
+  display: block;
+  margin: 0 auto;
+}
+
+.wow-modal-window #loginform {
+  text-align: center;
+}
+
+.wow-modal-overlay .mw-close-btn:before {
+  line-height: 14px !important;
+  font-size: 34px !important;
+  background-color: rgba(0, 0, 0, 0) !important;
+}
+
+.wow-modal-overlay .modal-window-content {
+  padding: 25px 20px;
+}
+
+.wow-modal-overlay .modal-window-content h2 {
+  text-align: center;
+}
+
+.wow-modal-overlay .modal-window-content p {
+  margin: 0 auto;
+  width: 100%;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .wow-modal-window {
+    max-width: 90%;
+  }
+}

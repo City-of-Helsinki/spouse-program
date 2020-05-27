@@ -1,0 +1,59 @@
+.wow-modal-window {
+  background-image: url('./src/scss/icons/background-purple.svg');
+  background-size: cover;
+  overflow: hidden;
+  position: relative;
+  background-color: $cyan !important;
+  color: white;
+  text-transform: uppercase;
+
+  span#modal-login {
+    text-decoration: underline;
+    cursor: pointer;
+    text-align: center;
+    display:block;
+    margin: 0 auto;
+  }
+
+  #loginform {
+    text-align: center;
+
+    #wp-submit {
+      @extend .default-button
+    }
+  }
+
+}
+.wow-modal-overlay {
+
+  .mw-close-btn {
+    &:before {
+      line-height: 14px !important;
+      font-size: 34px !important;
+      background-color: rgba(0,0,0,0) !important;
+    }
+  }
+
+  .modal-window-content {
+    padding: 25px 20px;
+
+    h2 {
+      text-align: center;
+    }
+    p {
+      margin: 0 auto;
+      width: 100%;
+      display: block;
+
+    }
+    .wpcf7-submit {
+      @extend .default-button
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .wow-modal-window {
+    max-width: 90%;
+  }
+}

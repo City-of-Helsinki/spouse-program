@@ -1,2 +1,20 @@
-Footer
-<?php
+    <footer id="site-footer" role="contentinfo">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-4">
+
+                  <?php if( is_active_sidebar( 'footer_content' ) ) : ?>
+                      <aside class="widgetized-page-before-content-widget-area">
+                        <?php dynamic_sidebar( 'footer_content' ); ?>
+                      </aside>
+                  <?php endif; ?>
+
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <?php wp_footer(); ?>
+
+    </body>
+</html>
