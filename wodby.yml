@@ -16,3 +16,8 @@ pipeline:
       wp --path=/var/www/html/public theme delete twentynineteen twentyseventeen && \
       wp --path=/var/www/html/public plugin delete akismet hello
     directory: $APP_ROOT
+
+  - name: Folder permissions for import module
+    type: command
+    command: mkdir -p -m 755 /var/www/html/public/wp-content/plugins/all-in-one-wp-migration/storage
+    directory: $APP_ROOT
