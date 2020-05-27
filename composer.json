@@ -20,7 +20,10 @@
         "wpackagist-plugin/flamingo": "^2.1",
         "wpackagist-plugin/modal-window":"5.0.5",
         "wpackagist-plugin/advanced-custom-fields":"5.8.11",
-        "wpackagist-plugin/disable-gutenberg":"2.1"
+        "wpackagist-plugin/disable-gutenberg":"2.1",
+        "wpackagist-plugin/import-eventbrite-events":"1.5.8",
+        "wpackagist-plugin/all-in-one-wp-migration":"7.22",
+        "wpackagist-plugin/my-calendar":"3.1.18"
     },
     "require-dev": {
         "wp-cli/wp-cli": "^2.4"
