@@ -7,6 +7,98 @@ Requires PHP: 5.2.4
 Description: Custom theme for spouse programs site.
 Author: Druid Oy
 */
+body {
+  font-family: 'Bitter', serif;
+}
+
+h1 {
+  margin: 0;
+}
+
+.events-calendar .wpfc-calendar-wrapper *, .events-calendar .ui-selectmenu-menu {
+  font-size: 18px !important;
+}
+
+span.month .count {
+  float: right;
+}
+
+.ui-widget-content {
+  background-color: white;
+}
+
+.fc-event-container a {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: block;
+  margin: 0 auto;
+}
+
+td.fc-day-number {
+  text-align: center;
+  vertical-align: middle;
+}
+
+.events-calendar {
+  margin-top: 10px;
+}
+
+.events-calendar .fc-center h2 {
+  font-size: 3.5rem;
+}
+
+a.fc-day-grid-event {
+  color: transparent;
+  padding: 10px;
+  margin-bottom: 15px;
+}
+
+a.fc-day-grid-event:hover {
+  color: transparent;
+}
+
+.controls {
+  margin-top: 40px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.controls #spouse-fc-prevyear {
+  float: left;
+}
+
+.controls #spouse-fc-nextyear {
+  float: right;
+}
+
+.controls #current-year {
+  text-align: center;
+  position: absolute;
+  left: 25%;
+  right: 25%;
+}
+
+.events-date .active {
+  background-color: #dbdbdb;
+}
+
+.months {
+  text-align: center;
+}
+
+.months .month {
+  margin-bottom: 5px;
+}
+
+.months .month span {
+  float: right;
+}
+
+.months .month:hover {
+  background-color: #c9c9c9;
+}
+
 .cta-column {
   padding: 0;
   height: 750px;
@@ -22,7 +114,6 @@ Author: Druid Oy
 }
 
 .cta-column .cta-background a {
-  /*display: block;*/
   position: absolute;
   bottom: 25px;
   left: 36%;
@@ -35,7 +126,7 @@ Author: Druid Oy
   text-align: center;
   color: white;
   padding-top: 15px;
-  border-radius: 20px;
+  border-radius: 6px;
 }
 
 .main-content {
@@ -85,75 +176,6 @@ Author: Druid Oy
 .main-content .small-images img {
   width: 100%;
   height: auto;
-}
-
-.events-column {
-  background-color: #01a090;
-  padding-top: 50px;
-  background-image: url("./src/scss/icons/background-purple.svg");
-  background-size: cover;
-  min-height: 200px;
-}
-
-.events-column h2 {
-  text-align: center;
-}
-
-.events-column .event {
-  height: 80px;
-  border: 1px solid gray;
-  background-color: white;
-  border-radius: 10px;
-}
-
-.events-column .event a {
-  text-decoration: none;
-  font-style: normal;
-  color: black;
-}
-
-.events-column .event .event-color {
-  height: 100%;
-  width: 10px;
-  float: left;
-  border-right: 1px solid gray;
-}
-
-.events-column .event .event-content {
-  width: 80%;
-  float: left;
-  padding: 5px;
-}
-
-.events-column .event .event-content .event-start {
-  height: 100px;
-  float: left;
-  padding: 20px 10px 0px 0px;
-}
-
-.events-column .event .event-content .event-name {
-  font-size: 1.5rem;
-}
-
-.events-column .event .event-content p {
-  margin-bottom: 0px;
-}
-
-.events-column .event .event-icon {
-  width: 5%;
-  padding: 5px 5px 0px 0px;
-  float: right;
-}
-
-.events-column .event .event-icon img {
-  width: 100%;
-  height: auto;
-}
-
-.clearfix::after {
-  content: "";
-  clear: both;
-  display: table;
 }
 
 @media (max-width: 1900px) {
@@ -231,13 +253,6 @@ Author: Druid Oy
   }
 }
 
-/*
-  xs: 0,
-  sm: 576px,
-  md: 768px,
-  lg: 992px,
-  xl: 1200px
- */
 footer {
   width: 100%;
   background-color: #f0e956;
@@ -246,6 +261,7 @@ footer {
 }
 
 header {
+  font-family: 'Nunito', sans-serif;
   padding-top: 25px;
   height: 75px;
   background-color: #01a090;
@@ -286,8 +302,20 @@ header .header-main-content ul li.current_page_item a {
   display: none;
 }
 
+.single-eventbrite_events .single-event-content {
+  margin-top: 20px;
+}
+
+.single-event-registration {
+  background-color: #01a090;
+  padding-top: 50px;
+  background-image: url("./src/scss/icons/background-purple.svg");
+  background-size: cover;
+  min-height: 100%;
+}
+
 .button-defaults, .button-white, .button-purple {
-  border-radius: 10px;
+  border-radius: 6px;
   display: block;
   text-transform: uppercase;
   margin: 0 auto;
@@ -311,6 +339,72 @@ header .header-main-content ul li.current_page_item a {
   color: #fff;
 }
 
+.events-column {
+  background-color: #01a090;
+  padding-top: 50px;
+  background-image: url("./src/scss/icons/background-purple.svg");
+  background-size: cover;
+  min-height: 100%;
+}
+
+.events-column h2 {
+  text-align: center;
+  color: white;
+}
+
+.events-column .event {
+  min-height: 80px;
+  border: 1px solid gray;
+  background-color: white;
+  border-radius: 6px;
+  margin: 15px 0px;
+  overflow: auto;
+}
+
+.events-column .event a {
+  text-decoration: none;
+  font-style: normal;
+  color: black;
+}
+
+.events-column .event .event-color {
+  height: 100%;
+  width: 10px;
+  float: left;
+  border-right: 1px solid gray;
+}
+
+.events-column .event .event-content {
+  width: 80%;
+  float: left;
+  padding: 5px;
+}
+
+.events-column .event .event-content .event-start {
+  height: 80px;
+  float: left;
+  padding: 20px 10px 0px 0px;
+}
+
+.events-column .event .event-content .event-name {
+  font-size: 1.5rem;
+}
+
+.events-column .event .event-content p {
+  margin-bottom: 0px;
+}
+
+.events-column .event .event-icon {
+  width: 5%;
+  padding: 5px 5px 0px 0px;
+  float: right;
+}
+
+.events-column .event .event-icon img {
+  width: 100%;
+  height: auto;
+}
+
 label {
   width: 100%;
   margin-top: 10px;
@@ -319,7 +413,7 @@ label {
 input {
   width: 100%;
   border: 0;
-  border-radius: 5px;
+  border-radius: 6px;
   height: 40px;
   padding-left: 10px;
   margin-top: 5px;
@@ -328,7 +422,7 @@ input {
 textarea {
   width: 100%;
   border: 0;
-  border-radius: 5px;
+  border-radius: 6px;
   height: 100px;
   padding-left: 10px;
   margin-top: 5px;
@@ -349,7 +443,7 @@ input[type='checkbox'] {
   background-color: #fff;
   color: #fff;
   border: 0;
-  border-radius: 10px;
+  border-radius: 6px;
   margin: 0 auto;
   display: block;
   color: #4b3f72;

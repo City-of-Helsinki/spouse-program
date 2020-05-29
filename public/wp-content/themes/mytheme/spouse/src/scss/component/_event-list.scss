@@ -1,0 +1,66 @@
+.events-column {
+  background-color: $cyan;
+  padding-top: 50px;
+  background-image: url('./src/scss/icons/background-purple.svg');
+  background-size: cover;
+  min-height: 100%;
+
+  h2 {
+    text-align: center;
+    color: white;
+  }
+
+  .event {
+    min-height: 80px;
+    border: 1px solid gray;
+    background-color: white;
+    border-radius: 6px;
+    margin: 15px 0px;
+    overflow: auto;
+
+    a {
+      text-decoration: none;
+      font-style: normal;
+      color: black;
+    }
+
+    .event-color {
+      height: 100%;
+      width: 10px;
+      float: left;
+      border-right: 1px solid gray;
+    }
+
+    .event-content {
+      width: 80%;
+      float: left;
+      padding: 5px;
+
+      .event-start {
+        height: 80px;
+        float:left;
+        padding: 20px 10px 0px 0px;
+      }
+      .event-name {
+        font-size: 1.5rem;
+      }
+
+      p {
+        margin-bottom: 0px;
+      }
+
+    }
+
+    .event-icon {
+      width: 5%;
+      padding: 5px 5px 0px 0px;
+      float: right;
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+
+  }
+
+}
