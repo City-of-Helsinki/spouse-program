@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ddcfd817eab744e28c7b63649a9dde64",
+    "content-hash": "517bcb82a4ab5d0338f0a86a45806f22",
     "packages": [
         {
             "name": "composer/installers",
@@ -280,24 +280,6 @@
             "homepage": "https://wordpress.org/plugins/advanced-custom-fields/"
         },
         {
-            "name": "wpackagist-plugin/all-in-one-wp-migration",
-            "version": "7.22",
-            "source": {
-                "type": "svn",
-                "url": "https://plugins.svn.wordpress.org/all-in-one-wp-migration/",
-                "reference": "tags/7.22"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/all-in-one-wp-migration.7.22.zip"
-            },
-            "require": {
-                "composer/installers": "~1.0"
-            },
-            "type": "wordpress-plugin",
-            "homepage": "https://wordpress.org/plugins/all-in-one-wp-migration/"
-        },
-        {
             "name": "wpackagist-plugin/contact-form-7",
             "version": "5.1.9",
             "source": {
@@ -442,24 +424,6 @@
             "homepage": "https://wordpress.org/plugins/modal-window/"
         },
         {
-            "name": "wpackagist-plugin/my-calendar",
-            "version": "3.1.18",
-            "source": {
-                "type": "svn",
-                "url": "https://plugins.svn.wordpress.org/my-calendar/",
-                "reference": "tags/3.1.18"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/my-calendar.3.1.18.zip"
-            },
-            "require": {
-                "composer/installers": "~1.0"
-            },
-            "type": "wordpress-plugin",
-            "homepage": "https://wordpress.org/plugins/my-calendar/"
-        },
-        {
             "name": "wpackagist-plugin/site-health-tool-manager",
             "version": "1.1",
             "source": {
@@ -476,24 +440,6 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/site-health-tool-manager/"
-        },
-        {
-            "name": "wpackagist-plugin/wordpress-importer",
-            "version": "0.7",
-            "source": {
-                "type": "svn",
-                "url": "https://plugins.svn.wordpress.org/wordpress-importer/",
-                "reference": "tags/0.7"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/wordpress-importer.0.7.zip"
-            },
-            "require": {
-                "composer/installers": "~1.0"
-            },
-            "type": "wordpress-plugin",
-            "homepage": "https://wordpress.org/plugins/wordpress-importer/"
         }
     ],
     "packages-dev": [

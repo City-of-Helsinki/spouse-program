@@ -5,7 +5,7 @@ label {
 input {
   width: 100%;
   border: 0;
-  border-radius: 5px;
+  border-radius: 6px;
   height: 40px;
   padding-left: 10px;
   margin-top: 5px;
@@ -14,7 +14,7 @@ input {
 textarea {
   width: 100%;
   border: 0;
-  border-radius: 5px;
+  border-radius: 6px;
   height: 100px;
   padding-left: 10px;
   margin-top: 5px;
@@ -35,7 +35,7 @@ input[type='checkbox'] {
   background-color: $white;
   color: $white;
   border: 0;
-  border-radius: 10px;
+  border-radius: 6px;
   margin: 0 auto;
   display: block;
   color: $purple;

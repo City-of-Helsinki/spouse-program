@@ -5,12 +5,12 @@ get_header();
 <main id="site-content" role="main">
   <div class="container-fluid">
       <div class="row">
-          <div class="col-12 col-sm-12 col-xl-4 cta-column">
+          <div class="col-12 col-sm-12 col-xl-5 cta-column">
               <div class="cta-background" style="background-image: url('<?php the_field('background'); ?>')">
                   <a href="<?php the_field('button_url'); ?>" class="<?php the_field('styles') ?>" ><?php echo the_field('button_text'); ?></a>
               </div>
           </div>
-          <div class="col-12 col-sm-12 col-lg-6 col-xl-5 main-content">
+          <div class="col-12 col-sm-12 col-lg-6 col-xl-4 main-content">
               <div class="main-content-container">
                 <?php
                 if (have_posts()) :

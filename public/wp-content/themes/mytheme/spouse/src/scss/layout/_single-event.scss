@@ -1,0 +1,15 @@
+.single-eventbrite_events{
+
+  .single-event-content {
+    margin-top: 20px;
+  }
+
+}
+
+.single-event-registration {
+  background-color: $cyan;
+  padding-top: 50px;
+  background-image: url('./src/scss/icons/background-purple.svg');
+  background-size: cover;
+  min-height: 100%;
+}

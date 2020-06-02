@@ -16,17 +16,24 @@ function spouse_enqueue_scripts() {
 add_action('wp_enqueue_scripts', 'spouse_enqueue_scripts');
 
 if ( function_exists('register_sidebar') ) {
-  // Footer widget
-  register_sidebar([
-      'name' => __('footer content'),
-      'id' => 'footer_content',
-      'description' => 'This is the content that is shown in site footer',
-      'before_widget' => '<div class="footer-content">',
-      'after_widget' => '</div>',
-      'before_title' => '<h3>',
-      'after_title' => '</h3>',
-    ]
-  );
+  // Footer widgets
+  $footerWidgets = [
+    'footer_content_left' => 'footer content left',
+    'footer_content' => 'footer content middle',
+    'footer_content_right' => 'footer content right'
+  ];
+  foreach($footerWidgets as $key => $widget){
+    register_sidebar([
+        'name' => __($widget),
+        'id' => $key,
+        'description' => 'This is the content that is shown in site footer',
+        'before_widget' => '<div class="footer-content">',
+        'after_widget' => '</div>',
+        'before_title' => '<h3>',
+        'after_title' => '</h3>',
+      ]
+    );
+  }
 }
 
 add_action( 'init', 'spouse_add_shortcodes' );
@@ -43,7 +50,6 @@ function spouse_get_events(){
   $args = [
     'post_type' => 'eventbrite_events',
   ];
-  #get_posts($args);
 
   $posts = wp_get_recent_posts($args, OBJECT);
 
@@ -65,7 +71,7 @@ function spouse_get_events(){
     $icon = get_field('icon', $post->ID);
 
     if($term = reset($terms)) {
-      $color = acf_get_field('event_color', $term);
+      $color = get_field('event_color', $term);
       $category = $term->name;
     }
 
@@ -82,13 +88,15 @@ function spouse_get_events(){
     }
 
     ?>
-    <div class="event">
+
     <?php if(is_user_logged_in()): ?>
       <a href="<?php echo get_permalink($post) ?>">
+
     <?php endif; ?>
-          <div class="event-color" <?php if(isset($color) && $color): ?>style="background-color:<?php echo $color['value']; ?>" <?php endif; ?>></div>
+      <div class="event clearfix">
+          <div class="event-color" <?php if(isset($color) && $color): ?>style="background-color:<?php echo $color; ?>" <?php endif; ?>></div>
+          <div class="event-start"><?php echo $startDate; ?></div>
           <div class="event-content">
-              <div class="event-start"><?php echo $startDate; ?></div>
               <div class="text-content">
                 <span class=""><?php echo $category ?></span>
                 <p><?php echo $startTime; ?> @ <?php echo get_post_meta($post->ID, 'venue_name')[0]; ?></p>
@@ -96,13 +104,47 @@ function spouse_get_events(){
               </div>
           </div>
           <div class="event-icon"><img src="<?php echo $icon ?>"></div>
+          <i class="clearfix"></i>
+      </div>
     <?php if(is_user_logged_in()): ?>
       </a>
     <?php endif; ?>
-    </div>
+
     <?php
 
   }
 }
-
 add_shortcode('spouse-events', 'spouse_get_events');
+
+function spouse_get_template_part($slug, $name = null) {
+
+  do_action("ccm_get_template_part_{$slug}", $slug, $name);
+
+  $templates = array();
+  if (isset($name))
+    $templates[] = "{$slug}-{$name}.php";
+
+  $templates[] = "{$slug}.php";
+
+  spouse_get_template_path($templates, true, false);
+}
+
+function spouse_get_template_path($template_names, $load = false, $require_once = true ) {
+  $located = '';
+  foreach ( (array) $template_names as $template_name ) {
+    if ( !$template_name )
+      continue;
+
+    /* search file within the PLUGIN_DIR_PATH only */
+    if ( file_exists(PLUGIN_DIR_PATH . $template_name)) {
+      $located = PLUGIN_DIR_PATH . $template_name;
+      break;
+    }
+  }
+
+  if ( $load && '' != $located )
+    load_template( $located, $require_once );
+
+  return $located;
+}
+
