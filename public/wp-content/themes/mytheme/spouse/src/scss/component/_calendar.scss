@@ -1,0 +1,86 @@
+.events-date {
+  font-size: 18px;
+  .controls {
+    font-size: 1.25rem;
+    margin: 20px 0px 40px 0px;
+    width: 100%;
+    text-align: center;
+    #spouse-fc-prevyear {
+      display:inline-block;
+      &:hover {
+        font-weight: bold;
+        cursor: pointer;
+      }
+    }
+    #spouse-fc-nextyear{
+      display:inline-block;
+      &:hover {
+        font-weight: bold;
+        cursor: pointer;
+      }
+    }
+    #current-year {
+      text-align:center;
+      display:inline-block;
+      min-width: 100px;
+    }
+  }
+
+  .months {
+    span.month .count{
+      float:right;
+    }
+  }
+}
+
+#events-calendar {
+  margin-bottom: 40px;
+
+  .fc-toolbar {
+    padding-top:10px;
+
+    button {
+      background-color: $white;
+      border: 0;
+      background-image: none;
+      font-size: 24px;
+      &:focus {
+        border: none;
+        outline:0;
+      }
+    }
+    h2{
+      min-width: 250px;
+      margin-top: 10px;
+      font-size: 2rem;
+    }
+  }
+
+  .fc-view-container {
+    .fc-event-container a {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      display:block;
+      margin: 0 auto;
+    }
+
+    td.fc-day-number{
+      text-align: center;
+      vertical-align: middle;
+    }
+
+    a.fc-day-grid-event {
+      color: transparent;
+      padding: 10px;
+      margin-bottom:15px;
+      &:hover {
+        color:transparent;
+      }
+    }
+  }
+
+}
+
+@media (max-width: 1200px) {
+}

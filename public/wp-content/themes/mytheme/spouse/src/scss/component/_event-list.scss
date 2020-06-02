@@ -1,6 +1,12 @@
 .events-column {
+
+
+}
+
+.events-column {
+  color: white;
+  padding: 40px 20px;
   background-color: $cyan;
-  padding-top: 50px;
   background-image: url('./src/scss/icons/background-purple.svg');
   background-size: cover;
   min-height: 100%;
@@ -10,51 +16,50 @@
     color: white;
   }
 
+  a {
+    text-decoration: none;
+    font-style: normal;
+    color: black;
+  }
+
   .event {
+    display: flex;
+    flex-flow: row;
     min-height: 80px;
+    height: auto;
     border: 1px solid gray;
     background-color: white;
     border-radius: 6px;
-    margin: 15px 0px;
+    margin: 25px 0px;
     overflow: auto;
 
-    a {
-      text-decoration: none;
-      font-style: normal;
-      color: black;
-    }
-
     .event-color {
-      height: 100%;
       width: 10px;
-      float: left;
       border-right: 1px solid gray;
     }
 
-    .event-content {
-      width: 80%;
-      float: left;
-      padding: 5px;
+    .event-start {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0px 10px;
+    }
 
-      .event-start {
-        height: 80px;
-        float:left;
-        padding: 20px 10px 0px 0px;
-      }
-      .event-name {
-        font-size: 1.5rem;
+    .event-content {
+      width: 90%;
+      padding: 5px;
+      .event-text {
+        width: auto;
       }
 
       p {
         margin-bottom: 0px;
       }
-
     }
 
     .event-icon {
-      width: 5%;
-      padding: 5px 5px 0px 0px;
-      float: right;
+      width: 30px;
+      margin: 5px 10px 0px 0px;
       img {
         width: 100%;
         height: auto;
@@ -62,5 +67,4 @@
     }
 
   }
-
 }

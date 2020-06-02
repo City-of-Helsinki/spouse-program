@@ -50,7 +50,6 @@ function spouse_get_events(){
   $args = [
     'post_type' => 'eventbrite_events',
   ];
-  #get_posts($args);
 
   $posts = wp_get_recent_posts($args, OBJECT);
 
@@ -72,7 +71,7 @@ function spouse_get_events(){
     $icon = get_field('icon', $post->ID);
 
     if($term = reset($terms)) {
-      $color = acf_get_field('event_color', $term);
+      $color = get_field('event_color', $term);
       $category = $term->name;
     }
 
@@ -89,13 +88,15 @@ function spouse_get_events(){
     }
 
     ?>
-    <div class="event clearfix">
+
     <?php if(is_user_logged_in()): ?>
       <a href="<?php echo get_permalink($post) ?>">
+
     <?php endif; ?>
-          <div class="event-color" <?php if(isset($color) && $color): ?>style="background-color:<?php echo $color['value']; ?>" <?php endif; ?>></div>
+      <div class="event clearfix">
+          <div class="event-color" <?php if(isset($color) && $color): ?>style="background-color:<?php echo $color; ?>" <?php endif; ?>></div>
+          <div class="event-start"><?php echo $startDate; ?></div>
           <div class="event-content">
-              <div class="event-start"><?php echo $startDate; ?></div>
               <div class="text-content">
                 <span class=""><?php echo $category ?></span>
                 <p><?php echo $startTime; ?> @ <?php echo get_post_meta($post->ID, 'venue_name')[0]; ?></p>
@@ -104,11 +105,11 @@ function spouse_get_events(){
           </div>
           <div class="event-icon"><img src="<?php echo $icon ?>"></div>
           <i class="clearfix"></i>
+      </div>
     <?php if(is_user_logged_in()): ?>
       </a>
-        <i class="clearfix"></i>
     <?php endif; ?>
-    </div>
+
     <?php
 
   }

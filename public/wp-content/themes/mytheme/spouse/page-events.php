@@ -12,7 +12,9 @@ $query = "
     p.post_status,
     p.post_title,
     p.post_excerpt,
+    wp_terms.term_id as tid,
     wp_terms.name as category,
+    wp_term_taxonomy.term_taxonomy_id as ttid,
     GROUP_CONCAT(pm.meta_key ORDER BY pm.meta_key DESC SEPARATOR '||') as meta_keys,
     GROUP_CONCAT(pm.meta_value ORDER BY pm.meta_key DESC SEPARATOR '||') as meta_values
     FROM $wpdb->posts p 
@@ -31,7 +33,7 @@ $events = [];
 $count = [];
 
 foreach($data as $post) {
-    $color = get_field('color', $post->id);
+    $color = get_field('event_color', $post->ttid);
     $event = [];
     $keys = explode('||',$post->meta_keys);
     $values = explode('||',$post->meta_values);
@@ -47,6 +49,7 @@ foreach($data as $post) {
     $event['venue_name'] = $meta['venue_name'];
     $event['venue_address'] = "{$meta['venue_address']}, {$meta['venue_zipcode']} {$meta['venue_city']}";
     $event['url'] = get_permalink($post->id);
+    $event['color'] = $color ?? '';
     if($meta['event_start_date']){
       $year = explode('-', $meta['event_start_date'])[0];
       $month = ltrim(explode('-', $meta['event_start_date'])[1], '0');
@@ -64,16 +67,16 @@ foreach($data as $post) {
 
 <div class="container-fluid">
   <div class="row">
-    <div class="col-3">
-      <div class="events-date">
 
+    <div class="d-none d-lg-block order-3 col-lg-3 order-lg-first col-xl-2">
+      <div class="events-date">
           <div class="controls">
               <div id="spouse-fc-prevyear">
-                  <<
+                  <
               </div>
               <div id="current-year"><?php echo date('Y'); ?></div>
               <div id="spouse-fc-nextyear">
-                  >>
+                  >
               </div>
               <i class="clearfix"></i>
           </div>
@@ -83,7 +86,6 @@ foreach($data as $post) {
               for($m=1; $m<=12; ++$m){
                 $months[] = date('F', mktime(0, 0, 0, $m, 1));
               }
-
               foreach($months as $key => $month):
               ?>
                   <div class="month <?php echo lcfirst($month); ?><?php if(date('F') == $month){ echo ' active';} ?>">
@@ -96,18 +98,19 @@ foreach($data as $post) {
       </div>
     </div>
 
-    <div class="col-6">
+    <div class="col-12 order-2 col-lg-6 col-xl-7">
       <div id="events-calendar" class="events-calendar">
       </div>
     </div>
 
-    <div class="col-3">
+    <div class="col-12 order-1 col-lg-3 order-lg-last col-xl-3 no-padding">
       <div class="events-column">
         <h2>Events</h2>
         <div class="event-list">
         </div>
       </div>
     </div>
+
   </div>
 </div>
 
@@ -117,18 +120,18 @@ jQuery(document).ready(function(){
   $('#events-calendar').fullCalendar({
     header: {
       left: '',
-      center: 'title',
+      center: 'customPrev title customNext',
       right: ''
     },
     events: window.spouse_events,
     lang: 'en',
     eventLimit: 1,
+    fixedWeekCount: false,
     eventRender: function(event){
-      const html = `<div class="event clearfix">
-          <a href="${event.url}">
-            <div class="event-color" style="background-color:"></div>
+      const html = `<a href="${event.url}"><div class="event">
+            <div class="event-color" style="background-color:${event.color}"></div>
             <div class="event-content">
-              <div style="font-size:22px; padding-right:20px;" class="event-start">${event.start.format('d')}</div>
+              <div class="event-day">${event.start.format('d')}</div>
               <div class="text-content">
                 <span class="">${event.category}</span>
                 <p>${event.starttime}</p>
@@ -136,18 +139,40 @@ jQuery(document).ready(function(){
               </div>
             </div>
             <div class="event-icon"><img src=""></div>
-            <i class="clearfix"></i>
-          </a>
-        </div>`;
+        </div></a>`;
 
       // prevent appending before clear has been done
       setTimeout( function(){
           jQuery('.event-list').append(html)
       }, 50);
-
+    },
+    customButtons: {
+      customPrev: {
+        text: '<',
+        click: function() {
+          calendar.fullCalendar('prev');
+          $('#current-year').text(calendar.fullCalendar('getDate').year());
+          const date = calendar.fullCalendar('getDate');
+          renderEventCounts(date.year());
+          $('.month').removeClass('active');
+          $('.month').eq(date.month()).addClass('active');
+          clearEventList();
+        }
+      },
+      customNext: {
+        text: '>',
+        click: function() {
+          calendar.fullCalendar('next')
+          $('#current-year').text(calendar.fullCalendar('getDate').year());
+          const date = calendar.fullCalendar('getDate');
+          renderEventCounts(date.year());
+          $('.month').removeClass('active');
+          $('.month').eq(date.month()).addClass('active');
+          clearEventList();
+        }
+      },
     },
     eventMouseover: function (data, event, view) {
-
       const tooltip = '' +
         '<div class="tooltiptopicevent" style="width:auto;height:auto;background:#ececec;position:absolute;z-index:10001;padding:10px 10px 10px 10px ;  line-height: 200%;">' +
         '' + 'Title: ' + ': ' + data.title + '</br>' +
@@ -163,8 +188,6 @@ jQuery(document).ready(function(){
         $('.tooltiptopicevent').css('top', e.pageY + 10);
         $('.tooltiptopicevent').css('left', e.pageX + 20);
       });
-
-
     },
     eventMouseout: function (data, event, view) {
       $(this).css('z-index', 8);
@@ -173,7 +196,6 @@ jQuery(document).ready(function(){
   });
 
   const calendar = $('#events-calendar').fullCalendar();
-
   $('#spouse-fc-prevyear').click( function (){
     calendar.fullCalendar('prevYear');
     $('#current-year').text(calendar.fullCalendar('getDate').year());
@@ -190,7 +212,7 @@ jQuery(document).ready(function(){
 
   $('.month').click(function(event){
     const month = event.target.innerHTML.trim()
-    const date = moment().month(month);
+    const date = moment().year($('#current-year').text()).month(month);
     calendar.fullCalendar('gotoDate', date);
     $('.month').removeClass('active');
     $(event.target).addClass('active');
