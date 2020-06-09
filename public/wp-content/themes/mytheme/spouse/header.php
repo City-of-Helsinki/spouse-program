@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 
+<?php spouse_access_control_check(); ?>
+
 <html class="no-js" <?php language_attributes(); ?>>
 
 <head>
@@ -24,7 +26,7 @@ wp_body_open();
             </div>
             <div class="col-6 col-sm-6 col-md-9">
                 <div class="header-main-content nav justify-content-end">
-                  <?php wp_nav_menu( array( 'main_menu' => 'new-menu') ); ?>
+                  <?php wp_nav_menu( array( 'menu' => 2) ); ?>
                 </div>
             </div>
             <div class="header-right-content col-4 col-sm-4 col-md-3">
@@ -40,7 +42,9 @@ wp_body_open();
                 else:
                   ?>
                     <a class="user-link" href="<?php echo get_edit_profile_url( $current_user->id ); ?>"><?php echo $current_user->user_login; ?></a>
-                  <?php
+                    |
+                    <a href="<?php echo wp_logout_url(); ?>">Logout</a>
+                <?php
                 endif;
                 ?>
             </div>
