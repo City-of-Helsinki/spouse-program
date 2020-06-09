@@ -1,0 +1,22 @@
+.menu-sidebar-menu-container {
+
+  .menu {
+    text-transform: uppercase;
+    list-style: none;
+    color: $black;
+
+    ul {
+      text-decoration: none;
+
+      li {
+        a {
+          color: $black;
+
+          &:hover {
+            color: $purple;
+          }
+        }
+      }
+    }
+  }
+}
