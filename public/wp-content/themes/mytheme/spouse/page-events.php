@@ -89,7 +89,7 @@ foreach($data as $post) {
               foreach($months as $key => $month):
               ?>
                   <div class="month <?php echo lcfirst($month); ?><?php if(date('F') == $month){ echo ' active';} ?>">
-                    <?php echo $month; ?><span class="count"><?php echo $count[date('Y')][$key+1] ?? 0 ?></span>
+                    <?php echo $month; ?><span class="count"> <span class="dashicons dashicons-calendar-alt"></span><?php echo $count[date('Y')][$key+1] ?? 0 ?> </span>
                   </div>
               <?php
               endforeach;
