@@ -8,15 +8,39 @@ Description: Custom theme for spouse programs site.
 Author: Druid Oy
 */
 body {
-  font-family: 'Bitter', serif;
+  font-family: 'Nunito', serif;
+  font-size: 18px;
 }
 
 h1 {
-  margin: 0;
+  margin: 10px 0px 40px 0px;
+  font-size: 62px;
+  font-weight: 700;
+  font-family: 'Bitter', serif;
 }
 
 .no-padding {
   padding: 0;
+}
+
+.no-margin {
+  margin: 0;
+}
+
+.hero-image {
+  height: 70vh;
+  padding: 0;
+  background-size: cover;
+  background-position-y: 100%;
+  position: relative;
+  width: auto;
+}
+
+.hero-image .wave {
+  position: absolute;
+  bottom: -200px;
+  -webkit-transform: scale(1, 0.5);
+          transform: scale(1, 0.5);
 }
 
 .ui-widget-content {
@@ -77,8 +101,8 @@ h1 {
 .main-content {
   position: relative;
   background-color: #fff;
-  min-height: 750px;
-  height: 90vh;
+  /*min-height: 750px;*/
+  min-height: 90vh;
   padding: 0;
   font-size: 18px;
 }
@@ -107,11 +131,13 @@ h1 {
   background-repeat: no-repeat;
   background-size: cover;
   height: 100%;
+  width: 100%;
 }
 
 .main-content h1 {
-  font-size: 4.5rem;
-  padding: 40px 0px;
+  font-size: 42px;
+  text-align: center;
+  margin: 0px 0px 20px 0px;
 }
 
 .main-content .small-images {
@@ -125,11 +151,6 @@ h1 {
 }
 
 @media (max-width: 1900px) {
-  .cta-column {
-    /*
-    height: 750px;
-    */
-  }
   .cta-column .cta-background {
     background-size: cover;
     background-position: 20% 0%;
@@ -155,13 +176,6 @@ h1 {
     background-size: cover;
     background-position: 40% 0%;
   }
-  .main-content {
-    /*
-    > img {
-      display: none !important;
-    }
-    */
-  }
   .main-content h1 {
     font-size: 3rem;
     padding: 20px 0px;
@@ -175,11 +189,6 @@ h1 {
   .main-content {
     font-size: 16px;
     min-height: 750px;
-    /*
-    > img {
-      display: none !important;
-    }
-    */
   }
 }
 
@@ -190,13 +199,6 @@ h1 {
   }
   .cta-column .cta-background {
     background-position: 0% 30%;
-  }
-  .main-content {
-    /*
-    > img {
-      display: none !important;
-    }
-   */
   }
 }
 
@@ -239,11 +241,6 @@ header a:hover {
   color: #4b3f72;
 }
 
-header .user-link:before {
-  content: '\f007';
-  padding-right: 5px;
-}
-
 header .header-main-content {
   padding-right: 25px;
 }
@@ -272,6 +269,90 @@ header .header-main-content ul li.current_page_item a {
   background-image: url("./src/scss/icons/background-purple.svg");
   background-size: cover;
   min-height: 100%;
+}
+
+.page-template-one-column-template .hero-image,
+.page-template-two-column-template .hero-image {
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 60vh;
+  background-position: bottom;
+  position: relative;
+  overflow: hidden;
+}
+
+.page-template-one-column-template .hero-image .wave,
+.page-template-two-column-template .hero-image .wave {
+  position: absolute;
+  z-index: 1;
+  bottom: -200px;
+  left: 25%;
+  right: 25%;
+  display: block;
+  width: auto;
+  overflow: hidden;
+  -webkit-transform: scale(2, 1);
+          transform: scale(2, 1);
+  height: 350px;
+}
+
+.page-template-one-column-template h1,
+.page-template-two-column-template h1 {
+  color: #01a090;
+  text-align: center;
+}
+
+.page-template-one-column-template img,
+.page-template-two-column-template img {
+  max-width: 100%;
+  height: auto;
+}
+
+.page-template-one-column-template a.content-cta,
+.page-template-two-column-template a.content-cta {
+  font-weight: bold;
+  display: block;
+  height: 60px;
+  max-width: 200px;
+  border: 1px solid white;
+  background-color: #4b3f72;
+  text-align: center;
+  color: white;
+  padding-top: 15px;
+  border-radius: 6px;
+  margin: 30px auto;
+}
+
+.page-template-one-column-template .person,
+.page-template-two-column-template .person {
+  font-size: 16px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.page-template-one-column-template .person p,
+.page-template-two-column-template .person p {
+  margin-bottom: 2px;
+}
+
+.page-template-one-column-template .person .person-image,
+.page-template-two-column-template .person .person-image {
+  font-weight: bold;
+  text-align: center;
+  height: 100%;
+  width: 20%;
+}
+
+.page-template-one-column-template .person .person-image img,
+.page-template-two-column-template .person .person-image img {
+  width: 100%;
+  height: auto;
+}
+
+.page-template-one-column-template .person .person-content,
+.page-template-two-column-template .person .person-content {
+  margin-left: 10px;
+  width: 75%;
 }
 
 .button-defaults, .button-white, .button-purple {
@@ -388,7 +469,7 @@ header .header-main-content ul li.current_page_item a {
 }
 
 .events-column {
-  color: white;
+  color: black;
   padding: 40px 20px;
   background-color: #01a090;
   background-image: url("./src/scss/icons/background-purple.svg");
@@ -517,6 +598,24 @@ input[type='checkbox'] {
   cursor: pointer;
   background-color: #4b3f72;
   color: white;
+}
+
+.menu-sidebar-menu-container .menu {
+  text-transform: uppercase;
+  list-style: none;
+  color: #000000;
+}
+
+.menu-sidebar-menu-container .menu ul {
+  text-decoration: none;
+}
+
+.menu-sidebar-menu-container .menu ul li a {
+  color: #000000;
+}
+
+.menu-sidebar-menu-container .menu ul li a:hover {
+  color: #4b3f72;
 }
 
 .wow-modal-window {

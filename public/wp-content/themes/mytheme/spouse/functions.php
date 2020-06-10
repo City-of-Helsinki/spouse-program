@@ -1,10 +1,12 @@
 <?php
 
 add_theme_support( 'widgets' );
+add_theme_support( 'post-thumbnails' );
 
 // add main menu
 function spouse_menu() {
-  register_nav_menu('main-menu',__( 'Main menu' ));
+  register_nav_menu('main-menu', __( 'Main menu' ));
+  register_nav_menu('sidebar-menu', __('Sidebar menu on main page') );
 }
 add_action( 'init', 'spouse_menu' );
 
@@ -148,3 +150,28 @@ function spouse_get_template_path($template_names, $load = false, $require_once 
   return $located;
 }
 
+function spouse_create_posttypes() {
+  register_post_type( 'People',
+    array(
+      'labels' => array(
+        'name' => __( 'People' ),
+        'singular_name' => __( 'Person' )
+      ),
+      'public' => true,
+      'has_archive' => true,
+      'rewrite' => array('slug' => 'People'),
+      'show_in_rest' => true,
+      'supports' => array(),
+    )
+  );
+}
+add_action( 'init', 'spouse_create_posttypes' );
+
+function spouse_access_control_check(){
+    global $post;
+    if($check = get_field('authenticated_users_only', $post)){
+        if(!is_user_logged_in()){
+          wp_redirect('front-page');
+        }
+    }
+}
