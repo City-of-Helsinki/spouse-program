@@ -50,20 +50,24 @@
 
   .person {
     font-size: 16px;
-    min-height: 150px;
+    height: auto;
     margin-bottom:20px;
     p {
       margin-bottom: 2px;
     }
     .person-image{
+      font-weight: bold;
       text-align: center;
-      width: 25%;
+      height:100%;
+      width: 20%;
       img{
-        width: 100%;
+        width:100%;
+        height: auto;
       }
     }
     .person-content{
       margin-left: 10px;
+      width: 75%;
     }
   }
 

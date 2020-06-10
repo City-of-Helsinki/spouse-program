@@ -15,7 +15,7 @@ $image = $values['image'];
 ?>
 
 <div class="col-12 person">
-    <div style="min-height:: 100px;" class="img person-image pull-left">
+    <div class="img person-image pull-left">
   <?php if($image): ?>
     <img class="img-fluid" src="<?php echo $image ?>">
     <?php if($values['name']): ?>
@@ -24,7 +24,7 @@ $image = $values['image'];
   <?php endif; ?>
     </div>
     <div class="person-content pull-left">
-        <!--
+      <!--
       <?php if($values['title']): ?>
           <p><span style="font-weight: bold">Title:</span><br/><?php echo $values['title']; ?></p>
       <?php endif; ?>
@@ -33,7 +33,7 @@ $image = $values['image'];
           <p class="person-description"><?php echo $values['description']; ?></p>
       <?php endif; ?>
 
-      <span style="font-weight: bold">Contact:</span><br/>
+      <span>Contact:</span><br/>
       <?php if($values['email']): ?>
           <a href="mailto:<?php echo $values['email']; ?>"><?php echo $values['email']; ?></a>
       <?php endif; ?>
@@ -51,7 +51,7 @@ $image = $values['image'];
 <!--
 <div class="col-12 col-lg-6 person">
   <?php if($image): ?>
-  <div style="min-height:: 100px;" class="img person-image pull-left">
+  <div style="min-height: 100px;" class="img person-image pull-left">
       <img class="img-fluid" src="<?php echo $image ?>">
         <?php if($values['name']): ?>
             <p class="person-title"><?php echo $values['name']; ?></p>

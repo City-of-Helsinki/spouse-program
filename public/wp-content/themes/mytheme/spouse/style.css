@@ -326,7 +326,7 @@ header .header-main-content ul li.current_page_item a {
 .page-template-one-column-template .person,
 .page-template-two-column-template .person {
   font-size: 16px;
-  min-height: 150px;
+  height: auto;
   margin-bottom: 20px;
 }
 
@@ -337,18 +337,22 @@ header .header-main-content ul li.current_page_item a {
 
 .page-template-one-column-template .person .person-image,
 .page-template-two-column-template .person .person-image {
+  font-weight: bold;
   text-align: center;
-  width: 25%;
+  height: 100%;
+  width: 20%;
 }
 
 .page-template-one-column-template .person .person-image img,
 .page-template-two-column-template .person .person-image img {
   width: 100%;
+  height: auto;
 }
 
 .page-template-one-column-template .person .person-content,
 .page-template-two-column-template .person .person-content {
   margin-left: 10px;
+  width: 75%;
 }
 
 .button-defaults, .button-white, .button-purple {
