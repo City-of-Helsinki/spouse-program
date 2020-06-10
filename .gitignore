@@ -15,3 +15,5 @@ debug.log
 !/public/wp-content/plugins/myplugin
 # Add here custom themes(s)
 !/public/wp-content/themes/mytheme
+!/public/wp-content/plugins/acf-repeater
+!/public/wp-content/plugins/advanced-custom-fields
