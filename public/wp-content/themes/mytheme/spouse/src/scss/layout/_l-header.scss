@@ -27,10 +27,19 @@ header {
         text-decoration: underline;
         text-underline: black;
       }
+
     }
   }
 }
 
 .mob-menu-logo-holder {
   display: none;
+}
+
+@media (max-width: 1200px) {
+  header {
+    .header-main-content ul li {
+      padding-left: 15px;
+    }
+  }
 }

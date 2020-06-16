@@ -19,6 +19,10 @@ h1 {
   font-family: 'Bitter', serif;
 }
 
+iframe {
+  max-width: 100%;
+}
+
 .no-padding {
   padding: 0;
 }
@@ -259,6 +263,12 @@ header .header-main-content ul li.current_page_item a {
   display: none;
 }
 
+@media (max-width: 1200px) {
+  header .header-main-content ul li {
+    padding-left: 15px;
+  }
+}
+
 .single-eventbrite_events .single-event-content {
   margin-top: 20px;
 }
@@ -353,6 +363,13 @@ header .header-main-content ul li.current_page_item a {
 .page-template-two-column-template .person .person-content {
   margin-left: 10px;
   width: 75%;
+}
+
+.page-template-one-column-template main.sidewave,
+.page-template-two-column-template main.sidewave {
+  background-position: right -300px bottom -500px;
+  background-repeat: no-repeat;
+  overflow: hidden;
 }
 
 .button-defaults, .button-white, .button-purple {
@@ -626,6 +643,8 @@ input[type='checkbox'] {
   background-color: #01a090 !important;
   color: white;
   text-transform: uppercase;
+  max-height: 85vh;
+  overflow-y: scroll;
 }
 
 .wow-modal-window span#modal-login {
@@ -655,7 +674,7 @@ input[type='checkbox'] {
 }
 
 .wow-modal-overlay .modal-window-content p {
-  margin: 0 auto;
+  margin: 10px auto 10px auto;
   width: 100%;
   display: block;
 }

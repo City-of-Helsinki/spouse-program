@@ -72,7 +72,7 @@ function spouse_get_events(){
 
     $icon = get_field('icon', $post->ID);
 
-    if($term = reset($terms)) {
+    if($terms && $term = reset($terms)) {
       $color = get_field('event_color', $term);
       $category = $term->name;
     }
@@ -175,3 +175,30 @@ function spouse_access_control_check(){
         }
     }
 }
+
+function spouse_is_restricted_page(){
+  global $post;
+  if($check = get_field('authenticated_users_only', $post)){
+    if(!is_user_logged_in()){
+      return true;
+    }
+  }
+  return false;
+}
+
+function remove_editor() {
+  if (isset($_GET['post'])) {
+    $id = $_GET['post'];
+    $template = get_post_meta($id, '_wp_page_template', true);
+    switch ($template) {
+      case 'one-column-template.php':
+      case 'two-column-template.php':
+        remove_post_type_support('page', 'editor');
+        break;
+      default :
+        // Don't remove any other template.
+        break;
+    }
+  }
+}
+add_action('init', 'remove_editor');
