@@ -1,6 +1,7 @@
 <?php get_header(); ?>
 
-<div class="container-fluid">
+<main class="container-fluid">
+  <a id="main-content" tabindex="-1"></a>
   <div class="row">
     <!--
     <div class="d-none col-md-4"></div>
@@ -22,7 +23,7 @@
 
     </div>
   </div>
-</div>
+</main>
 
 
 <?php get_footer(); ?>

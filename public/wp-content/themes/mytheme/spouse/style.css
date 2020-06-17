@@ -20,6 +20,7 @@ h1 {
 }
 
 iframe {
+  width: 100%;
   max-width: 100%;
 }
 
@@ -45,6 +46,23 @@ iframe {
   bottom: -200px;
   -webkit-transform: scale(1, 0.5);
           transform: scale(1, 0.5);
+}
+
+.visually-hidden {
+  position: absolute !important;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+  width: 1px;
+  height: 1px;
+  word-wrap: normal;
+}
+
+.visually-hidden:focus {
+  position: static !important;
+  overflow: visible;
+  clip: auto;
+  width: auto;
+  height: auto;
 }
 
 .ui-widget-content {
@@ -84,6 +102,12 @@ iframe {
   text-align: center;
   background-size: cover;
   background-repeat: no-repeat;
+}
+
+.cta-column .cta-background > div {
+  position: relative;
+  width: 100%;
+  height: 100%;
 }
 
 .cta-column .cta-background a {
@@ -224,6 +248,10 @@ footer {
   background-color: #f0e956;
   display: block;
   padding: 25px 0px;
+}
+
+footer a {
+  color: black;
 }
 
 header {
@@ -367,9 +395,37 @@ header .header-main-content ul li.current_page_item a {
 
 .page-template-one-column-template main.sidewave,
 .page-template-two-column-template main.sidewave {
-  background-position: right -300px bottom -500px;
+  background-position: right -150px bottom -300px;
   background-repeat: no-repeat;
   overflow: hidden;
+}
+
+.page-template-one-column-template .sidebar-menu,
+.page-template-two-column-template .sidebar-menu {
+  text-decoration: none;
+  color: black;
+  font-size: 24px;
+  padding-top: 75px;
+}
+
+.page-template-one-column-template .sidebar-menu ul,
+.page-template-two-column-template .sidebar-menu ul {
+  list-style: none;
+}
+
+.page-template-one-column-template .sidebar-menu ul li a,
+.page-template-two-column-template .sidebar-menu ul li a {
+  color: black;
+}
+
+.page-template-one-column-template .events-column,
+.page-template-two-column-template .events-column {
+  background-color: white;
+}
+
+.page-template-one-column-template .events-column h2,
+.page-template-two-column-template .events-column h2 {
+  color: black;
 }
 
 .button-defaults, .button-white, .button-purple {
@@ -657,6 +713,11 @@ input[type='checkbox'] {
 
 .wow-modal-window #loginform {
   text-align: center;
+}
+
+.wow-modal-window a {
+  color: white;
+  text-decoration: underline;
 }
 
 .wow-modal-overlay .mw-close-btn:before {

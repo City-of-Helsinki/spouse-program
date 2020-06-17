@@ -26,7 +26,7 @@ $buttonText = get_sub_field('button_text');
 $url = get_sub_field('button_url');
 
 ?>
-
+<div class="col-12">
   <a class="content-cta" href="<?php echo $buttonUrl; ?>" class="<?php echo $class ?>" ><?php echo $buttonText ?></a>
-
+</div>
 <?php

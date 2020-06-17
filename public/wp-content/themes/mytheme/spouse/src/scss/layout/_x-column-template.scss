@@ -72,9 +72,33 @@
   }
 
   main.sidewave {
-    background-position: right -300px bottom -500px;
+    background-position: right -150px bottom -300px;
     background-repeat: no-repeat;
     overflow:hidden;
   }
 
+  .sidebar-menu {
+    text-decoration: none;
+    color: black;
+    font-size: 24px;
+    padding-top: 75px;
+    ul {
+      list-style: none;
+      li {
+        a{
+          color: black;
+        }
+      }
+    }
+  }
+
+  .events-column {
+    background-color: white;
+    h2 {
+      color: black;
+    }
+  }
+
 }
+
+

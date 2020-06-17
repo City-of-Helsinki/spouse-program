@@ -15,6 +15,10 @@
 
 <body <?php body_class(); ?>>
 
+<a href="#main-content" class="visually-hidden focusable">
+    Skip to main content
+</a>
+
 <?php
 wp_body_open();
 ?>

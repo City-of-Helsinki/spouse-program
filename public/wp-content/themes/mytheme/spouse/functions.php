@@ -22,7 +22,9 @@ if ( function_exists('register_sidebar') ) {
   $footerWidgets = [
     'footer_content_left' => 'footer content left',
     'footer_content' => 'footer content middle',
-    'footer_content_right' => 'footer content right'
+    'footer_content_right' => 'footer content right',
+    'social_title' => 'Social sharing title',
+    'sidebar_menu' => 'Sidebar menu on main page'
   ];
   foreach($footerWidgets as $key => $widget){
     register_sidebar([
@@ -51,6 +53,8 @@ function spouse_login_form_shortcode() {
 function spouse_get_events(){
   $args = [
     'post_type' => 'eventbrite_events',
+    'post_status' => 'publish',
+    'numberposts' => '5',
   ];
 
   $posts = wp_get_recent_posts($args, OBJECT);
@@ -177,6 +181,14 @@ function spouse_access_control_check(){
 }
 
 function spouse_is_restricted_page(){
+  global $post;
+  if($check = get_field('authenticated_users_only', $post)){
+      return true;
+  }
+  return false;
+}
+
+function spouse_is_user_allowed_page(){
   global $post;
   if($check = get_field('authenticated_users_only', $post)){
     if(!is_user_logged_in()){

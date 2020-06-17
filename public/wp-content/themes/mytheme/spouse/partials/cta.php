@@ -26,7 +26,7 @@ $buttonText = get_field('button_text');
 $url = get_field('button_url');
 
 ?>
-
-<a href="<?php echo $buttonUrl; ?>" class="<?php echo $class ?>" ><?php echo $buttonText ?></a>
-
+<div class="col-12">
+    <a href="<?php echo $buttonUrl; ?>" class="<?php echo $class ?>" ><?php echo $buttonText ?></a>
+</div>
 <?php

@@ -7,15 +7,16 @@
 <?php echo $text;
 
 ?>
+<div class="col-12">
+    <div class="image-and-text">
+      <?php if($imagePosition == 'left'): ?>
+      <?php endif; ?>
 
-<div class="image-and-text">
-  <?php if($imagePosition == 'left'): ?>
-  <?php endif; ?>
+      <div class="">
+        <?php echo $text; ?>
+      </div>
 
-  <div class="">
-    <?php echo $text; ?>
-  </div>
-
-  <?php if($imagePosition == 'right'): ?>
-  <?php endif; ?>
+      <?php if($imagePosition == 'right'): ?>
+      <?php endif; ?>
+    </div>
 </div>
