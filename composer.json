@@ -23,7 +23,6 @@
         "wpackagist-plugin/disable-gutenberg": "2.1",
         "wpackagist-plugin/import-eventbrite-events": "1.5.8",
         "wpackagist-plugin/autodescription": "4.0.7",
-        "wpackagist-plugin/google-sitemap-generator": "4.1.0",
         "wpackagist-plugin/sharing-plus":"1.0.1",
         "wpackagist-plugin/uk-cookie-consent":"2.3.15"
     },
