@@ -1,0 +1,166 @@
+.cta-column {
+  padding: 0;
+  min-height: 750px;
+  height:90vh;
+  position: relative;
+  .cta-background {
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    > div {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+
+    a {
+      position: absolute;
+      bottom: 25px;
+      left: 36%;
+      right: 36%;
+      font-weight: bold;
+      height: 60px;
+      max-width: 200px;
+      border: 1px solid white;
+      background-color: $purple;
+      text-align: center;
+      color: white;
+      padding-top: 15px;
+      border-radius: 6px;
+    }
+  }
+}
+
+.main-content {
+  position: relative;
+  background-color: $white;
+  /*min-height: 750px;*/
+  min-height: 90vh;
+  padding: 0;
+  font-size: 18px;
+
+  .main-content-container {
+    position: absolute;
+    float: left;
+    z-index:9;
+    top:0;
+    left: 0;
+  }
+
+  & > img {
+    z-index:1;
+    float: left;
+    display: block;
+    position: absolute;
+    top: 0px;
+    width: auto;
+    height: 100%;
+    margin-left: -150px;
+  }
+
+  .main-content-container {
+    padding: 10px 20px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height:100%;
+    width: 100%;
+  }
+
+  h1 {
+    font-size: 42px;
+    text-align: center;
+    margin: 0px 0px 20px 0px;
+  }
+
+  .small-images {
+    position: absolute;
+    bottom: 20px;
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+}
+
+
+
+@media (max-width: 1900px) {
+  .cta-column {
+    .cta-background {
+      background-size: cover;
+      background-position: 20% 0%;
+    }
+  }
+}
+
+@media (max-width: 2200px) {
+  .cta-column {
+    .cta-background {
+      background-size: cover;
+      background-position: 20% 0%;
+    }
+  }
+}
+
+@media (max-width: 2200px) {
+  .cta-column {
+    .cta-background {
+      background-size: cover;
+      background-position: 30% 0%;
+    }
+  }
+}
+
+@media (max-width: 1600px) {
+  .cta-column {
+    .cta-background {
+      background-size: cover;
+      background-position: 40% 0%;
+    }
+  }
+  .main-content {
+    h1 {
+      font-size: 3rem;
+      padding: 20px 0px;
+    }
+  }
+}
+
+@media (max-width: 1450px) {
+  .cta-column {
+    .cta-background {
+      background-position: 30% 0%;
+    }
+  }
+
+  .main-content {
+    font-size: 16px;
+    min-height: 750px;
+  }
+}
+
+@media (max-width: 1201px) {
+  .cta-column {
+    height: 350px;
+    min-height:350px;
+    .cta-background {
+      background-position: 0% 30%;
+    }
+  }
+}
+
+@media (max-width: 992px) {
+  .main-content {
+    height: auto;
+    .main-content-container {
+      float: none;
+      position: relative;
+    }
+    .small-images {
+      position: relative;
+    }
+  }
+}

@@ -1,0 +1,45 @@
+header {
+  font-family: 'Nunito', sans-serif;
+  padding-top: 25px;
+  height: 75px;
+  background-color: $cyan;
+  color: white;
+  text-transform: uppercase;
+  text-decoration: none;
+
+  a {
+    text-decoration: none;
+    color: $white;
+
+    &:hover {
+      color: $purple;
+    }
+  }
+
+  .header-main-content {
+    padding-right: 25px;
+
+    ul li {
+      display: inline-block;
+      padding-left: 30px;
+
+      &.current_page_item a {
+        text-decoration: underline;
+        text-underline: black;
+      }
+
+    }
+  }
+}
+
+.mob-menu-logo-holder {
+  display: none;
+}
+
+@media (max-width: 1200px) {
+  header {
+    .header-main-content ul li {
+      padding-left: 15px;
+    }
+  }
+}

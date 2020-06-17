@@ -1,0 +1,70 @@
+.events-column {
+
+
+}
+
+.events-column {
+  color: black;
+  padding: 40px 20px;
+  background-color: $cyan;
+  background-image: url('./src/scss/icons/background-purple.svg');
+  background-size: cover;
+  min-height: 100%;
+
+  h2 {
+    text-align: center;
+    color: white;
+  }
+
+  a {
+    text-decoration: none;
+    font-style: normal;
+    color: black;
+  }
+
+  .event {
+    display: flex;
+    flex-flow: row;
+    min-height: 80px;
+    height: auto;
+    border: 1px solid gray;
+    background-color: white;
+    border-radius: 6px;
+    margin: 25px 0px;
+    overflow: auto;
+
+    .event-color {
+      width: 10px;
+      border-right: 1px solid gray;
+    }
+
+    .event-start {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0px 10px;
+    }
+
+    .event-content {
+      width: 90%;
+      padding: 5px;
+      .event-text {
+        width: auto;
+      }
+
+      p {
+        margin-bottom: 0px;
+      }
+    }
+
+    .event-icon {
+      width: 30px;
+      margin: 5px 10px 0px 0px;
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+
+  }
+}

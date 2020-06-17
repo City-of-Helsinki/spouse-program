@@ -1,0 +1,32 @@
+
+
+
+.ui-widget-content {
+  background-color:white;
+}
+
+
+
+
+
+.events-date {
+  .active{
+    background-color: #dbdbdb;
+  }
+}
+
+.months {
+  text-align: center;
+  .month {
+    margin-bottom: 5px;
+    span{
+      float: right;
+    }
+
+    &:hover {
+      background-color: #c9c9c9;
+    }
+
+  }
+
+}

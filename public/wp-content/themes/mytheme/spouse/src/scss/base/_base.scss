@@ -1,0 +1,55 @@
+body {
+  font-family: 'Nunito', serif;
+  font-size: 18px;
+}
+
+h1 {
+  margin: 10px 0px 40px 0px;
+  font-size: 62px;
+  font-weight: 700;
+  font-family: 'Bitter', serif;
+}
+
+iframe {
+  width: 100%;
+  max-width: 100%;
+}
+
+.no-padding {
+  padding: 0;
+}
+
+.no-margin {
+  margin: 0;
+}
+
+.hero-image {
+  height:70vh;
+  padding:0;
+  background-size: cover;
+  background-position-y:100%;
+  position:relative;
+  width:auto;
+  .wave {
+    position:absolute;
+    bottom:-200px;
+    transform:scale(1, 0.5);
+  }
+}
+
+.visually-hidden {
+  position: absolute !important;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+  width: 1px;
+  height: 1px;
+  word-wrap: normal;
+  &:focus {
+    position: static !important;
+    overflow: visible;
+    clip: auto;
+    width: auto;
+    height: auto;
+  }
+}
+

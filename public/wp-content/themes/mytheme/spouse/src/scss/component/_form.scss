@@ -1,0 +1,52 @@
+label {
+  width: 100%;
+  margin-top: 10px;
+}
+input {
+  width: 100%;
+  border: 0;
+  border-radius: 6px;
+  height: 40px;
+  padding-left: 10px;
+  margin-top: 5px;
+}
+
+textarea {
+  width: 100%;
+  border: 0;
+  border-radius: 6px;
+  height: 100px;
+  padding-left: 10px;
+  margin-top: 5px;
+}
+
+input[type='checkbox'] {
+  width: 15px;
+  height: 15px;
+  border: 0;
+  zoom: 1.3;
+  padding-left: 10px;
+  margin-top: 5px;
+}
+
+.default-button {
+  width: auto;
+  padding: 10px 50px;
+  background-color: $white;
+  color: $white;
+  border: 0;
+  border-radius: 6px;
+  margin: 0 auto;
+  display: block;
+  color: $purple;
+  text-transform:uppercase;
+  margin-top: 15px;
+  transition: background-color 0.5s;
+
+
+  &:hover {
+    cursor: pointer;
+    background-color: $purple;
+    color: white;
+  }
+}
