@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9b68fc6ca8c3b78955a7165e613e3208",
+    "content-hash": "210cd59dbf49389098dd06c204c7f1b6",
     "packages": [
         {
             "name": "composer/installers",
@@ -596,7 +596,7 @@
         },
         {
             "name": "symfony/finder",
-            "version": "v5.1.1",
+            "version": "v5.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/finder.git",
