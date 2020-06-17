@@ -15,6 +15,10 @@
 
 <body <?php body_class(); ?>>
 
+<a href="#main-content" class="visually-hidden focusable">
+    Skip to main content
+</a>
+
 <?php
 wp_body_open();
 ?>
@@ -22,14 +26,12 @@ wp_body_open();
 <header id="site-header" role="banner">
     <div class="container-fluid">
         <div class="row">
-            <div class="header-left-content col-2 d-md-none col-xl-2">
-            </div>
-            <div class="col-6 col-sm-6 col-md-9">
+            <div class="col-7 col-sm-7 col-md-10">
                 <div class="header-main-content nav justify-content-end">
                   <?php wp_nav_menu( array( 'menu' => 2) ); ?>
                 </div>
             </div>
-            <div class="header-right-content col-4 col-sm-4 col-md-3">
+            <div class="pull-right header-right-content col-6 col-sm-4 col-md-2">
                 <?php
                 global $current_user; wp_get_current_user();
                 /** Popups created with wow modal window -plugin */

@@ -2,7 +2,7 @@
 get_header();
 ?>
 
-<main id="site-content" role="main">
+<main id="main-content" role="main">
     <div class="container-fluid">
 
           <?php

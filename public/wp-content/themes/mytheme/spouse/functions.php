@@ -22,7 +22,9 @@ if ( function_exists('register_sidebar') ) {
   $footerWidgets = [
     'footer_content_left' => 'footer content left',
     'footer_content' => 'footer content middle',
-    'footer_content_right' => 'footer content right'
+    'footer_content_right' => 'footer content right',
+    'social_title' => 'Social sharing title',
+    'sidebar_menu' => 'Sidebar menu on main page'
   ];
   foreach($footerWidgets as $key => $widget){
     register_sidebar([
@@ -51,6 +53,8 @@ function spouse_login_form_shortcode() {
 function spouse_get_events(){
   $args = [
     'post_type' => 'eventbrite_events',
+    'post_status' => 'publish',
+    'numberposts' => '5',
   ];
 
   $posts = wp_get_recent_posts($args, OBJECT);
@@ -72,7 +76,7 @@ function spouse_get_events(){
 
     $icon = get_field('icon', $post->ID);
 
-    if($term = reset($terms)) {
+    if($terms && $term = reset($terms)) {
       $color = get_field('event_color', $term);
       $category = $term->name;
     }
@@ -175,3 +179,38 @@ function spouse_access_control_check(){
         }
     }
 }
+
+function spouse_is_restricted_page(){
+  global $post;
+  if($check = get_field('authenticated_users_only', $post)){
+      return true;
+  }
+  return false;
+}
+
+function spouse_is_user_allowed_page(){
+  global $post;
+  if($check = get_field('authenticated_users_only', $post)){
+    if(!is_user_logged_in()){
+      return true;
+    }
+  }
+  return false;
+}
+
+function remove_editor() {
+  if (isset($_GET['post'])) {
+    $id = $_GET['post'];
+    $template = get_post_meta($id, '_wp_page_template', true);
+    switch ($template) {
+      case 'one-column-template.php':
+      case 'two-column-template.php':
+        remove_post_type_support('page', 'editor');
+        break;
+      default :
+        // Don't remove any other template.
+        break;
+    }
+  }
+}
+add_action('init', 'remove_editor');

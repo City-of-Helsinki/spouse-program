@@ -6,6 +6,8 @@
   background-color: $cyan !important;
   color: white;
   text-transform: uppercase;
+  max-height: 85vh;
+  overflow-y: scroll;
 
   span#modal-login {
     text-decoration: underline;
@@ -21,6 +23,11 @@
     #wp-submit {
       @extend .default-button
     }
+  }
+
+  a{
+    color: white;
+    text-decoration: underline;
   }
 
 }
@@ -41,7 +48,7 @@
       text-align: center;
     }
     p {
-      margin: 0 auto;
+      margin: 10px auto 10px auto;
       width: 100%;
       display: block;
 

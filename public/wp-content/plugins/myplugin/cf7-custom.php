@@ -51,6 +51,40 @@ function spouse_create_user_on_signup_form_submission(&$contact_form) {
 
 }
 
+function spouse_create_event_on_form_submission(&$contact_form){
+  global $current_user;
+  $current_user_id = get_current_user_id();
+  global $current_user;
+  if ($contact_form->id() != 277) {
+    return;
+  }
+
+  //Prevent submission from users not logged in.
+  if(get_current_user_id() === 0) {
+    return;
+  }
+
+  $form = WPCF7_Submission::get_instance();
+  $values = $form->get_posted_data();
+
+  $title = sanitize_text_field($values['event-title']);
+  $description = sanitize_textarea_field($values['description']);
+
+  $eventdata = array(
+    'post_title'   => $title,
+    'post_content' => $description,
+    'post_type'    => 'eventbrite_events',
+    'post_status'  => 'pending',
+    'post_author'  => get_current_user_id(),
+  );
+
+  wp_insert_post($eventdata);
+
+}
+
+// Catch sign in form submission
+add_action("wpcf7_before_send_mail", "spouse_create_event_on_form_submission");
+
 function spouse_random_str(
   $length,
   $keyspace = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ-_.,'

@@ -1,4 +1,6 @@
-<?php $text = get_sub_field('text_content'); ?>
+<?php $text = get_sub_field('text_content');
 
-<?php echo $text;
+echo '<div class="col-12">';
+echo $text;
+echo '</div>';
 
