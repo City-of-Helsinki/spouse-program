@@ -115,7 +115,8 @@ if(function_exists("register_field_group"))
                 array (
                   'field' => 'field_5ede04d6f24c1',
                   'operator' => '==',
-                  'value' => 'text',
+                  #'value' => 'text',
+                  'value' => 'cta-subfield',
                 ),
               ),
               'allorany' => 'all',

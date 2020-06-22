@@ -53,14 +53,8 @@ function spouse_create_user_on_signup_form_submission(&$contact_form) {
 
 function spouse_create_event_on_form_submission(&$contact_form){
   global $current_user;
-  $current_user_id = get_current_user_id();
-  global $current_user;
-  if ($contact_form->id() != 277) {
-    return;
-  }
-
-  //Prevent submission from users not logged in.
-  if(get_current_user_id() === 0) {
+  
+  if ($contact_form->id() != 593) {
     return;
   }
 

@@ -31,16 +31,17 @@ get_header();
                 endif;
                 ?>
                 <div class="small-images clearfix">
-                    <div class="row">
-                      <div class="col-4">
-                          <img src="<?php the_field('image_1'); ?>"/>
-                      </div>
-                      <div class="col-4">
-                          <img src="<?php the_field('image_2'); ?>"/>
-                      </div>
-                      <div class="col-4">
-                          <img src="<?php the_field('image_3'); ?>"/>
-                      </div>
+                    <div class="row mx-auto">
+                        <?php
+                        while ( have_rows('images') ) : the_row();
+                          $img = get_sub_field('image');
+                        ?>
+                        <div class="col-10 col-sm-4">
+                            <img src="<?php echo $img; ?>"/>
+                        </div>
+                        <?php
+                        endwhile;
+                        ?>
                     </div>
                 </div>
                   <i class="clearfix"></i>
