@@ -10,18 +10,18 @@ echo '<div class="row justify-content-center text-center">';
 
     continue;
   }
-  echo '<div class="col-12 col-md-4 ">';
-
+  echo '<div class="col-6 col-md-3 icons">';
     $url = get_sub_field('url');
     if($url):
         echo '<a href="'.$url.'">';
+    endif;
             echo '<img class="img-fluid" src="'.$image['url'].'" alt="'.esc_attr($image['alt']).'">';
             $title = get_sub_field('title');
             echo '<span>'.$title.'</span>';
+    if($url):
         echo '</a>';
     endif;
 
-  //col
   echo '</div>';
 
   endwhile;
