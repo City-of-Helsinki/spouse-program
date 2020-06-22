@@ -1,6 +1,19 @@
 body {
   font-family: 'Nunito', serif;
   font-size: 18px;
+
+  .mob-menu-left-bg-holder {
+    font-family: 'Nunito', serif !important;
+    font-size: 22px;
+  }
+
+}
+
+@media only screen and (max-width: 1024px) {
+  .mob-menu-header-holder.mobmenu {
+    width: 30% !important;
+    left: 0px !important;
+  }
 }
 
 h1 {
@@ -8,6 +21,16 @@ h1 {
   font-size: 62px;
   font-weight: 700;
   font-family: 'Bitter', serif;
+}
+
+@media (max-width: 992px) {
+  h1 {
+    margin: 10px 0px 40px 10px;
+    font-size: 42px;
+  }
+  #main-content.sidewave {
+    background-size: 0;
+  }
 }
 
 iframe {
