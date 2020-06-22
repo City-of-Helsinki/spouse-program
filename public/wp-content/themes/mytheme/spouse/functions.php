@@ -89,8 +89,13 @@ function spouse_get_events(){
 
       $hour = get_post_meta($post->ID, 'event_start_hour')[0];
       $minute = get_post_meta($post->ID, 'event_start_minute')[0];
+
+      $endHour = get_post_meta($post->ID, 'event_end_hour')[0];
+      $endMinute = get_post_meta($post->ID, 'event_end_minute')[0];
       $meridian = get_post_meta($post->ID, 'event_start_meridian')[0];
+
       $startTime = "$hour:$minute $meridian";
+      $endTime = "$endHour:$endMinute $meridian";
     }
 
     ?>
@@ -99,18 +104,27 @@ function spouse_get_events(){
       <a href="<?php echo get_permalink($post) ?>">
 
     <?php endif; ?>
-      <div class="event clearfix">
+    <?php
+    $popupClass = '';
+    if(!is_user_logged_in()){
+        $popupClass = 'popup-hover ';
+    }
+    ?>
+      <div class="event <?php echo $popupClass ?>clearfix">
           <div class="event-color" <?php if(isset($color) && $color): ?>style="background-color:<?php echo $color; ?>" <?php endif; ?>></div>
           <div class="event-start"><?php echo $startDate; ?></div>
           <div class="event-content">
               <div class="text-content">
-                <span class=""><?php echo $category ?></span>
-                <p><?php echo $startTime; ?> @ <?php echo get_post_meta($post->ID, 'venue_name')[0]; ?></p>
-                <p><?php echo get_post_meta($post->ID, 'venue_address')[0]; ?> <?php echo get_post_meta($post->ID, 'venue_city')[0]; ?></p>
+                <p class=""><?php echo $category ?></p>
+                <p class=""><?php echo $post->post_title ?></p>
+                <p><?php echo $startTime; ?> - <?php echo $endTime; ?></p>
               </div>
           </div>
           <div class="event-icon"><img src="<?php echo $icon ?>"></div>
           <i class="clearfix"></i>
+          <div class="popuptext">
+              Sign in to see more
+          </div>
       </div>
     <?php if(is_user_logged_in()): ?>
       </a>

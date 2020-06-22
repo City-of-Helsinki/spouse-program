@@ -12,11 +12,33 @@ body {
   font-size: 18px;
 }
 
+body .mob-menu-left-bg-holder {
+  font-family: 'Nunito', serif !important;
+  font-size: 22px;
+}
+
+@media only screen and (max-width: 1024px) {
+  .mob-menu-header-holder.mobmenu {
+    width: 30% !important;
+    left: 0px !important;
+  }
+}
+
 h1 {
   margin: 10px 0px 40px 0px;
   font-size: 62px;
   font-weight: 700;
   font-family: 'Bitter', serif;
+}
+
+@media (max-width: 992px) {
+  h1 {
+    margin: 10px 0px 40px 10px;
+    font-size: 42px;
+  }
+  #main-content.sidewave {
+    background-size: 0;
+  }
 }
 
 iframe {
@@ -155,7 +177,7 @@ iframe {
 }
 
 .main-content .main-content-container {
-  padding: 10px 20px;
+  padding: 10px 20px 10px 0px;
   background-repeat: no-repeat;
   background-size: cover;
   height: 100%;
@@ -165,7 +187,11 @@ iframe {
 .main-content h1 {
   font-size: 42px;
   text-align: center;
-  margin: 0px 0px 20px 0px;
+  margin: 10px 0px 20px 0px;
+}
+
+.main-content p {
+  margin-bottom: 5px;
 }
 
 .main-content .small-images {
@@ -206,7 +232,7 @@ iframe {
   }
   .main-content h1 {
     font-size: 3rem;
-    padding: 20px 0px;
+    padding: 10px 0px;
   }
 }
 
@@ -228,6 +254,9 @@ iframe {
   .cta-column .cta-background {
     background-position: 0% 30%;
   }
+  p {
+    padding-left: 10px;
+  }
 }
 
 @media (max-width: 992px) {
@@ -240,6 +269,9 @@ iframe {
   }
   .main-content .small-images {
     position: relative;
+  }
+  .main-content .small-images > div {
+    margin-top: 40px;
   }
 }
 
@@ -422,16 +454,6 @@ header .header-main-content ul li.current_page_item a {
   color: black;
 }
 
-.page-template-one-column-template .events-column,
-.page-template-two-column-template .events-column {
-  background-color: white;
-}
-
-.page-template-one-column-template .events-column h2,
-.page-template-two-column-template .events-column h2 {
-  color: black;
-}
-
 .button-defaults, .button-white, .button-purple {
   border-radius: 6px;
   display: block;
@@ -552,6 +574,8 @@ header .header-main-content ul li.current_page_item a {
   background-image: url("./src/scss/icons/background-purple.svg");
   background-size: cover;
   min-height: 100%;
+  max-height: 90vh;
+  overflow-y: scroll;
 }
 
 .events-column h2 {
@@ -621,6 +645,41 @@ header .header-main-content ul li.current_page_item a {
 .events-column .event .event-icon img {
   width: 100%;
   height: auto;
+}
+
+.events-column .page-template-one-column-template,
+.events-column .page-template-two-column-template {
+  background-color: white;
+}
+
+.events-column .page-template-one-column-template h2,
+.events-column .page-template-two-column-template h2 {
+  color: #01a090;
+}
+
+.events-column .page-template-one-column-template .event,
+.events-column .page-template-two-column-template .event {
+  border: 3px solid #01a090;
+  position: relative;
+}
+
+.events-column .event {
+  position: relative;
+}
+
+.events-column .event .popuptext {
+  display: none;
+}
+
+.events-column .event.popup-hover:hover .popuptext {
+  z-index: 99;
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: white;
+  text-align: center;
+  padding-top: 7%;
 }
 
 label {

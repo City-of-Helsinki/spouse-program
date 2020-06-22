@@ -38,7 +38,7 @@
         <?php if(spouse_is_restricted_page()): ?>
             <div class="col-10 offset-1 col-lg-6 offset-lg-0">
         <?php else: ?>
-            <div class="col-10 offset-1 col-lg-5 offset-lg-3">
+            <div class="col-10 offset-1 col-lg-6 offset-lg-3">
         <?php endif; ?>
             <h1><?php the_title(); ?></h1>
         <?php

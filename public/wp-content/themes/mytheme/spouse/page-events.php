@@ -133,9 +133,9 @@ jQuery(document).ready(function(){
             <div class="event-content">
               <div class="event-day">${event.start.format('d')}</div>
               <div class="text-content">
-                <span class="">${event.category}</span>
+                <span class="">${event.category ?? ''}</span>
+                <p>${event.title}</p>
                 <p>${event.starttime}</p>
-                <p>${event.venue_address}</p>
               </div>
             </div>
             <div class="event-icon"><img src=""></div>
