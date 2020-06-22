@@ -297,6 +297,10 @@ header .header-main-content ul li.current_page_item a {
   }
 }
 
+.single-eventbrite_events h1 {
+  font-size: 32px;
+}
+
 .single-eventbrite_events .single-event-content {
   margin-top: 20px;
 }
@@ -718,6 +722,16 @@ input[type='checkbox'] {
 .wow-modal-window a {
   color: white;
   text-decoration: underline;
+}
+
+.wow-modal-window span.wpcf7-not-valid-tip {
+  color: white;
+}
+
+.wow-modal-window span.wpcf7-not-valid-tip:before {
+  content: "- ";
+  padding-right: 5px;
+  color: #4b3f72;
 }
 
 .wow-modal-overlay .mw-close-btn:before {

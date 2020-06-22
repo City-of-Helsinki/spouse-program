@@ -53,7 +53,6 @@
         endif;
         ?>
         </div>
-
           <?php
           if(spouse_is_restricted_page()){
             ?>
@@ -61,13 +60,9 @@
                   <h2>Upcoming events</h2>
                 <?php echo do_shortcode('[spouse-events]'); ?>
               </div>
-              <div class="col-12 col-sm-12 col-lg-3">
-
-              </div>
             <?php
           }
           ?>
-
     </div>
   <?php
   // show social sharing only if the page is not behind login
