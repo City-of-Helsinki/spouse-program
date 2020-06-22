@@ -36,7 +36,7 @@ get_header();
                         while ( have_rows('images') ) : the_row();
                           $img = get_sub_field('image');
                         ?>
-                        <div class="col-10 col-sm-4">
+                        <div class="col-4">
                             <img src="<?php echo $img; ?>"/>
                         </div>
                         <?php
