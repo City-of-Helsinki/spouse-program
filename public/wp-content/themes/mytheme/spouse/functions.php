@@ -214,3 +214,71 @@ function remove_editor() {
   }
 }
 add_action('init', 'remove_editor');
+
+add_action('after_setup_theme', 'spouse_remove_admin_bar');
+
+function spouse_remove_admin_bar() {
+  if (!current_user_can('administrator') && !current_user_can('editor')) {
+    show_admin_bar(false);
+  }
+}
+
+function spouse_edit_role_caps() {
+  $role = get_role( 'editor' );
+ // echo '<pre>';
+ // die(var_dump($role->capabilities));
+
+  $allowed = [
+    'manage_options',
+    'edit_users',
+    'delete_users',
+    'create_users',
+    'list_users',
+    'remove_users',
+    'promote_users',
+    'mc_add_events',
+    'mc_approve_events',
+    'mc_manage_events',
+    'mc_edit_cats',
+    'mc_edit_styles',
+    'mc_edit_behaviors',
+    'mc_edit_templates',
+    'mc_edit_settings',
+    'mc_edit_locations',
+  ];
+  foreach($allowed as $capability) {
+      $role->add_cap( $capability, true );
+  }
+}
+
+// Add simple_role capabilities, priority must be after the initial role definition.
+add_action( 'init', 'spouse_edit_role_caps', 11 );
+
+add_filter( 'flamingo_map_meta_cap', 'spouse_flamingo_map_meta_cap' );
+
+function spouse_flamingo_map_meta_cap( $meta_caps ) {
+  $meta_caps = array_merge( $meta_caps, array(
+    'flamingo_edit_contacts' => 'edit_pages',
+    'flamingo_edit_inbound_messages' => 'edit_pages',
+  ) );
+
+  return $meta_caps;
+}
+
+add_action( 'admin_init', 'spouse_remove_menu_pages' );
+
+function spouse_remove_menu_pages() {
+    if(current_user_can('administrator')){
+      return;
+    }
+    remove_menu_page( 'admin.php?page=wp-mailplus-settings' );
+    remove_menu_page( 'themes.php' );
+    remove_menu_page( 'plugins.php' );
+    remove_menu_page( 'tools.php' );
+    remove_menu_page( 'options-general.php' );
+    remove_menu_page( 'edit.php?post_type=acf' );
+    remove_menu_page( 'admin.php?page=theseoframework-settings' );
+    remove_menu_page( 'admin.php?page=mobile-menu-options' );
+    remove_menu_page( 'admin.php?page=sharing-plus' );
+    remove_menu_page( 'admin.php?page=wow-company' );
+}

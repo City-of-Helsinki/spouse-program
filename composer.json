@@ -24,7 +24,8 @@
         "wpackagist-plugin/import-eventbrite-events": "1.5.8",
         "wpackagist-plugin/autodescription": "4.0.7",
         "wpackagist-plugin/sharing-plus":"1.0.1",
-        "wpackagist-plugin/uk-cookie-consent":"2.3.15"
+        "wpackagist-plugin/uk-cookie-consent":"2.3.15",
+        "wpackagist-plugin/wp-sendgrid-mailer":"1.1"
     },
     "require-dev": {
         "wp-cli/wp-cli": "^2.4"
