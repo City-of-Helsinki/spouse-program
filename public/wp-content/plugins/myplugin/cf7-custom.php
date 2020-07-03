@@ -7,7 +7,7 @@
 // Catch sign in form submission
 add_action("wpcf7_before_send_mail", "spouse_create_user_on_signup_form_submission");
 
-function spouse_create_user_on_signup_form_submission(&$contact_form) {
+function spouse_create_user_on_signup_form_submission($contact_form) {
   if ($contact_form->id() != 22) {
     return;
   }
@@ -51,7 +51,7 @@ function spouse_create_user_on_signup_form_submission(&$contact_form) {
 
 }
 
-function spouse_create_event_on_form_submission(&$contact_form){
+function spouse_create_event_on_form_submission($contact_form){
   global $current_user;
 
   if ($contact_form->id() != 593) {
