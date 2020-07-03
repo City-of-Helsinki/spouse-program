@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5a1c2c44628660601eb79a7f7d77ea19",
+    "content-hash": "4c00f8cabbb49e2c8be2d3b6cd22365f",
     "packages": [
         {
             "name": "composer/installers",
@@ -444,6 +444,24 @@
             "homepage": "https://wordpress.org/plugins/modal-window/"
         },
         {
+            "name": "wpackagist-plugin/sendgrid-email-delivery-simplified",
+            "version": "1.11.8",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/sendgrid-email-delivery-simplified/",
+                "reference": "tags/1.11.8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/sendgrid-email-delivery-simplified.1.11.8.zip"
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/sendgrid-email-delivery-simplified/"
+        },
+        {
             "name": "wpackagist-plugin/sharing-plus",
             "version": "1.0.1",
             "source": {
@@ -496,42 +514,6 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/uk-cookie-consent/"
-        },
-        {
-            "name": "wpackagist-plugin/wp-mail-smtp",
-            "version": "2.1.1",
-            "source": {
-                "type": "svn",
-                "url": "https://plugins.svn.wordpress.org/wp-mail-smtp/",
-                "reference": "tags/2.1.1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/wp-mail-smtp.2.1.1.zip"
-            },
-            "require": {
-                "composer/installers": "~1.0"
-            },
-            "type": "wordpress-plugin",
-            "homepage": "https://wordpress.org/plugins/wp-mail-smtp/"
-        },
-        {
-            "name": "wpackagist-plugin/wp-sendgrid-mailer",
-            "version": "1.1",
-            "source": {
-                "type": "svn",
-                "url": "https://plugins.svn.wordpress.org/wp-sendgrid-mailer/",
-                "reference": "tags/1.1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/wp-sendgrid-mailer.1.1.zip"
-            },
-            "require": {
-                "composer/installers": "~1.0"
-            },
-            "type": "wordpress-plugin",
-            "homepage": "https://wordpress.org/plugins/wp-sendgrid-mailer/"
         }
     ],
     "packages-dev": [
