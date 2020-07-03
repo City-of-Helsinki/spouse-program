@@ -7,7 +7,38 @@
 // Catch sign in form submission
 add_action("wpcf7_before_send_mail", "spouse_create_user_on_signup_form_submission");
 
-function spouse_create_user_on_signup_form_submission($contact_form) {
+add_filter('wpcf7_validate_email*', 'custom_email_confirmation_validation_filter', 5, 2 );
+add_filter('wpcf7_validate_text*', 'custom_username_confirmation_validation_filter', 5, 2 );
+
+function custom_email_confirmation_validation_filter( $result, $tag ) {
+  if ('email' == $tag->name) {
+    $form = WPCF7_Submission::get_instance();
+    $values = $form->get_posted_data();
+    $email = sanitize_email($values['email']);
+
+    if (email_exists($email)) {
+      $result->invalidate( $tag, "Email already exists" );
+    }
+  }
+
+  return $result;
+}
+
+function custom_username_confirmation_validation_filter( $result, $tag ) {
+  if ('username' == $tag->name) {
+    $form = WPCF7_Submission::get_instance();
+    $values = $form->get_posted_data();
+    $username = sanitize_text_field($values['username']);
+
+    if (username_exists($username)) {
+      $result->invalidate( $tag, "Username already exists" );
+    }
+  }
+
+  return $result;
+}
+
+function spouse_create_user_on_signup_form_submission(&$contact_form) {
   if ($contact_form->id() != 22) {
     return;
   }
@@ -38,10 +69,10 @@ function spouse_create_user_on_signup_form_submission($contact_form) {
 
   $subject = __("Your account on ".get_bloginfo( 'name'));
   $headers = [];
-  add_filter( 'wp_mail_content_type', function( $content_type ) {return 'text/html';});
-  $headers[] = "From: Spouse program \r\n";
+  add_filter('wp_mail_content_type', 'set_html_content_type');
+  $headers[] = "From: Spouse-program <noreply@spouseprogram.fi> \r\n";
 
-  if(!wp_mail($email, $subject, $message, $headers)) {
+  if(!wp_mail($email, $subject, $message)) {
     // TODO: add some sort of error logging to project maybe.
     // Mails won't go through on dev environment so not gonna kill this one at the moment.
   }
@@ -51,7 +82,7 @@ function spouse_create_user_on_signup_form_submission($contact_form) {
 
 }
 
-function spouse_create_event_on_form_submission($contact_form){
+function spouse_create_event_on_form_submission(&$contact_form){
   global $current_user;
 
   if ($contact_form->id() != 593) {
