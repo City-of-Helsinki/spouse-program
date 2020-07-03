@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "37fbd9f552c6398dee34bdc9cced8a99",
+    "content-hash": "5a1c2c44628660601eb79a7f7d77ea19",
     "packages": [
         {
             "name": "composer/installers",
@@ -496,6 +496,24 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/uk-cookie-consent/"
+        },
+        {
+            "name": "wpackagist-plugin/wp-mail-smtp",
+            "version": "2.1.1",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/wp-mail-smtp/",
+                "reference": "tags/2.1.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/wp-mail-smtp.2.1.1.zip"
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/wp-mail-smtp/"
         },
         {
             "name": "wpackagist-plugin/wp-sendgrid-mailer",

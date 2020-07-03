@@ -25,6 +25,7 @@
         "wpackagist-plugin/autodescription": "4.0.7",
         "wpackagist-plugin/sharing-plus":"1.0.1",
         "wpackagist-plugin/uk-cookie-consent":"2.3.15",
+        "wpackagist-plugin/wp-mail-smtp":"2.1.1",
         "wpackagist-plugin/wp-sendgrid-mailer":"1.1"
     },
     "require-dev": {
