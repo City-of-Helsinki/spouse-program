@@ -16,7 +16,7 @@ function spouse_create_user_on_signup_form_submission(&$contact_form) {
   $values = $form->get_posted_data();
 
   $email = sanitize_email($values['email']);
-  $username = sanitize_text_field($values['name']);
+  $username = sanitize_text_field($values['username']);
   $password = spouse_random_str(20);
 
   $result = wp_create_user($username, $password, $email);
