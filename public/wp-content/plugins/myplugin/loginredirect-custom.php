@@ -4,18 +4,20 @@
  * Description: Redirect login user to custom page
  */
 
-function loginredirect_redirect_to_homepage($redirect_to, $request, $user) {
-//is there a user to check?
+function loginredirect_redirect_to_homepage($url) {
+  $user = wp_get_current_user();
+
+  //is there a user to check?
   if ( isset( $user->roles ) && is_array( $user->roles ) ) {
     //check for admins
     if ( in_array( 'administrator', $user->roles ) ) {
       // redirect them to the default place
-      return $redirect_to;
+      return get_option('siteurl') . '/wp-admin/index.php';
     } else {
       return home_url();
     }
   } else {
-    return $redirect_to;
+    return get_option('siteurl') . '/wp-admin/index.php';
   }
 }
 
