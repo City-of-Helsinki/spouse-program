@@ -56,16 +56,14 @@ function spouse_create_user_on_signup_form_submission(&$contact_form) {
     return __('Could not create user.', 'custom');
   }
 
-  $user = get_user_by('id', $result);
-  $reset_key = get_password_reset_key($user);
-  $user_login = $user->user_login;
-  $reset_link = '<a href="' . wp_login_url()."/resetpass/?key=$reset_key&login=" . rawurlencode($user_login) . '">' . wp_login_url()."/resetpass/?key=$reset_key&login=" . rawurlencode($user_login) . '</a>';
+  $reset_link = wp_login_url() . "\r\n";
 
   $blogName = get_bloginfo('name');
   $message = "Hi $username,<br>";
   $message .= "An account has been created on $blogName for email address $email <br>";
-  $message .= "Click here to set the password for your account: <br>";
-  $message .= "$reset_link <br>";
+  $message .= "Username for your account: $username <br>";
+  $message .= "Password for your account: $password <br>";
+  $message .= "You can login here: $reset_link <br>";
 
   $subject = __("Your account on ".get_bloginfo( 'name'));
   $headers = [];

@@ -329,6 +329,17 @@ header .header-main-content ul li.current_page_item a {
   }
 }
 
+.row .icons {
+  margin-bottom: 2rem;
+}
+
+.row .icons .img-fluid {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
 .single-eventbrite_events h1 {
   font-size: 32px;
 }
@@ -570,8 +581,6 @@ header .header-main-content ul li.current_page_item a {
 .events-column {
   color: black;
   padding: 40px 20px;
-  background-color: #01a090;
-  background-image: url("./src/scss/icons/background-purple.svg");
   background-size: cover;
   min-height: 100%;
   max-height: 90vh;
@@ -579,8 +588,8 @@ header .header-main-content ul li.current_page_item a {
 }
 
 .events-column h2 {
+  color: #01a090;
   text-align: center;
-  color: white;
 }
 
 .events-column a {
@@ -599,7 +608,7 @@ header .header-main-content ul li.current_page_item a {
           flex-flow: row;
   min-height: 80px;
   height: auto;
-  border: 1px solid gray;
+  border: 1px solid #01a090;
   background-color: white;
   border-radius: 6px;
   margin: 25px 0px;
@@ -608,7 +617,6 @@ header .header-main-content ul li.current_page_item a {
 
 .events-column .event .event-color {
   width: 10px;
-  border-right: 1px solid gray;
 }
 
 .events-column .event .event-start {
