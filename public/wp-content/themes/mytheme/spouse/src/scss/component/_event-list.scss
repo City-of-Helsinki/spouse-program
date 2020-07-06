@@ -98,4 +98,21 @@
   }
 }
 
+.home {
+  .events-column {
+    background-color: $cyan;
+    background-image: url('./src/scss/icons/background-purple.svg');
 
+    h2 {
+      color: white;
+    }
+
+    .event {
+      border: 1px solid $cyan;
+    }
+
+    .event-color {
+      border-right: 1px solid gray;
+    }
+  }
+}
