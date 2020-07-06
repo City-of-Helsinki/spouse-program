@@ -1,16 +1,14 @@
 .events-column {
   color: black;
   padding: 40px 20px;
-  background-color: $cyan;
-  background-image: url('./src/scss/icons/background-purple.svg');
   background-size: cover;
   min-height: 100%;
   max-height: 90vh;
   overflow-y: scroll;
 
   h2 {
+    color: $cyan;
     text-align: center;
-    color: white;
   }
 
   a {
@@ -24,7 +22,7 @@
     flex-flow: row;
     min-height: 80px;
     height: auto;
-    border: 1px solid gray;
+    border: 1px solid $cyan;
     background-color: white;
     border-radius: 6px;
     margin: 25px 0px;
@@ -32,7 +30,6 @@
 
     .event-color {
       width: 10px;
-      border-right: 1px solid gray;
     }
 
     .event-start {
