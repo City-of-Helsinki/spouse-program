@@ -690,6 +690,23 @@ header .header-main-content ul li.current_page_item a {
   padding-top: 7%;
 }
 
+.home .events-column {
+  background-color: #01a090;
+  background-image: url("./src/scss/icons/background-purple.svg");
+}
+
+.home .events-column h2 {
+  color: white;
+}
+
+.home .events-column .event {
+  border: 1px solid #01a090;
+}
+
+.home .events-column .event-color {
+  border-right: 1px solid gray;
+}
+
 label {
   width: 100%;
   margin-top: 10px;
