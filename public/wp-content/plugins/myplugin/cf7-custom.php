@@ -62,7 +62,8 @@ function spouse_create_user_on_signup_form_submission(&$contact_form) {
   $message = "Hi $username,<br>";
   $message .= "An account has been created on $blogName for email address $email <br>";
   $message .= "Username for your account: $username <br>";
-  $message .= "Password for your account: $password <br>";
+  $message .= "Automatically created password for your account: $password <br>";
+  $message .= "You can change your password on the profile <br>";
   $message .= "You can login here: $reset_link <br>";
 
   $subject = __("Your account on ".get_bloginfo( 'name'));
