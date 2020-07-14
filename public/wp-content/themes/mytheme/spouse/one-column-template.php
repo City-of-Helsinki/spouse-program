@@ -29,7 +29,6 @@
                 'container_class' => 'sidebar-menu' ) );
               ?>
 
-              <?php #wp_nav_menu(array('menu' => 7));  ?>
             </div>
             <?php
             }
@@ -38,7 +37,7 @@
         <?php if(spouse_is_restricted_page()): ?>
             <div class="col-10 offset-1 col-lg-6 offset-lg-0">
         <?php else: ?>
-            <div class="col-10 offset-1 col-lg-6 offset-lg-3">
+            <div class="col-12 offset-0 col-lg-6 offset-lg-3">
         <?php endif; ?>
             <h1><?php the_title(); ?></h1>
         <?php
@@ -56,7 +55,7 @@
           <?php
           if(spouse_is_restricted_page()){
             ?>
-              <div class="col-12 col-sm-12 col-lg-4 col-xl-3 events-column">
+              <div class="col-12 col-sm-12 col-lg-3 col-xl-3 events-column">
                   <h2>Upcoming events</h2>
                 <?php echo do_shortcode('[spouse-events]'); ?>
               </div>
