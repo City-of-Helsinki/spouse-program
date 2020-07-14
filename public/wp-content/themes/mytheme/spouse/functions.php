@@ -76,6 +76,8 @@ function spouse_get_events(){
 
     $icon = get_field('icon', $post->ID);
 
+    $category = '';
+
     if($terms && $term = reset($terms)) {
       $color = get_field('event_color', $term);
       $category = $term->name;
