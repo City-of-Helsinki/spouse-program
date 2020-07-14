@@ -151,7 +151,6 @@ iframe {
 .main-content {
   position: relative;
   background-color: #fff;
-  /*min-height: 750px;*/
   min-height: 90vh;
   padding: 0;
   font-size: 18px;
@@ -163,6 +162,11 @@ iframe {
   z-index: 9;
   top: 0;
   left: 0;
+  padding: 10px 10px 10px 5px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
 }
 
 .main-content > img {
@@ -176,14 +180,6 @@ iframe {
   margin-left: -150px;
 }
 
-.main-content .main-content-container {
-  padding: 10px 20px 10px 0px;
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 100%;
-  width: 100%;
-}
-
 .main-content h1 {
   font-size: 42px;
   text-align: center;
@@ -192,11 +188,6 @@ iframe {
 
 .main-content p {
   margin-bottom: 5px;
-}
-
-.main-content .small-images {
-  position: absolute;
-  bottom: 20px;
 }
 
 .main-content .small-images img {
@@ -243,6 +234,9 @@ iframe {
   .main-content {
     font-size: 16px;
     min-height: 750px;
+  }
+  .main-content .main-content-container h1 {
+    font-size: 34px;
   }
 }
 
@@ -376,8 +370,8 @@ header .header-main-content ul li.current_page_item a {
   display: block;
   width: auto;
   overflow: hidden;
-  -webkit-transform: scale(2, 1);
-          transform: scale(2, 1);
+  -webkit-transform: scaleX(3.5);
+          transform: scaleX(3.5);
   height: 350px;
 }
 
@@ -463,6 +457,28 @@ header .header-main-content ul li.current_page_item a {
 .page-template-one-column-template .sidebar-menu ul li a,
 .page-template-two-column-template .sidebar-menu ul li a {
   color: black;
+}
+
+.page-template-one-column-template .sidebar-menu .current-menu-item,
+.page-template-two-column-template .sidebar-menu .current-menu-item {
+  font-weight: bold;
+}
+
+@media (max-width: 992px) {
+  .page-template-one-column-template .sidebar-menu,
+  .page-template-two-column-template .sidebar-menu {
+    text-align: center;
+    padding-top: 10px;
+  }
+  .page-template-one-column-template h1,
+  .page-template-two-column-template h1 {
+    margin-bottom: 10px;
+  }
+  .page-template-one-column-template .events-column .event,
+  .page-template-two-column-template .events-column .event {
+    max-width: 75%;
+    margin: 20px auto;
+  }
 }
 
 .button-defaults, .button-white, .button-purple {
@@ -583,8 +599,7 @@ header .header-main-content ul li.current_page_item a {
   padding: 40px 20px;
   background-size: cover;
   min-height: 100%;
-  max-height: 90vh;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 .events-column h2 {
