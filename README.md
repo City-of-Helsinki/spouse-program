@@ -37,3 +37,10 @@ To export or import database after the environment has been set up:
 Login page: https://spouse.docker.sh/wp-admin
 
 Ready! Now go to https://spouse.docker.sh to see your site.
+
+## Developing spouse theme
+
+To compile sass go the theme folder and run:
+```
+gulp watch
+```
