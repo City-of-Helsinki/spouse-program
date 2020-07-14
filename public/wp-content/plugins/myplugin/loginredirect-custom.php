@@ -4,7 +4,7 @@
  * Description: Redirect login user to custom page
  */
 
-function loginredirect_redirect_to_homepage($url) {
+function spouse_loginredirect_redirect_to_homepage($url) {
   $user = wp_get_current_user();
 
   //is there a user to check?
@@ -21,4 +21,4 @@ function loginredirect_redirect_to_homepage($url) {
   }
 }
 
-add_filter( 'login_redirect', 'loginredirect_redirect_to_homepage' );
+add_filter( 'login_redirect', 'spouse_loginredirect_redirect_to_homepage' );
