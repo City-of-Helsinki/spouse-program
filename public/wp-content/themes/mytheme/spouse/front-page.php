@@ -44,10 +44,8 @@ get_header();
                         ?>
                     </div>
                 </div>
-                  <i class="clearfix"></i>
               </div>
               <img class="overflow-wave d-none d-xl-block" src="<?php echo get_template_directory_uri(); ?>/src/scss/icons/background-white.svg">
-              <i class="clearfix"></i>
           </div>
           <div class="col-12 col-sm-12 col-lg-6 col-xl-3 events-column">
               <h2>Upcoming events</h2>

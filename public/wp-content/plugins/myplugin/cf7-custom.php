@@ -14,7 +14,7 @@ function custom_email_confirmation_validation_filter( $result, $tag ) {
   $wpcf7 = WPCF7_ContactForm::get_current();
 
   if ($wpcf7->id() != 22) {
-    return;
+    return $result;
   }
 
   if ('email' == $tag->name) {
@@ -34,9 +34,9 @@ function custom_username_confirmation_validation_filter( $result, $tag ) {
   $wpcf7 = WPCF7_ContactForm::get_current();
 
   if ($wpcf7->id() != 22) {
-    return;
+    return $result;
   }
-  
+
   if ('username' == $tag->name) {
     $form = WPCF7_Submission::get_instance();
     $values = $form->get_posted_data();
