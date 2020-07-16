@@ -342,6 +342,10 @@ header .header-main-content ul li.current_page_item a {
   margin-top: 20px;
 }
 
+.single-eventbrite_events .single-event-content .iee_event_meta {
+  display: none;
+}
+
 .single-event-registration {
   background-color: #01a090;
   padding-top: 50px;
