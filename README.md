@@ -7,8 +7,8 @@ Spouse program website using Composer, Docker, Stonehenge and deployed to Wodby.
 Env | Branch | URL
 --- | ------ | ---
 development | * | https://spouse.docker.sh/
-testing | dev | TBD
-production | master | nope, this is an example
+testing | development | http://spouse-test.druid.fi
+production | master | http://spouseprogram.fi
 
 ## Requirements
 
@@ -16,7 +16,6 @@ You need to have these applications installed to operate on all environments:
 
 - [Docker](https://github.com/druidfi/guidelines/blob/master/docs/docker.md)
 - [Stonehenge](https://github.com/druidfi/stonehenge)
-- For the new person: Your SSH public key needs to be added to servers
 
 ## Create and start the environment
 
@@ -26,8 +25,22 @@ For the first time:
 $ make fresh
 ```
 
-Ready! Now go to https://wp.docker.sh/ to see your site.
+## Import / export database
+Docker container has [wp-cli](https://developer.wordpress.org/cli/commands/) installed.
 
-## TODO
+To export or import database after the environment has been set up:
+1. Get latest version of the database and set it in the same folder with the wordpress installation. You can get a database dump from Wodby
+2. Go inside docker container: **make shell**.
+3. Inside the container, go to the root of wordpress installation
+4. Use the wp-cli to import or export database: **wp db import db-dump.sql**
 
-- Sync from Wodby server with `make fresh`
+Login page: https://spouse.docker.sh/wp-admin
+
+Ready! Now go to https://spouse.docker.sh to see your site.
+
+## Developing spouse theme
+
+To compile sass go the theme folder and run:
+```
+gulp watch
+```
