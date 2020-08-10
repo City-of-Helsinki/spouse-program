@@ -21,7 +21,7 @@
         <?php
             if(spouse_is_restricted_page()){
                 ?>
-            <div class="col-12 col-sm-12 col-lg-3 menu">
+            <aside class="col-12 col-sm-12 col-lg-3 menu">
 
               <?php
               wp_nav_menu( array(
@@ -29,7 +29,7 @@
                 'container_class' => 'sidebar-menu' ) );
               ?>
 
-            </div>
+            </aside>
             <?php
             }
         ?>

@@ -37,7 +37,7 @@ get_header();
                           $img = get_sub_field('image');
                         ?>
                         <div class="col-4">
-                            <img src="<?php echo $img; ?>"/>
+                            <img src="<?php echo $img; ?>" alt=""/>
                         </div>
                         <?php
                         endwhile;
@@ -45,7 +45,7 @@ get_header();
                     </div>
                 </div>
               </div>
-              <img class="overflow-wave d-none d-xl-block" src="<?php echo get_template_directory_uri(); ?>/src/scss/icons/background-white.svg">
+              <img role="presentation" class="overflow-wave d-none d-xl-block" src="<?php echo get_template_directory_uri(); ?>/src/scss/icons/background-white.svg">
           </div>
           <div class="col-12 col-sm-12 col-lg-6 col-xl-3 events-column">
               <h2>Upcoming events</h2>

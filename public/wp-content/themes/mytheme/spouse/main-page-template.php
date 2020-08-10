@@ -6,9 +6,9 @@ get_header();
 <main id="site-content" role="main">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-12 col-sm-12 col-xl-3 menu">
+            <aside class="col-12 col-sm-12 col-xl-3 menu">
                 <?php wp_nav_menu(array('menu' => 7));  ?>
-            </div>
+            </aside>
             <div class="col-12 col-sm-12 col-lg-6 col-xl-6 main-content">
                 <div class="row">
                 <div class="main-content-container">
