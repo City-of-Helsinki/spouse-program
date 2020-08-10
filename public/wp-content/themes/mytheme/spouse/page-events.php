@@ -128,10 +128,11 @@ jQuery(document).ready(function(){
     eventLimit: 1,
     fixedWeekCount: false,
     eventRender: function(event){
+      console.log(event.start.month);
       const html = `<a href="${event.url}"><div class="event">
             <div class="event-color" style="background-color:${event.color}"></div>
             <div class="event-content">
-              <div class="event-day">${event.start.format('d')}</div>
+              <div class="event-day">${event.start.format(' d')}</div>
               <div class="text-content">
                 <span class="">${event.category ?? ''}</span>
                 <p>${event.title}</p>
