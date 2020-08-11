@@ -29,6 +29,8 @@ function spouse_get_events($count) {
     'post_type' => 'eventbrite_events',
     'post_status' => 'publish',
     'numberposts' => $count,
+    'orderby' => 'date',
+    'order' => 'ASC',
   ];
 
   $posts = wp_get_recent_posts($args, OBJECT);

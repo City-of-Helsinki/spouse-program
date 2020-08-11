@@ -75,9 +75,6 @@ function spouse_print_notice($posts){
 
         var hideTime = window.localStorage.getItem(localstorageTag);
 
-        console.log(postTime);
-        console.log(hideTime);
-
         if(postTime > hideTime){
           element.parentElement.parentElement.parentElement.classList.remove('d-none');
         }
@@ -85,7 +82,6 @@ function spouse_print_notice($posts){
 
       element.addEventListener('click', function(){
         element.parentElement.parentElement.parentElement.classList.add('d-none');
-        console.log('saving', postTime);
         window.localStorage.setItem(localstorageTag, postTime);
       });
 
