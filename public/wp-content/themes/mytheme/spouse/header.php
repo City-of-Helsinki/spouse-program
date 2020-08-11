@@ -1,5 +1,38 @@
 <!DOCTYPE html>
 
+<style>
+    @keyframes testt {
+        from{
+            height: 0px;
+        }
+        to{
+            height: 100px;
+        }
+    }
+
+    @keyframes xxx {
+        from{
+            opacity: 0;
+        }
+        to{
+            opacity: 1;
+        }
+    }
+
+    .spouse-notice {
+        height: 100px;
+        animation: testt 2s;
+        background-color: yellow;
+    }
+
+    .spouse-notice p,
+    .spouse-notice  a {
+        opacity: 1;
+        animation: xxx 4s;
+    }
+
+</style>
+
 <?php spouse_access_control_check(); ?>
 
 <html class="no-js" <?php language_attributes(); ?>>
@@ -53,6 +86,8 @@ wp_body_open();
         </div>
     </div>
 </header><!-- #site-header -->
+
+<?php echo do_shortcode('[spouse_notice]'); ?>
 
 <?php
 // Output the menu modal.
