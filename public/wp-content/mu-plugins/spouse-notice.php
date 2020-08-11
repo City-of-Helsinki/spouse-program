@@ -22,9 +22,8 @@ function spouse_get_latest_posts(){
     'post_status' => ['publish'],
     'orderby' => 'date',
     'order' => 'DESC',
-    'limit' => 5,
+    'numberposts' => 2,
     'date_query' => [[
-      #'after' => strtotime("-7 days")
       'after' => '1 week ago',
     ]]
   ];
@@ -36,13 +35,13 @@ function spouse_print_notice($posts){
   echo '<div role="alert" class="spouse-notice d-none">';
   echo '<div class="row">';
     echo '<div class="col-10">';
-    echo '<p><strong>Notice!</strong></p>';
+    echo '<p><strong>We have news you might have missed!</strong></p>';
 
     echo '<ul>';
       foreach($posts as $post) {
         ?>
         <a href="<?php echo get_permalink($post->ID); ?>">
-          <li>
+          <li class="list-unstyled">
             <?php
             echo $post->post_title;
             ?>
@@ -63,14 +62,21 @@ function spouse_print_notice($posts){
 
       var localstorageTag = 'hidenotification';
       var lastPostDate = '<?php echo $posts[0]->post_date; ?>';
+
+      //window.localStorage.removeItem(localstorageTag);
       var element = document.getElementById('spouse-close-notification');
 
-      if(window.localStorage.getItem(localstorageTag) === null){
+      var postDate = new Date(lastPostDate)
+      var postTime = Math.floor(postDate.getTime() / 1000);
+
+      if(window.localStorage.getItem(localstorageTag) === null || !window.localStorage.getItem(localstorageTag)){
         element.parentElement.parentElement.parentElement.classList.remove('d-none');
       } else {
-        var postTime = new Date(lastPostDate);
-        var postTime = Math.floor(postTime.getTime() / 1000);
-        var hideTime = new Date(window.localStorage.getItem(localstorageTag));
+
+        var hideTime = window.localStorage.getItem(localstorageTag);
+
+        console.log(postTime);
+        console.log(hideTime);
 
         if(postTime > hideTime){
           element.parentElement.parentElement.parentElement.classList.remove('d-none');
@@ -79,7 +85,8 @@ function spouse_print_notice($posts){
 
       element.addEventListener('click', function(){
         element.parentElement.parentElement.parentElement.classList.add('d-none');
-        window.localStorage.setItem(localstorageTag, Math.floor( new Date().getTime() / 1000 ));
+        console.log('saving', postTime);
+        window.localStorage.setItem(localstorageTag, postTime);
       });
 
     })();
