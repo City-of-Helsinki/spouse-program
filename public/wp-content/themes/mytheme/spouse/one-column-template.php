@@ -6,7 +6,6 @@
 <main id="main-content" class="container-fluid sidewave" style="background-image:url(<?php echo get_template_directory_uri(); ?>/src/scss/icons/sidedecoration.svg)" role="main">
 <?php else: ?>
 <main id="main-content" class="container-fluid" role="main">
-
 <?php endif; ?>
     <div class="row">
         <?php if($thumbnail = get_the_post_thumbnail_url(get_the_ID(), 'full')):
@@ -20,17 +19,15 @@
 
         <?php
             if(spouse_is_restricted_page()){
-                ?>
+        ?>
             <aside class="col-12 col-sm-12 col-lg-3 menu">
-
               <?php
               wp_nav_menu( array(
                 'theme_location' => 'sidebar-menu',
                 'container_class' => 'sidebar-menu' ) );
               ?>
-
             </aside>
-            <?php
+        <?php
             }
         ?>
 
