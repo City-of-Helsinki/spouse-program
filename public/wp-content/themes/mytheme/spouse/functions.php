@@ -18,11 +18,13 @@ function spouse_enqueue_scripts() {
 add_action('wp_enqueue_scripts', 'spouse_enqueue_scripts');
 
 if ( function_exists('register_sidebar') ) {
-  // Footer widgets
+
   $footerWidgets = [
     'footer_content_left' => 'footer content left',
     'footer_content' => 'footer content middle',
     'footer_content_right' => 'footer content right',
+  ];
+  $otherWidgets = [
     'social_title' => 'Social sharing title',
     'sidebar_menu' => 'Sidebar menu on main page'
   ];
@@ -38,105 +40,32 @@ if ( function_exists('register_sidebar') ) {
       ]
     );
   }
+
+  foreach($otherWidgets as $key => $widget) {
+    register_sidebar([
+        'name' => __($widget),
+        'id' => $key,
+        'description' => "Content widget: $key",
+        'before_widget' => '<div>',
+        'after_widget' => '</div>',
+        'before_title' => '<h3>',
+        'after_title' => '</h3>',
+      ]
+    );
+  }
+
 }
 
 add_action( 'init', 'spouse_add_shortcodes' );
 
 function spouse_add_shortcodes() {
+  // Login form as shortcode.
   add_shortcode( 'custom-login-form', 'spouse_login_form_shortcode' );
 }
 
 function spouse_login_form_shortcode() {
   return wp_login_form( array( 'echo' => false ) );
 }
-
-function spouse_get_events(){
-  $args = [
-    'post_type' => 'eventbrite_events',
-    'post_status' => 'publish',
-    'numberposts' => '5',
-  ];
-
-  $posts = wp_get_recent_posts($args, OBJECT);
-
-  if(!$posts) {
-      return;
-  }
-
-  foreach($posts as $post){
-
-    $color = '#fff';
-    $startDate = null;
-
-    $terms = get_the_terms($post->ID, 'eventbrite_category');
-
-    if(is_wp_error($terms) && $terms !== FALSE){
-      return $terms->get_error_message();
-    }
-
-    $icon = get_field('icon', $post->ID);
-
-    $category = '';
-
-    if($terms && $term = reset($terms)) {
-      $color = get_field('event_color', $term);
-      $category = $term->name;
-    }
-
-    if($dateData = get_post_meta($post->ID, 'event_start_date')) {
-
-      $date = new \DateTime();
-      $date->setTimestamp(strtotime($dateData[0]));
-      $startDate = $date->format('d/m');
-
-      $hour = get_post_meta($post->ID, 'event_start_hour')[0];
-      $minute = get_post_meta($post->ID, 'event_start_minute')[0];
-
-      $endHour = get_post_meta($post->ID, 'event_end_hour')[0];
-      $endMinute = get_post_meta($post->ID, 'event_end_minute')[0];
-      $meridian = get_post_meta($post->ID, 'event_start_meridian')[0];
-
-      $startTime = "$hour:$minute $meridian";
-      $endTime = "$endHour:$endMinute $meridian";
-    }
-
-    ?>
-
-    <?php if(is_user_logged_in()): ?>
-      <a href="<?php echo get_permalink($post) ?>">
-
-    <?php endif; ?>
-    <?php
-    $popupClass = '';
-    if(!is_user_logged_in()){
-        $popupClass = 'popup-hover ';
-    }
-    ?>
-      <div class="event <?php echo $popupClass ?>clearfix">
-          <div class="event-color" <?php if(isset($color) && $color): ?>style="background-color:<?php echo $color; ?>" <?php endif; ?>></div>
-          <div class="event-start"><?php echo $startDate; ?></div>
-          <div class="event-content">
-              <div class="text-content">
-                <p class=""><?php echo $category ?></p>
-                <p class=""><?php echo $post->post_title ?></p>
-                <p><?php echo $startTime; ?> - <?php echo $endTime; ?></p>
-              </div>
-          </div>
-          <div class="event-icon"><img src="<?php echo $icon ?>"></div>
-          <i class="clearfix"></i>
-          <div class="popuptext">
-              Sign in to see more
-          </div>
-      </div>
-    <?php if(is_user_logged_in()): ?>
-      </a>
-    <?php endif; ?>
-
-    <?php
-
-  }
-}
-add_shortcode('spouse-events', 'spouse_get_events');
 
 function spouse_get_template_part($slug, $name = null) {
 
@@ -241,8 +170,6 @@ function spouse_remove_admin_bar() {
 
 function spouse_edit_role_caps() {
   $role = get_role( 'editor' );
- // echo '<pre>';
- // die(var_dump($role->capabilities));
 
   $allowed = [
     'manage_options',

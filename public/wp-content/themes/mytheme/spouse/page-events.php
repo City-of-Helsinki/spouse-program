@@ -49,11 +49,10 @@ foreach($data as $post) {
     $event['venue_name'] = $meta['venue_name'];
     $event['venue_address'] = "{$meta['venue_address']}, {$meta['venue_zipcode']} {$meta['venue_city']}";
     $event['url'] = get_permalink($post->id);
-    $event['color'] = $color ?? '';
     if($meta['event_start_date']){
       $year = explode('-', $meta['event_start_date'])[0];
       $month = ltrim(explode('-', $meta['event_start_date'])[1], '0');
-      $count[$year][$month] = is_numeric($count[$year][$month]) ? $count[$year][$month] : 1;
+      $count[$year][$month] = is_numeric($count[$year][$month]) ? $count[$year][$month] += 1 : 1;
     }
     $events[] = $event;
 }
@@ -128,11 +127,9 @@ jQuery(document).ready(function(){
     eventLimit: 1,
     fixedWeekCount: false,
     eventRender: function(event){
-      console.log(event.start.month);
       const html = `<a href="${event.url}"><div class="event">
             <div class="event-color" style="background-color:${event.color}"></div>
             <div class="event-content">
-              <div class="event-day">${event.start.format(' d')}</div>
               <div class="text-content">
                 <span class="">${event.category ?? ''}</span>
                 <p>${event.title}</p>
