@@ -14,6 +14,10 @@ add_action( 'init', 'spouse_menu' );
 function spouse_enqueue_scripts() {
   wp_enqueue_style('bootstrap', get_template_directory_uri() . '/dist/bootstrap/dist/css/bootstrap.css');
   wp_enqueue_style('style', get_stylesheet_uri());
+
+  if ( is_page_template('archives.php') ) {
+    wp_enqueue_script('news-visited', get_template_directory_uri() . '/js/news-visited.js');
+  }
 }
 add_action('wp_enqueue_scripts', 'spouse_enqueue_scripts');
 
@@ -68,7 +72,6 @@ function spouse_login_form_shortcode() {
 }
 
 function spouse_get_template_part($slug, $name = null) {
-
   do_action("ccm_get_template_part_{$slug}", $slug, $name);
 
   $templates = array();

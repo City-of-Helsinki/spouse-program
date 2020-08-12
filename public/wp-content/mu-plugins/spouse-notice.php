@@ -61,6 +61,7 @@ function spouse_print_notice($posts){
     (function(){
 
       var localstorageTag = 'hidenotification';
+      var newsVisited = window.localStorage.getItem('news-visited')
       var lastPostDate = '<?php echo $posts[0]->post_date; ?>';
 
       //window.localStorage.removeItem(localstorageTag);
@@ -72,9 +73,7 @@ function spouse_print_notice($posts){
       if(window.localStorage.getItem(localstorageTag) === null || !window.localStorage.getItem(localstorageTag)){
         element.parentElement.parentElement.parentElement.classList.remove('d-none');
       } else {
-
         var hideTime = window.localStorage.getItem(localstorageTag);
-
         if(postTime > hideTime){
           element.parentElement.parentElement.parentElement.classList.remove('d-none');
         }
@@ -85,7 +84,32 @@ function spouse_print_notice($posts){
         window.localStorage.setItem(localstorageTag, postTime);
       });
 
+      if(newsVisited > postTime){
+        window.localStorage.setItem(localstorageTag, postTime);
+      }
+
     })();
+
+    // News visited.
+    (function(){
+
+      var lastPostDate = '<?php echo $posts[0]->post_date; ?>';
+      var lastPostDateUTC = new Date(lastPostDate).toUTCString();
+      var lastPostTime = Math.floor(new Date(lastPostDateUTC).getTime() / 1000);
+      var newsVisited = localStorage.getItem('news-visited');
+      var menuItems = document.getElementsByClassName('new-news');
+      var menuItem = menuItems[0];
+
+      // Check if news page has been visited after last post was made
+      if(!newsVisited || newsVisited == undefined){
+        return;
+      }
+      // Add exclamation mark if there are new posts.
+      if(lastPostTime > newsVisited){
+        menuItem.classList.add('news-visible');
+      }
+
+    })()
   </script>
   <?php
 

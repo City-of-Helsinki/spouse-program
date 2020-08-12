@@ -1,9 +1,40 @@
+.spouse-notice {
+  overflow: hidden;
+  animation: move 2s;
+  background-color: $yellow;
+  z-index:1;
+  padding: 20px;
+  // position: relative;
+  ul {
+    margin-left: 0px;
+    padding-left: 0px;
+  }
+}
+
+
+li.new-news {
+  &.news-visible:after{
+    font-family: FontAwesome;
+    content: '\f12a';
+    font-size: 20px;
+    color: red;
+    position: absolute;
+    top: -5px;
+  }
+}
+
+.spouse-notice p,
+.spouse-notice  ul li a {
+  opacity: 1;
+  animation: opacity 4s;
+}
+
 @keyframes move {
   from{
     height: 0px;
   }
   to{
-    height: 100px;
+    height: 150px;
   }
 }
 
@@ -14,17 +45,4 @@
   to{
     opacity: 1;
   }
-}
-
-.spouse-notice {
-  overflow: hidden;
-  animation: move 2s;
-  background-color: $yellow;
-  z-index:1;
-}
-
-.spouse-notice p,
-.spouse-notice  ul li a {
-  opacity: 1;
-  animation: opacity 4s;
 }
