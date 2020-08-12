@@ -45,7 +45,7 @@ wp_body_open();
                   ?>
                     <a class="user-link" href="<?php echo get_edit_profile_url( $current_user->id ); ?>"><?php echo $current_user->user_login; ?></a>
                     |
-                    <a href="<?php echo wp_logout_url(); ?>">Logout</a>
+                    <a href="<?php echo wp_logout_url(home_url()); ?>">Logout</a>
                 <?php
                 endif;
                 ?>
