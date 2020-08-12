@@ -9,10 +9,10 @@ get_header();
 <main id="main-content" role="main">
   <div class="container-fluid">
     <div class="row">
-        <div class="col-12 text-center archive">
+        <div class="col-12 text-center">
             <h1><?php echo get_the_title(); ?></h1>
         </div>
-        <aside class="col-12 col-lg-3 archive">
+        <aside class="col-12 col-lg-3 archive menu">
             <h2>News archive</h2>
             <?php
             wp_custom_archive();

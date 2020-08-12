@@ -16,16 +16,21 @@
           <img role="presentation" alt="" class="wave" src="<?php echo get_template_directory_uri(); ?>/src/scss/icons/background-white-horizontal.svg">
         </div>
         <?php endif; ?>
-
+        <div class="col-12">
+            <h1><?php the_title(); ?></h1>
+        </div>
         <?php
             if(spouse_is_restricted_page()){
         ?>
             <aside class="col-12 col-sm-12 col-lg-3 menu">
+            <h2>Menu</h2>
+              <nav aria-label="Submenu">
               <?php
               wp_nav_menu( array(
                 'theme_location' => 'sidebar-menu',
                 'container_class' => 'sidebar-menu' ) );
               ?>
+              </nav>
             </aside>
         <?php
             }
@@ -36,7 +41,6 @@
         <?php else: ?>
             <div class="col-12 offset-0 col-lg-6 offset-lg-3">
         <?php endif; ?>
-            <h1><?php the_title(); ?></h1>
         <?php
         // center
         if (have_rows('left_column_content')):

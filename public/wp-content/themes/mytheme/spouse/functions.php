@@ -50,10 +50,10 @@ if ( function_exists('register_sidebar') ) {
         'name' => __($widget),
         'id' => $key,
         'description' => "Content widget: $key",
-        'before_widget' => '<div>',
-        'after_widget' => '</div>',
-        'before_title' => '<h3>',
-        'after_title' => '</h3>',
+        'before_widget' => '',
+        'after_widget' => '',
+        'before_title' => '',
+        'after_title' => '',
       ]
     );
   }

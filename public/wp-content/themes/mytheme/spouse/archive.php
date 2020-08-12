@@ -7,7 +7,7 @@ get_header();
         <div class="col-12 text-center archive">
           <h1>News</h1>
         </div>
-        <aside class="col-12 col-lg-3 archive">
+        <aside class="col-12 col-lg-3 archive menu">
           <h2>News archive</h2>
           <nav aria-label="Submenu">
           <?php

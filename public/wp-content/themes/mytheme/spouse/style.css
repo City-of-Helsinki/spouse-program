@@ -498,7 +498,6 @@ header .header-main-content ul li.current_page_item a {
   text-decoration: none;
   color: black;
   font-size: 24px;
-  padding-top: 75px;
 }
 
 .post-template-default .sidebar-menu ul,
@@ -508,6 +507,7 @@ header .header-main-content ul li.current_page_item a {
 .archive .sidebar-menu ul,
 .error404 .sidebar-menu ul {
   list-style: none;
+  padding-left: 0px;
 }
 
 .post-template-default .sidebar-menu ul li a,
@@ -672,7 +672,7 @@ header .header-main-content ul li.current_page_item a {
 
 .events-column {
   color: black;
-  padding: 40px 20px;
+  padding: 0px 20px;
   background-size: cover;
   min-height: 100%;
   overflow-y: auto;
