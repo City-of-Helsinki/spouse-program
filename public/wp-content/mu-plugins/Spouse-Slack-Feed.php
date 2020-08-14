@@ -36,6 +36,8 @@ function spouse_init_slack_view($attributes) {
   }
   if(isset($attributes['title'])){
     $title = $attributes['title'];
+  } else {
+    $title = '';
   }
 
   $channel = get_channel_by_name($slackChannelName, $attributes);
@@ -81,8 +83,6 @@ function slack_api_request ($apiPath, $postFields, $attributes) {
     return $result;
   }
 
-  #print_r($result);
-  #die('Could not execute request ' . $apiPath);
 }
 
 /**
@@ -237,7 +237,7 @@ function replace_slack_tags($text) {
   $text = preg_replace_callback(
     '/<@([a-zA-Z0-9]+)>/',
     function ($matches) {
-      return user_id_to_name($matches[1]);
+      #return user_id_to_name($matches[1]);
     },
     $text
   );
