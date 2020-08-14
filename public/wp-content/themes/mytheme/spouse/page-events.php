@@ -64,9 +64,14 @@ foreach($data as $post) {
   window.spouse_events = JSON.parse('<?php echo json_encode($events)?>');
 </script>
 
-<div class="container-fluid">
+<main class="container-fluid">
   <div class="row">
+    <div class="col-12 text-center">
+        <h1>Events</h1>
+    </div>
+  </div>
 
+  <div class="row">
     <div class="d-none d-lg-block order-3 col-lg-3 order-lg-first col-xl-2">
       <div class="events-date">
           <div class="controls">
@@ -111,7 +116,7 @@ foreach($data as $post) {
     </div>
 
   </div>
-</div>
+</main>
 
 <script>
 
@@ -133,10 +138,9 @@ jQuery(document).ready(function(){
               <div class="text-content">
                 <span class="">${event.category ?? ''}</span>
                 <p>${event.title}</p>
-                <p>${event.starttime}</p>
+                <p>${event.starttime} - ${event.start.format('MMMM D ')}</p>
               </div>
             </div>
-            <div class="event-icon"><img src=""></div>
         </div></a>`;
 
       // prevent appending before clear has been done

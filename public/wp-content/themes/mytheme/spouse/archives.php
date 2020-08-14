@@ -8,12 +8,15 @@ get_header();
 
 <main id="main-content" role="main">
   <div class="container-fluid">
-    <div class="row">
-        <div class="col-12 text-center">
+      <div class="row">
+          <div class="col-12 text-center">
             <h1><?php echo get_the_title(); ?></h1>
-        </div>
-        <aside class="col-12 col-lg-3 archive menu">
-            <h2>News archive</h2>
+          </div>
+      </div>
+    <div class="row">
+
+        <aside class="col-12 order-last order-lg-first col-lg-3 archive">
+            <h2>Filter news by year</h2>
             <?php
             wp_custom_archive();
             ?>
@@ -32,9 +35,8 @@ get_header();
           'post_status' => 'publish',
           'orderby' => 'date',
           'order' => 'DESC',
-          'numberposts' => 10,
+          'numberposts' => 15,
         ];
-
         $posts = get_posts($options);
         ?>
         <ul class="list-unstyled">

@@ -1,10 +1,16 @@
 .events-date {
   font-size: 18px;
+
+  .dashicons {
+    margin-left: 5px;
+  }
+
   .controls {
     font-size: 1.25rem;
     margin: 20px 0px 40px 0px;
     width: 100%;
     text-align: center;
+
     #spouse-fc-prevyear {
       display:inline-block;
       &:hover {

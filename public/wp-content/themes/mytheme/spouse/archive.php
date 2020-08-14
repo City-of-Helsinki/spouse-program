@@ -8,7 +8,7 @@ get_header();
           <h1>News</h1>
         </div>
         <aside class="col-12 col-lg-3 archive menu">
-          <h2>News archive</h2>
+          <h2>Filter news by year</h2>
           <nav aria-label="Submenu">
           <?php
           wp_custom_archive();

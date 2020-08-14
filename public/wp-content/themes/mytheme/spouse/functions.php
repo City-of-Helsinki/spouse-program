@@ -284,7 +284,7 @@ function wp_custom_archive($args = '') {
       $year_text = sprintf('%d', $arcresult->year);
       $year_output = get_archives_link($year_url, $year_text, 'html', '','');
       $output .= ( $arcresult->year != $temp_year ) ? $year_output : '';
-      $output .= get_archives_link($url, $text, 'html', '<span class="month">', '</span>');
+      #$output .= get_archives_link($url, $text, 'html', '<span class="month">', '</span>');
 
       $temp_year = $arcresult->year;
     }
