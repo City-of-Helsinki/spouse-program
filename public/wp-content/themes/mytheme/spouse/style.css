@@ -954,6 +954,12 @@ input[type='checkbox'] {
   padding-left: 0px;
 }
 
+.spouse-close-notification {
+  background-color: #ffffff00 !important;
+  border: 0;
+  font-size: 1.5rem;
+}
+
 li.new-news.news-visible:after {
   font-family: FontAwesome;
   content: '\f12a';

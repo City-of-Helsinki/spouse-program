@@ -102,13 +102,18 @@ function spouse_print_notice($posts){
 
       // Check if news page has been visited after last post was made
       if(!newsVisited || newsVisited == undefined){
-        return;
-      }
-      // Add exclamation mark if there are new posts.
-      if(lastPostTime > newsVisited){
-        menuItem.classList.add('news-visible');
+        // menuItem.classList.add('news-visible');
+        Array.prototype.forEach.call(menuItems,function(e){
+          e.classList.add('news-visible');
+        })
       }
 
+      // Add exclamation mark if there are new posts.
+      if(lastPostTime > newsVisited){
+        Array.prototype.forEach.call(menuItems,function(e){
+          e.classList.add('news-visible');
+        })
+      }
     })()
   </script>
   <?php
