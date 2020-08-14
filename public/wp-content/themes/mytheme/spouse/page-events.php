@@ -66,13 +66,15 @@ foreach($data as $post) {
 
 <main class="container-fluid">
   <div class="row">
-    <div class="col-12 text-center">
+      <!--
+    <div class="col-12">
         <h1>Events</h1>
     </div>
+    -->
   </div>
 
   <div class="row">
-    <div class="d-none d-lg-block order-3 col-lg-3 order-lg-first col-xl-2">
+    <div class="d-none d-lg-block order-3 col-lg-3 order-lg-first col-lg-3 col-xl-2">
       <div class="events-date">
           <div class="controls">
               <div id="spouse-fc-prevyear">
@@ -102,7 +104,7 @@ foreach($data as $post) {
       </div>
     </div>
 
-    <div class="col-12 order-2 col-lg-6 col-xl-7">
+    <div class="col-12 order-2 col-lg-7 col-xl-8">
       <div id="events-calendar" class="events-calendar">
       </div>
     </div>

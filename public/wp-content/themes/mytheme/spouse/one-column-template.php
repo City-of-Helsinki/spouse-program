@@ -39,7 +39,7 @@
         ?>
 
         <?php if(spouse_is_restricted_page()): ?>
-            <div class="col-12 offset-1 col-sm-12 col-md-12 col-lg-6 offset-lg-0 col-xl-7">
+            <div class="col-12 offset-0 col-sm-12 col-md-12 col-lg-6 offset-lg-0 col-xl-7">
         <?php else: ?>
             <div class="col-12 offset-0 col-lg-6 offset-lg-3">
         <?php endif; ?>
