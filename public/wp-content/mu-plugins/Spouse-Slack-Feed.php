@@ -46,7 +46,7 @@ function spouse_init_slack_view($attributes) {
 
   echo '<div class="slack-feed">';
   if($title){
-    echo '<h3>'.$title.'</h3>';
+    echo '<h3>'.sanitize_text_field($title).'</h3>';
   }
   foreach (array_reverse($channelHistory) as $message) {
     echo render_message($message, $userList);
@@ -324,7 +324,7 @@ function render_userinfo($message, $user) {
     $username = $user['real_name'] ? $user['real_name'] : $user['name'];
   }
 
-  $html = '<strong class="username">' . $username . '</strong> ';
+  $html = '<strong class="username">' .sanitize_text_field($username) . '</strong> ';
 
   $html .= '<small class="timestamp">' . date('l, F jS \a\t g:i a', $message['ts']) . '</small>';
 
@@ -351,7 +351,7 @@ function render_user_message($message, $user) {
 
   $html .= render_userinfo($message, $user);
 
-  $html .= '<div class="message">' . replace_slack_tags($message['text']) . '</div>';
+  $html .= '<div class="message">' . replace_slack_tags(sanitize_text_field($message['text'])) . '</div>';
 
   if (isset($message['reactions'])) {
     #$html .= render_reactions($message['reactions']);
@@ -411,11 +411,11 @@ function render_file_message($message, $user) {
     $html .= '<h2>' . $file['title'] . '</h2>';
     $html .= '<hr>';
     $html .= $file['preview'];
-    $html .= '<a class="readmore" target="_top" href="' . $file['permalink_public'] . '">Kilkk her for å lese hele posten</a>';
+    $html .= '<a class="readmore" target="_top" href="' . $file['permalink_public'] . '">Click here to read more</a>';
     $html .= '</div>';
   }
   else {
-    $html .= '<div class="message">' . replace_slack_tags($message['text']) . '</div>';
+    $html .= '<div class="message">' . replace_slack_tags(sanitize_text_field($message['text'])) . '</div>';
   }
 
   $html .= render_reactions($file['reactions']);
