@@ -6,7 +6,6 @@
 <main id="main-content" class="container-fluid sidewave" style="background-image:url(<?php echo get_template_directory_uri(); ?>/src/scss/icons/sidedecoration.svg)" role="main">
 <?php else: ?>
 <main id="main-content" class="container-fluid" role="main">
-
 <?php endif; ?>
     <div class="row">
         <?php if($thumbnail = get_the_post_thumbnail_url(get_the_ID(), 'full')):
@@ -17,29 +16,33 @@
           <img role="presentation" alt="" class="wave" src="<?php echo get_template_directory_uri(); ?>/src/scss/icons/background-white-horizontal.svg">
         </div>
         <?php endif; ?>
-
+        <div class="col-12">
+            <h1><?php the_title(); ?></h1>
+        </div>
         <?php
             if(spouse_is_restricted_page()){
-                ?>
-            <aside class="col-12 col-sm-12 col-lg-3 menu">
-
-              <?php
-              wp_nav_menu( array(
-                'theme_location' => 'sidebar-menu',
-                'container_class' => 'sidebar-menu' ) );
-              ?>
-
+        ?>
+            <aside class="d-none d-md-block col-md-3 col-lg-3 col-xl-2 menu">
+                <div class="sidebar-menu-wrap">
+                    <h2>Menu</h2>
+                    <nav aria-label="Submenu">
+                      <?php
+                      wp_nav_menu( array(
+                        'theme_location' => 'sidebar-menu',
+                        'container_class' => 'sidebar-menu' ) );
+                      ?>
+                    </nav>
+                </div>
             </aside>
-            <?php
+        <?php
             }
         ?>
 
         <?php if(spouse_is_restricted_page()): ?>
-            <div class="col-10 offset-1 col-lg-6 offset-lg-0">
+            <div class="col-12 offset-1 col-sm-12 col-md-12 col-lg-6 offset-lg-0 col-xl-7">
         <?php else: ?>
             <div class="col-12 offset-0 col-lg-6 offset-lg-3">
         <?php endif; ?>
-            <h1><?php the_title(); ?></h1>
         <?php
         // center
         if (have_rows('left_column_content')):
@@ -50,6 +53,14 @@
           endwhile;
           echo '</div>';
         endif;
+        ?>
+        <?php
+            $postmeta = get_post_meta(get_the_ID(),'custom-shortcode', FALSE);
+            if($postmeta){
+              foreach($postmeta as $shortcode){
+                do_shortcode($shortcode);
+              }
+            }
         ?>
         </div>
           <?php

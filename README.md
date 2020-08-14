@@ -33,6 +33,7 @@ To export or import database after the environment has been set up:
 2. Go inside docker container: **make shell**.
 3. Inside the container, go to the root of wordpress installation
 4. Use the wp-cli to import or export database: **wp db import db-dump.sql**
+5. Use "wp search-replace" "old.env.url.fi" "spouse.docker.sh" or whatever the local address is. 
 
 Login page: https://spouse.docker.sh/wp-admin
 

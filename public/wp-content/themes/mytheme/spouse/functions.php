@@ -14,15 +14,21 @@ add_action( 'init', 'spouse_menu' );
 function spouse_enqueue_scripts() {
   wp_enqueue_style('bootstrap', get_template_directory_uri() . '/dist/bootstrap/dist/css/bootstrap.css');
   wp_enqueue_style('style', get_stylesheet_uri());
+
+  if ( is_page_template('archives.php') ) {
+    wp_enqueue_script('news-visited', get_template_directory_uri() . '/js/news-visited.js');
+  }
 }
 add_action('wp_enqueue_scripts', 'spouse_enqueue_scripts');
 
 if ( function_exists('register_sidebar') ) {
-  // Footer widgets
+
   $footerWidgets = [
     'footer_content_left' => 'footer content left',
     'footer_content' => 'footer content middle',
     'footer_content_right' => 'footer content right',
+  ];
+  $otherWidgets = [
     'social_title' => 'Social sharing title',
     'sidebar_menu' => 'Sidebar menu on main page'
   ];
@@ -38,11 +44,26 @@ if ( function_exists('register_sidebar') ) {
       ]
     );
   }
+
+  foreach($otherWidgets as $key => $widget) {
+    register_sidebar([
+        'name' => __($widget),
+        'id' => $key,
+        'description' => "Content widget: $key",
+        'before_widget' => '',
+        'after_widget' => '',
+        'before_title' => '',
+        'after_title' => '',
+      ]
+    );
+  }
+
 }
 
 add_action( 'init', 'spouse_add_shortcodes' );
 
 function spouse_add_shortcodes() {
+  // Login form as shortcode.
   add_shortcode( 'custom-login-form', 'spouse_login_form_shortcode' );
 }
 
@@ -50,96 +71,7 @@ function spouse_login_form_shortcode() {
   return wp_login_form( array( 'echo' => false ) );
 }
 
-function spouse_get_events(){
-  $args = [
-    'post_type' => 'eventbrite_events',
-    'post_status' => 'publish',
-    'numberposts' => '5',
-  ];
-
-  $posts = wp_get_recent_posts($args, OBJECT);
-
-  if(!$posts) {
-      return;
-  }
-
-  foreach($posts as $post){
-
-    $color = '#fff';
-    $startDate = null;
-
-    $terms = get_the_terms($post->ID, 'eventbrite_category');
-
-    if(is_wp_error($terms) && $terms !== FALSE){
-      return $terms->get_error_message();
-    }
-
-    $icon = get_field('icon', $post->ID);
-
-    $category = '';
-
-    if($terms && $term = reset($terms)) {
-      $color = get_field('event_color', $term);
-      $category = $term->name;
-    }
-
-    if($dateData = get_post_meta($post->ID, 'event_start_date')) {
-
-      $date = new \DateTime();
-      $date->setTimestamp(strtotime($dateData[0]));
-      $startDate = $date->format('d/m');
-
-      $hour = get_post_meta($post->ID, 'event_start_hour')[0];
-      $minute = get_post_meta($post->ID, 'event_start_minute')[0];
-
-      $endHour = get_post_meta($post->ID, 'event_end_hour')[0];
-      $endMinute = get_post_meta($post->ID, 'event_end_minute')[0];
-      $meridian = get_post_meta($post->ID, 'event_start_meridian')[0];
-
-      $startTime = "$hour:$minute $meridian";
-      $endTime = "$endHour:$endMinute $meridian";
-    }
-
-    ?>
-
-    <?php if(is_user_logged_in()): ?>
-      <a href="<?php echo get_permalink($post) ?>">
-
-    <?php endif; ?>
-    <?php
-    $popupClass = '';
-    if(!is_user_logged_in()){
-        $popupClass = 'popup-hover ';
-    }
-    ?>
-      <div class="event <?php echo $popupClass ?>clearfix">
-          <div class="event-color" <?php if(isset($color) && $color): ?>style="background-color:<?php echo $color; ?>" <?php endif; ?>></div>
-          <div class="event-start"><?php echo $startDate; ?></div>
-          <div class="event-content">
-              <div class="text-content">
-                <p class=""><?php echo $category ?></p>
-                <p class=""><?php echo $post->post_title ?></p>
-                <p><?php echo $startTime; ?> - <?php echo $endTime; ?></p>
-              </div>
-          </div>
-          <div class="event-icon"><img src="<?php echo $icon ?>"></div>
-          <i class="clearfix"></i>
-          <div class="popuptext">
-              Sign in to see more
-          </div>
-      </div>
-    <?php if(is_user_logged_in()): ?>
-      </a>
-    <?php endif; ?>
-
-    <?php
-
-  }
-}
-add_shortcode('spouse-events', 'spouse_get_events');
-
 function spouse_get_template_part($slug, $name = null) {
-
   do_action("ccm_get_template_part_{$slug}", $slug, $name);
 
   $templates = array();
@@ -241,8 +173,6 @@ function spouse_remove_admin_bar() {
 
 function spouse_edit_role_caps() {
   $role = get_role( 'editor' );
- // echo '<pre>';
- // die(var_dump($role->capabilities));
 
   $allowed = [
     'manage_options',
@@ -297,4 +227,70 @@ function spouse_remove_menu_pages() {
     remove_menu_page( 'admin.php?page=mobile-menu-options' );
     remove_menu_page( 'admin.php?page=sharing-plus' );
     remove_menu_page( 'admin.php?page=wow-company' );
+}
+
+//List archives by year, then month
+function wp_custom_archive($args = '') {
+  global $wpdb, $wp_locale;
+
+  $defaults = array(
+    'limit' => '',
+    'format' => 'html', 'before' => '',
+    'after' => '', 'show_post_count' => false,
+    'echo' => 1
+  );
+
+  $r = wp_parse_args( $args, $defaults );
+  extract( $r, EXTR_SKIP );
+
+  // over-ride general date format ? 0 = no: use the date format set in Options, 1 = yes: over-ride
+  $archive_date_format_over_ride = 0;
+
+  // options for daily archive (only if you over-ride the general date format)
+  $archive_day_date_format = 'Y/m/d';
+
+  // options for weekly archive (only if you over-ride the general date format)
+  $archive_week_start_date_format = 'Y/m/d';
+  $archive_week_end_date_format   = 'Y/m/d';
+
+  if ( !$archive_date_format_over_ride ) {
+    $archive_day_date_format = get_option('date_format');
+    $archive_week_start_date_format = get_option('date_format');
+    $archive_week_end_date_format = get_option('date_format');
+  }
+
+  //filters
+  $where = apply_filters('customarchives_where', "WHERE post_type = 'post' AND post_status = 'publish'", $r );
+  $join = apply_filters('customarchives_join', "", $r);
+
+  $output = '<ul>';
+
+  $query = "SELECT YEAR(post_date) AS `year`, MONTH(post_date) AS `month`, count(ID) as posts FROM $wpdb->posts $join $where GROUP BY YEAR(post_date), MONTH(post_date) ORDER BY post_date DESC $limit";
+  $key = md5($query);
+  $cache = wp_cache_get( 'wp_custom_archive' , 'general');
+  if ( !isset( $cache[ $key ] ) ) {
+    $arcresults = $wpdb->get_results($query);
+    $cache[ $key ] = $arcresults;
+    wp_cache_set( 'wp_custom_archive', $cache, 'general' );
+  } else {
+    $arcresults = $cache[ $key ];
+  }
+  if ( $arcresults ) {
+    foreach ( (array) $arcresults as $arcresult ) {
+      $url = get_month_link( $arcresult->year, $arcresult->month );
+      $year_url = get_year_link($arcresult->year);
+      /* translators: 1: month name, 2: 4-digit year */
+      $text = sprintf(__('%s'), $wp_locale->get_month($arcresult->month));
+      $year_text = sprintf('%d', $arcresult->year);
+      $year_output = get_archives_link($year_url, $year_text, 'html', '','');
+      $output .= ( $arcresult->year != $temp_year ) ? $year_output : '';
+      #$output .= get_archives_link($url, $text, 'html', '<span class="month">', '</span>');
+
+      $temp_year = $arcresult->year;
+    }
+  }
+
+  $output .= '</ul>';
+
+  echo $output;
 }
