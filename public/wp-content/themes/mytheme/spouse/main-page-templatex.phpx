@@ -11,18 +11,18 @@ get_header();
             </aside>
             <div class="col-12 col-sm-12 col-lg-6 col-xl-6 main-content">
                 <div class="row">
-                <div class="main-content-container">
-                  <?php
-                  if (have_posts()) :
-                    while (have_posts()) :
-                      the_post();
-                  ?>
-                  <?php
-                      the_content();
-                    endwhile;
-                  endif;
-                  ?>
-                </div>
+                    <div class="main-content-container">
+                      <?php
+                      if (have_posts()) :
+                        while (have_posts()) :
+                          the_post();
+                      ?>
+                      <?php
+                          the_content();
+                        endwhile;
+                      endif;
+                      ?>
+                    </div>
                 </div>
             </div>
             <div class="col-12 col-sm-12 col-lg-6 col-xl-3 events-column">

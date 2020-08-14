@@ -1,13 +1,13 @@
 <?php
 /**
- * Plugin Name: Slack view
+ * Plugin Name: Spouse Slack Feed
  * Description: Fetch messages from slack channel.
  */
 
-add_action( 'init', 'spouse_add_slack_shortcodes' );
+add_action( 'init', 'spouse_add_slack_shortcodes');
 
 function spouse_add_slack_shortcodes() {
-  add_shortcode( 'custom-slack-view', 'spouse_init_slack_view' );
+  add_shortcode('custom-slack-view', 'spouse_init_slack_view');
 }
 
 /**
@@ -16,50 +16,41 @@ function spouse_add_slack_shortcodes() {
  * $attributes['timezone'] string - for example 'Finland/Helsinki'. Defaults to 'Finland/Helsinki'.
  * $attributes['channel'] string - Name of the slack channel to show. Defaults to 'general'.
  * $attributes['messagecount'] int - maximum number of messages to show. Defaults to 25.
+ * $attributes['workspaceid'] string - workspace id
  * @param array $attributes
  *
  */
-function spouse_init_slack_view($attributes){
-
-  if (isset($attributes['timezone'])) {
-    $timezone = $attributes['timezone'];
-  } else {
-    $timezone = 'Finland/Helsinki';
+function spouse_init_slack_view($attributes) {
+  if(!isset($attributes['workspace'])) {
+    return;
   }
-
   if (isset($attributes['channel'])) {
     $slackChannelName = $attributes['channel'];
   } else {
     $slackChannelName = 'general';
   }
-
   if (isset($attributes['messagecount'])) {
     $slackHistoryCount = $attributes['messagecount'];
   } else {
     $slackHistoryCount = '25';
   }
-
-  $cacheDirectory = sys_get_temp_dir();
-
-  date_default_timezone_set($timezone);
-
-  $channelCacheFilename = $cacheDirectory . '/.channel-cache.tmp.json';
-  $userlistCacheFilename = $cacheDirectory . '/.users-cache.tmp.json';
-  $emojiCacheFilename = $cacheDirectory . '/.emoji-cache.tmp.json';
-  $channelCacheTimeout = 60;
-  $userlistCacheTimeout = 300;
-  $emojiCacheTimeout = 3600;
-
-  $channel = get_channel_by_name($slackChannelName);
-  $channel_history = get_channel_history($channel['id'],$slackHistoryCount);
-
-  $user_list = get_all_users();
-  $i = 0;
-  foreach ($channel_history as $message) {
-    $i++;
-    echo render_message($message, $user_list);
+  if(isset($attributes['title'])){
+    $title = $attributes['title'];
   }
 
+  $channel = get_channel_by_name($slackChannelName, $attributes);
+  $channelHistory = get_channel_history($channel['id'], $slackHistoryCount, $attributes);
+  $userList = get_all_users($attributes);
+
+  echo '<div class="slack-feed">';
+  if($title){
+    echo '<h3>'.$title.'</h3>';
+  }
+  foreach (array_reverse($channelHistory) as $message) {
+    echo render_message($message, $userList);
+  }
+
+  echo '</div>';
 }
 
 
@@ -68,12 +59,11 @@ function spouse_init_slack_view($attributes){
  *
  * @param string $apiPath
  * @param array $postFields
+ * @param array $attributes
  * @return bool|mixed|string
  */
-function slack_api_request ($apiPath, $postFields) {
-
-  $slackApiToken = 'xoxb-1284603568737-1265339601238-uD9XONKeJARAwv7fQJJ2Wb5Z';
-
+function slack_api_request ($apiPath, $postFields, $attributes) {
+  $slackApiToken = $attributes['workspace'];
   $postFields['token'] = $slackApiToken;
 
   $ch = curl_init('https://slack.com/api/' . $apiPath);
@@ -91,40 +81,37 @@ function slack_api_request ($apiPath, $postFields) {
     return $result;
   }
 
-  print_r($result);
-  die('Could not execute request ' . $apiPath);
+  #print_r($result);
+  #die('Could not execute request ' . $apiPath);
 }
 
 /**
  * Read chat from json file.
  *
- * @param string $cacheFilename
- * @param int $cacheTimeout
+ * @param string $name
  * @return mixed|null
  */
-function cache_read($cacheFilename, $cacheTimeout) {
-  $lastModified = @filemtime($cacheFilename);
-  if (!$lastModified) {
-    return null;
+function cache_read($name) {
+  $content = get_transient($name);
+  if(!$content){
+    return false;
   }
-
-  if (time() - $lastModified > $cacheTimeout) {
-    return null;
-  }
-
-  return json_decode(file_get_contents($cacheFilename), true);
+  return json_decode($content, true);
 }
 
 /**
  * Write chat to json file.
  *
- * @param string $cacheFilename
- * @param $cacheThisObject
+ * @param string $name
+ * @param any $content
+ *
  */
-function cache_write($cacheFilename, $object) {
-  $f =  fopen($cacheFilename, 'w');
-  fwrite($f, json_encode($object, JSON_PRETTY_PRINT));
-  fclose($f);
+function cache_write($name, $content) {
+  if(!$content){
+    return false;
+  }
+  $json = json_encode($content);
+  set_transient($name, $json, 60);
 }
 
 
@@ -135,14 +122,10 @@ function cache_write($cacheFilename, $object) {
  * @param int $history_count
  * @return array|mixed|null
  */
-function get_channel_history($channelId,$history_count)
+function get_channel_history($channelId, $max_history, $attributes)
 {
-  global $channelCacheFilename;
-  global $channelCacheTimeout;
-
-
-  $channel_history = cache_read($channelCacheFilename, $channelCacheTimeout);
-  if ($channel_history) {
+  $messageCacheExpire = 60;
+  if ($channel_history = cache_read($attributes['channel'])) {
     return $channel_history;
   }
 
@@ -150,64 +133,20 @@ function get_channel_history($channelId,$history_count)
   $channel_history = [];
   $fetch_from_ts = time();
 
-  while ($has_more && count($channel_history) < $history_count) {
+  while ($has_more && count($channel_history) < $max_history) {
     $h = slack_api_request('conversations.history', [
       'channel' => $channelId,
       'latest' => $fetch_from_ts,
-    ]);
+    ],
+      $attributes);
     $channel_history = array_merge($channel_history, $h['messages']);
-
     $has_more = $h['has_more'];
     $fetch_from_ts = array_slice($h['messages'], -1)[0]['ts'];
   }
-  cache_write($channelCacheFilename, $channel_history);
+
+  cache_write($attributes['channel'], $channel_history);
 
   return $channel_history;
-}
-
-
-/**
- * Get emojis.
- *
- * @return bool|mixed|string|null
- */
-function get_all_emojis($channelId)
-{
-  global $emojiCacheFilename;
-  global $emojiCacheTimeout;
-
-  $all_emojis = cache_read($emojiCacheFilename, $emojiCacheTimeout);
-  if ($all_emojis) {
-    return $all_emojis;
-  }
-
-  $all_emojis = slack_api_request('emoji.list', [
-    "channel" => $channelId,
-  ]);
-
-  $all_emojis = $all_emojis['emoji'];
-
-  $standard_emojis = json_decode(file_get_contents("emojis.json"), true);
-  foreach($standard_emojis as $e) {
-    $as_html = '';
-
-    $us = explode('-', $e['unified']);
-    $as_html = '';
-    foreach ($us as $u) {
-      $as_html .= '&#x' . $u . ';';
-    }
-
-    foreach($e['short_names'] as $short_name) {
-      $all_emojis[$short_name] = $as_html;
-    }
-  }
-
-  $all['slightly_smiling_face'] = 'alias:wink';
-  $all['white_frowning_face'] = 'alias:sad';
-
-  cache_write($emojiCacheFilename, $all_emojis);
-
-  return $all_emojis;
 }
 
 /**
@@ -215,27 +154,27 @@ function get_all_emojis($channelId)
  *
  * @return array|bool|mixed|string|null
  */
-function get_all_users()
+function get_all_users($attributes)
 {
-  global $userlistCacheFilename;
-  global $userlistCacheTimeout;
-
-  $userlist = cache_read($userlistCacheFilename, $userlistCacheTimeout);
+  $cacheName = 'slack-users';
+  $userCacheTimeout = 60;
+  $userlist = cache_read($cacheName, $userCacheTimeout, $attributes);
   if ($userlist) {
     return $userlist;
   }
 
   $userlist = slack_api_request('users.list', [
     'limit' => 800,
-    'presence' => false,
-  ]);
+    'presence' => false
+    ],
+    $attributes);
 
   $userlistIndexed = [];
   foreach ($userlist['members'] as $user) {
     $userlistIndexed[$user['id']] = $user;
   }
 
-  cache_write($userlistCacheFilename, $userlistIndexed);
+  cache_write($cacheName, $userlistIndexed, 60*5);
   return $userlistIndexed;
 }
 
@@ -245,12 +184,12 @@ function get_all_users()
  * @param string $channel_name
  * @return mixed|null
  */
-function get_channel_by_name($channel_name) {
+function get_channel_by_name($channel_name, $attributes) {
   $all_channels = slack_api_request('conversations.list', [
     'limit' => 500,
     'exclude_archived' => true,
     'exclude_members' => true
-  ]);
+  ], $attributes);
 
   foreach ($all_channels['channels'] as $channel) {
     if ($channel['name'] == $channel_name) {
@@ -368,7 +307,7 @@ function render_reactions($reactions) {
  * @return string
  */
 function render_avatar($user) {
-  return '<img class="avatar" src="' . $user['profile']['image_48'] . '" aria-hidden="true" title="">';
+  #return '<img class="avatar" src="' . $user['profile']['image_48'] . '" aria-hidden="true" title="">';
 }
 
 /**
@@ -415,12 +354,11 @@ function render_user_message($message, $user) {
   $html .= '<div class="message">' . replace_slack_tags($message['text']) . '</div>';
 
   if (isset($message['reactions'])) {
-    $html .= render_reactions($message['reactions']);
+    #$html .= render_reactions($message['reactions']);
   }
 
   $html .= '</div>'; // .content
   $html .= '</div>'; // .slack-message
-
   return $html;
 }
 
@@ -491,28 +429,25 @@ function render_file_message($message, $user) {
  * Render message.
  *
  * @param array $message
- * @param array $user_list
+ * @param array $userList
  * @return string|void
  */
-function render_message($message, $user_list) {
+function render_message($message, $userList) {
   $html = '';
   switch ($message['type']) {
     case 'message':
       if (empty($message['subtype'])) {
-        return render_user_message($message, $user_list[$message['user']]);
+        return render_user_message($message, $userList[$message['user']]);
       }
-
       switch($message['subtype']) {
-
         case 'file_share':
-          return render_file_message($message, $user_list[$message['user']]);
+          return render_file_message($message, $userList[$message['user']]);
         case 'bot_message':
           return render_bot_message($message, $message['username']);
         case 'channel_join':
         default:
           return;
       }
-
     default:
       return;
   }
