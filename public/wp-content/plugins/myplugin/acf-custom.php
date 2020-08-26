@@ -1065,6 +1065,7 @@ if(function_exists("register_field_group"))
           ),
         ),
         'row_min' => '',
+        'row_limit' => 12,
         'row_limit' => 9,
         'layout' => 'table',
         'button_label' => 'Add image',

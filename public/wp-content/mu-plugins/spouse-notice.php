@@ -35,15 +35,13 @@ function spouse_print_notice($posts){
   echo '<div role="alert" class="spouse-notice d-none">';
   echo '<div class="row">';
     echo '<div class="col-10">';
-    echo '<p><strong>We have news you might have missed!</strong></p>';
-
     echo '<ul>';
       foreach($posts as $post) {
         ?>
         <a href="<?php echo get_permalink($post->ID); ?>">
           <li class="list-unstyled">
             <?php
-            echo $post->post_title;
+            echo __('Read news about: ') . $post->post_title;
             ?>
           </li>
         </a>
@@ -52,7 +50,7 @@ function spouse_print_notice($posts){
       echo '<ul>';
     echo '</div>';
       echo '<div class="col-2">';
-        echo '<button id="spouse-close-notification" aria-label="Close notification">X</button>';
+        echo '<button id="spouse-close-notification" class="spouse-close-notification" aria-label="Close notification">X</button>';
       echo '</div>';
   echo '</div>';
 ?>

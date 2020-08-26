@@ -63,3 +63,13 @@
   }
 }
 
+.leftmbottom {
+  display: none;
+}
+
+.logged-in {
+  .leftmbottom {
+    display: block;
+  }
+}
+

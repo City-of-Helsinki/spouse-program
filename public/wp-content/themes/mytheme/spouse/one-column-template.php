@@ -55,7 +55,7 @@
         endif;
         ?>
         <?php
-            $postmeta = get_post_meta(get_the_ID(),'custom-shortcode', FALSE);
+            $postmeta = get_post_meta(get_the_ID(),'slack-chat', FALSE);
             if($postmeta){
               foreach($postmeta as $shortcode){
                 do_shortcode($shortcode);
