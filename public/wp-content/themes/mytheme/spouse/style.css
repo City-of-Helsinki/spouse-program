@@ -939,6 +939,14 @@ input[type='checkbox'] {
   background-color: white;
 }
 
+.leftmbottom {
+  display: none;
+}
+
+.logged-in .leftmbottom {
+  display: block;
+}
+
 .spouse-notice {
   overflow: hidden;
   -webkit-animation: move 2s;
