@@ -954,7 +954,7 @@ input[type='checkbox'] {
           animation: move 2s;
   background-color: #f0e956;
   z-index: -1;
-  padding: 20px;
+  padding: 10px 0px 0px 10px;
 }
 
 .spouse-notice ul {
