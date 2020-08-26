@@ -42,6 +42,10 @@ get_header();
         <ul class="list-unstyled">
         <?php
         foreach($posts as $post){
+            $restricted = get_field('authenticated_users_only', $post);
+            if($restricted && !is_user_logged_in()){
+                continue;
+            }
         ?><li><?php
         $date = new DateTime($post->post_date);
         echo '<a href="'.get_permalink($post).'">';
