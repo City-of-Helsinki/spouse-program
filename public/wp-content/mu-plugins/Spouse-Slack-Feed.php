@@ -7,7 +7,7 @@
 add_action( 'init', 'spouse_add_slack_shortcodes');
 
 function spouse_add_slack_shortcodes() {
-  add_shortcode('custom-slack-view', 'spouse_init_slack_view');
+  add_shortcode('slack-chat', 'spouse_init_slack_view');
 }
 
 /**
