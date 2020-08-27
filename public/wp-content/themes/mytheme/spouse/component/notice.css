@@ -1,0 +1,49 @@
+@-webkit-keyframes move {
+  from {
+    margin-top: -100px;
+  }
+  to {
+    margin-top: 0px;
+  }
+}
+
+@keyframes move {
+  from {
+    margin-top: -100px;
+  }
+  to {
+    margin-top: 0px;
+  }
+}
+
+@-webkit-keyframes opacity {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes opacity {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.spouse-notice {
+  margin-top: -100px;
+  -webkit-animation: move 2s;
+          animation: move 2s;
+  background-color: yellow;
+}
+
+.spouse-notice p,
+.spouse-notice a {
+  opacity: 1;
+  -webkit-animation: opacity 4s;
+          animation: opacity 4s;
+}

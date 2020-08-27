@@ -1,5 +1,10 @@
+.post-template-default,
 .page-template-one-column-template,
-.page-template-two-column-template {
+.page-template-two-column-template,
+.page-template-archives,
+.archive,
+.error404,
+.page-template-archives{
 
   .hero-image {
     background-repeat: no-repeat;
@@ -81,9 +86,10 @@
     text-decoration: none;
     color: black;
     font-size: 24px;
-    padding-top: 75px;
+
     ul {
       list-style: none;
+      padding-left: 0px;
       li {
         a{
           color: black;

@@ -30,22 +30,22 @@ get_header();
                 endwhile;
                 endif;
                 ?>
-                <div class="small-images clearfix">
-                    <div class="row mx-auto">
+                  <div class="small-images clearfix">
+                      <div class="d-flex flex-row flex-wrap align-items-center">
                         <?php
                         while ( have_rows('images') ) : the_row();
                           $img = get_sub_field('image');
-                        ?>
-                        <div class="col-4">
-                            <img src="<?php echo $img; ?>"/>
-                        </div>
+                          ?>
+                            <div class="p-2 w-25">
+                                <img src="<?php echo $img; ?>" alt=""/>
+                            </div>
                         <?php
                         endwhile;
                         ?>
-                    </div>
-                </div>
+                      </div>
+                  </div>
               </div>
-              <img class="overflow-wave d-none d-xl-block" src="<?php echo get_template_directory_uri(); ?>/src/scss/icons/background-white.svg">
+              <img role="presentation" class="overflow-wave d-none d-xl-block" src="<?php echo get_template_directory_uri(); ?>/src/scss/icons/background-white.svg">
           </div>
           <div class="col-12 col-sm-12 col-lg-6 col-xl-3 events-column">
               <h2>Upcoming events</h2>
@@ -54,8 +54,6 @@ get_header();
       </div>
   </div>
 </main><!-- #site-content -->
-
-<?php # get_template_part( 'template-parts/footer-menus-widgets' ); ?>
 
 <?php
 get_footer();

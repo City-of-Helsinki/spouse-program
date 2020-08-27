@@ -1,0 +1,15 @@
+.slack-feed {
+  max-height: 300px;
+  overflow: auto;
+
+  &:not(:first-child){
+    margin-top: 30px;
+  }
+
+  .slack-message {
+    padding: 10px;
+  }
+  .slack-message:nth-child(even) {
+    background-color: #01a0903a;
+  }
+}
