@@ -5,6 +5,7 @@
 <html class="no-js" <?php language_attributes(); ?>>
 
 <head>
+    <title><?php wp_title( '|', true, 'right' ); ?></title>
     <meta charset="<?php bloginfo( 'charset' ); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" >
     <link rel="profile" href="https://gmpg.org/xfn/11">
@@ -26,20 +27,20 @@ wp_body_open();
 <header id="site-header" role="banner">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-6 col-sm-6 col-md-10 p-0">
+            <div class="col-4 col-sm-6 col-md-9 p-0 mobilenav">
                 <div class="header-main-content nav justify-content-end">
                   <?php wp_nav_menu( array( 'menu' => 2) ); ?>
                 </div>
             </div>
-            <div class="pull-right header-right-content col-6 col-sm-6 col-md-2 p-0">
+            <div class="pull-right header-right-content col-8 col-sm-6 col-md-3 p-0">
                 <?php
                 global $current_user; wp_get_current_user();
                 /** Popups created with wow modal window -plugin */
                 if (!is_user_logged_in()):
                 ?>
-                <a href="#" class="wow-modal-id-2">Log in</a>
+                <a href="#" onclick="spouse_focus(event)" data-modal="wow-modal" class="wow-modal-id-2">Log in</a>
                 |
-                <a href="#" class="wow-modal-id-1">Sign up</a>
+                <a href="#" onclick="spouse_focus(event)" data-modal="wow-modal" class="wow-modal-id-1">Sign up</a>
                 <?php
                 else:
                   ?>
