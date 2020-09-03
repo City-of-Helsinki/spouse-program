@@ -9,7 +9,7 @@ if ( is_user_logged_in() && !current_user_can('administrator') && !current_user_
 get_header();
 ?>
 
-<main id="site-content" role="main">
+<main id="main-content" role="main">
   <div class="container-fluid">
       <div class="row">
           <div class="col-12 col-sm-12 col-xl-5 cta-column">
@@ -37,7 +37,7 @@ get_header();
                           $img = get_sub_field('image');
                           ?>
                             <div class="p-2 w-25">
-                                <img src="<?php echo $img; ?>" alt=""/>
+                                <img src="<?php echo $img['url']; ?>" alt="<?php echo $img['alt']; ?>"/>
                             </div>
                         <?php
                         endwhile;
