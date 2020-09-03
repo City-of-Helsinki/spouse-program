@@ -18,6 +18,7 @@ function spouse_enqueue_scripts() {
   if ( is_page_template('archives.php') ) {
     wp_enqueue_script('news-visited', get_template_directory_uri() . '/js/news-visited.js');
   }
+  wp_enqueue_script('wow-modal-focus', get_template_directory_uri() . '/js/wow-modal-focus.js');
 }
 add_action('wp_enqueue_scripts', 'spouse_enqueue_scripts');
 
