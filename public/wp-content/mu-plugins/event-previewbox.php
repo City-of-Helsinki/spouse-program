@@ -102,9 +102,6 @@ function spouse_print_events($events = []){
           </div>
           <div class="event-icon"><img src="<?php echo $icon ?>"></div>
       </div>
-          <div class="sign-in-sign text-center">
-      </div>
-    </div>
     <?php if(is_user_logged_in()): ?>
       </div>
     </a>
