@@ -81,8 +81,11 @@ function spouse_print_events($events = []){
 
     <?php if($userLoggedIn): ?>
       <a href="<?php echo get_permalink($event) ?>" <?php if($ariaTitle): ?>aria-label="<?php echo $ariaTitle; ?>" <?php endif; ?>>
+          <div class="event clearfix">
+    <?php else: ?>
+          <div <?php if(!$userLoggedIn): ?>tabindex="0"<?php endif; ?> <?php if($ariaTitle): ?>aria-label="<?php echo $ariaTitle; ?>" <?php endif; ?> class="event clearfix">
     <?php endif; ?>
-    <div tabindex="0" <?php if($ariaTitle): ?>aria-label="<?php echo $ariaTitle; ?>" <?php endif; ?> class="event clearfix">
+
       <div class="event-content-wrap">
           <div class="event-color" <?php if(isset($color) && $color): ?>style="background-color:<?php echo $color; ?>" <?php endif; ?>></div>
 
@@ -99,11 +102,11 @@ function spouse_print_events($events = []){
           </div>
           <div class="event-icon"><img src="<?php echo $icon ?>"></div>
       </div>
-          <div class="sign-in-sign text-center">
-      </div>
-    </div>
     <?php if(is_user_logged_in()): ?>
-      </a>
+      </div>
+    </a>
+    <?php else: ?>
+    </a>
     <?php endif; ?>
 
     <?php
