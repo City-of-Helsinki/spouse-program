@@ -17,3 +17,4 @@ debug.log
 !/public/wp-content/themes/mytheme
 !/public/wp-content/plugins/acf-repeater
 !/public/wp-content/plugins/advanced-custom-fields
+!/public/wp-content/plugins/uk-cookie-consent
