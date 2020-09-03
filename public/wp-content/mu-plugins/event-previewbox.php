@@ -59,7 +59,7 @@ function spouse_print_events($events = []){
 
       $date = new \DateTime();
       $date->setTimestamp(strtotime($dateData[0]));
-      $startDate = $date->format('d/m');
+      $startDate = $date->format('d F');
 
       $hour = get_post_meta($event->ID, 'event_start_hour')[0];
       $minute = get_post_meta($event->ID, 'event_start_minute')[0];
@@ -67,37 +67,39 @@ function spouse_print_events($events = []){
       $endHour = get_post_meta($event->ID, 'event_end_hour')[0];
       $endMinute = get_post_meta($event->ID, 'event_end_minute')[0];
       $meridian = get_post_meta($event->ID, 'event_start_meridian')[0];
+      $endMeridian = get_post_meta($event->ID, 'event_end_meridian')[0];
 
       $startTime = "$hour:$minute $meridian";
-      $endTime = "$endHour:$endMinute $meridian";
-    }
+      $endTime = "$endHour:$endMinute $endMeridian";
 
+      $userLoggedIn = is_user_logged_in();
+
+      $ariaTitle = "$category. $event->post_title. {$date->format('F, d')} from $startTime to $endTime. ";
+      $ariaTitle .= $userLoggedIn ? '' : __('Sign in to see more');
+    }
     ?>
 
-    <?php if(is_user_logged_in()): ?>
-      <a href="<?php echo get_permalink($event) ?>">
-
+    <?php if($userLoggedIn): ?>
+      <a href="<?php echo get_permalink($event) ?>" <?php if($ariaTitle): ?>aria-label="<?php echo $ariaTitle; ?>" <?php endif; ?>>
     <?php endif; ?>
-    <?php
-    $popupClass = '';
-    if(!is_user_logged_in()) {
-      $popupClass = 'popup-hover ';
-    }
-    ?>
-    <div class="event <?php echo $popupClass ?>clearfix">
-      <div class="event-color" <?php if(isset($color) && $color): ?>style="background-color:<?php echo $color; ?>" <?php endif; ?>></div>
-      <div class="event-start"><?php echo $startDate; ?></div>
-      <div class="event-content">
-        <div class="text-content">
-          <p class=""><?php echo $category ?></p>
-          <p class=""><?php echo $event->post_title ?></p>
-          <p><?php echo $startTime; ?> - <?php echo $endTime; ?></p>
-        </div>
+    <div tabindex="0" <?php if($ariaTitle): ?>aria-label="<?php echo $ariaTitle; ?>" <?php endif; ?> class="event clearfix">
+      <div class="event-content-wrap">
+          <div class="event-color" <?php if(isset($color) && $color): ?>style="background-color:<?php echo $color; ?>" <?php endif; ?>></div>
+
+          <div class="event-content">
+              <div class="text-content">
+                  <p><?php echo $startDate; ?></p>
+                  <p class=""><?php echo $category ?></p>
+                  <p class=""><?php echo $event->post_title ?></p>
+                  <p><?php echo $startTime; ?> - <?php echo $endTime; ?></p>
+                <?php if(!$userLoggedIn):?>
+                    <p><?php echo __('Sign in to see more') ?></p>
+                <?php endif; ?>
+              </div>
+          </div>
+          <div class="event-icon"><img src="<?php echo $icon ?>"></div>
       </div>
-      <div class="event-icon"><img src="<?php echo $icon ?>"></div>
-      <i class="clearfix"></i>
-      <div class="popuptext">
-        Sign in to see more
+          <div class="sign-in-sign text-center">
       </div>
     </div>
     <?php if(is_user_logged_in()): ?>
