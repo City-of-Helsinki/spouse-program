@@ -7,13 +7,10 @@
       $style = "background-position: $position";
       ?>
         <div class="col-12 hero-image" style='background-image:url(<?php echo $thumbnail; ?>); <?php echo $style ?>'>
-            <!--
-            <img role="presentation" alt="" class="wave" src="<?php echo get_template_directory_uri(); ?>/src/scss/icons/background-white-horizontal.svg">
-            -->
         </div>
     <?php endif; ?>
     <div class="col-12 col-sm-6">
-        <div class="single-event-meta">
+        <div class="single-event-meta" style="color:black;">
             <?php echo apply_filters( 'the_content', get_the_content() ); ?>
         </div>
     </div>
@@ -24,12 +21,6 @@
             <?php echo get_field('description') ?>
         </div>
     </div>
-    <!--
-    TBD event registration
-    <div class="col-12 col-sm-4">
-        <div class="single-event-registration"></div>
-    </div>
-    -->
   </div>
 </main>
 

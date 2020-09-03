@@ -20,9 +20,9 @@
             <h1><?php the_title(); ?></h1>
         </div>
         <?php
-            if(spouse_is_restricted_page()){
+            if(is_user_logged_in()){
         ?>
-            <aside class="d-none d-md-block col-md-3 col-lg-3 col-xl-2 menu">
+            <aside class="d-none d-md-none d-lg-block col-lg-3 col-xl-2 menu">
                 <div class="sidebar-menu-wrap">
                     <h2>Menu</h2>
                     <nav aria-label="Submenu">
@@ -38,7 +38,7 @@
             }
         ?>
 
-        <?php if(spouse_is_restricted_page()): ?>
+        <?php if(is_user_logged_in()): ?>
             <div class="col-12 offset-0 col-sm-12 col-md-12 col-lg-6 offset-lg-0 col-xl-7">
         <?php else: ?>
             <div class="col-12 offset-0 col-lg-6 offset-lg-3">
@@ -80,7 +80,7 @@
     ?>
       <div class="row">
           <div class="col-6 mx-auto text-center">
-            <h4><?php dynamic_sidebar( 'social_title' ); ?></h4>
+            <span class="social-title"><?php dynamic_sidebar( 'social_title' ); ?></span>
             <?php echo do_shortcode('[SHARING_PLUS]'); ?>
           </div>
       </div>

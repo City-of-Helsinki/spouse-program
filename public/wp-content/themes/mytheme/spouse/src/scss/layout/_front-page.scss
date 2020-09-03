@@ -1,6 +1,6 @@
 .cta-column {
   padding: 0;
-  min-height: 750px;
+  min-height: 800px;
   height:90vh;
   position: relative;
   .cta-background {
@@ -38,9 +38,10 @@
   position: relative;
   background-color: $white;
 
-  min-height: 90vh;
+  min-height:750px;
   padding: 0;
   font-size: 18px;
+
 
   .main-content-container {
     position: absolute;

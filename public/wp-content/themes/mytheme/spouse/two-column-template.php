@@ -63,7 +63,7 @@
   ?>
   <div class="row">
       <div class="col-6 mx-auto text-center">
-          <?php dynamic_sidebar( 'social_title' ); ?>
+          <span class="social-title"><?php dynamic_sidebar( 'social_title' ); ?></span>
           <?php echo do_shortcode('[SHARING_PLUS]'); ?>
       </div>
   </div>

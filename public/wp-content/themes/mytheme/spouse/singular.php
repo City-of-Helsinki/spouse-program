@@ -30,7 +30,7 @@ get_header();
     ?>
     <div class="row">
         <div class="col-6 mx-auto text-center">
-            <h4><?php dynamic_sidebar( 'social_title' ); ?></h4>
+            <span class="social-title"><?php dynamic_sidebar( 'social_title' ); ?></span>
           <?php echo do_shortcode('[SHARING_PLUS]'); ?>
         </div>
     </div>
