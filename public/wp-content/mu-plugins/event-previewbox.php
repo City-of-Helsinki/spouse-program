@@ -106,7 +106,7 @@ function spouse_print_events($events = []){
       </div>
     </a>
     <?php else: ?>
-    </a>
+    </div>
     <?php endif; ?>
 
     <?php
