@@ -357,7 +357,7 @@ function render_user_message($message, $user) {
 
   $html .= $userInfo;
 
-  $html .= '<div class="message">' . $message . '</div>';
+  $html .= '<div class="message">' . $messageString . '</div>';
 
   if (isset($message['reactions'])) {
     #$html .= render_reactions($message['reactions']);
