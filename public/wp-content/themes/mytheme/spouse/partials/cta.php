@@ -27,6 +27,6 @@ $url = get_field('button_url');
 
 ?>
 <div class="col-12">
-    <a href="<?php echo $buttonUrl; ?>" class="<?php echo $class ?>" ><?php echo $buttonText ?></a>
+    <a href="<?php echo $buttonUrl; ?>" onClick="spouse_focus(event)" data-modal="wow-modal" class="<?php echo $class ?>" ><?php echo $buttonText ?></a>
 </div>
 <?php

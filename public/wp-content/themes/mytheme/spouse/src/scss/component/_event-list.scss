@@ -20,44 +20,44 @@
 
   .event {
     display: flex;
-    flex-flow: row;
+    flex-flow: column;
     min-height: 80px;
     height: auto;
     border: 1px solid $cyan;
     background-color: white;
     border-radius: 6px;
     margin: 25px 0px;
-    overflow: auto;
+    overflow: hidden;
 
     .event-color {
       width: 10px;
+      overflow: hidden;
+      height: 100%;
+      position: absolute;
     }
+    .event-content-wrap {
+      display:flex;
+      flex-flow: row;
 
-    .event-start {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 0px 10px;
-    }
+      .event-content {
+        width: 95%;
+        padding: 5px 5px 5px 20px;
+        .event-text {
+          width: auto;
+        }
 
-    .event-content {
-      width: 90%;
-      padding: 5px;
-      .event-text {
-        width: auto;
+        p {
+          margin-bottom: 0px;
+        }
       }
 
-      p {
-        margin-bottom: 0px;
-      }
-    }
-
-    .event-icon {
-      width: 30px;
-      margin: 5px 10px 0px 0px;
-      img {
-        width: 100%;
-        height: auto;
+      .event-icon {
+        width: 30px;
+        margin: 5px 10px 0px 0px;
+        img {
+          width: 100%;
+          height: auto;
+        }
       }
     }
 

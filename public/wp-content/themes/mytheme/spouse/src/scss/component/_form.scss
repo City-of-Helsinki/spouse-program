@@ -50,3 +50,13 @@ input[type='checkbox'] {
     color: white;
   }
 }
+
+input[aria-invalid="true"]{
+  border: 2px solid red;
+}
+
+span.wpcf7-not-valid-tip {
+  background: white;
+  color: red;
+}
+

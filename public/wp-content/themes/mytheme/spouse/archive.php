@@ -5,16 +5,20 @@ get_header();
     <div class="container-fluid">
       <div class="row">
         <div class="col-12 text-center archive">
-          <h1>News</h1>
+          <h1><?php echo single_cat_title() ?></h1>
         </div>
+
         <aside class="col-12 col-lg-3 archive menu">
+          <?php if(single_cat_title('', false) == 'News'): ?>
           <h2>Filter news by year</h2>
           <nav aria-label="Submenu">
           <?php
           wp_custom_archive();
           ?>
           </nav>
+          <?php endif; ?>
         </aside>
+
       <div class="col-12 offset-0 col-lg-6">
         <?php
         if (have_posts()) :
@@ -30,7 +34,6 @@ get_header();
                 echo '</a>';
                 echo '<hr>';
                 ?></li><?php
-
           endwhile;
         endif;
         ?>

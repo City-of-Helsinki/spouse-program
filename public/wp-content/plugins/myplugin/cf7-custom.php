@@ -84,8 +84,7 @@ function spouse_create_user_on_signup_form_submission(&$contact_form) {
   $headers[] = "From: Spouse-program <noreply@spouseprogram.fi> \r\n";
 
   if(!wp_mail($email, $subject, $message)) {
-    // TODO: add some sort of error logging to project maybe.
-    // Mails won't go through on dev environment so not gonna kill this one at the moment.
+    // Mails won't go through on dev environment
   }
 
   // Reset content-type to avoid conflicts -- http://core.trac.wordpress.org/ticket/23578
@@ -129,11 +128,38 @@ function spouse_random_str(
   $str = '';
   $max = mb_strlen($keyspace, '8bit') - 1;
   if ($max < 1) {
-    throw new Exception('$keyspace must be at least two characters long');
+    throw new Exception($keyspace.'must be at least two characters long');
   }
   for ($i = 0; $i < $length; ++$i) {
     $str .= $keyspace[random_int(0, $max)];
   }
   return $str;
+}
+
+function filter_wpcf7_validation_error( $error, $name, $instance ) {
+    $submission = WPCF7_Submission::get_instance();
+    $invalid_fields = $submission->get_invalid_fields();
+
+    $posted_data = $submission->get_posted_data();
+  return $error;
+};
+
+// add the filter
+add_filter( 'wpcf7_validation_error', 'filter_wpcf7_validation_error', 10, 3 );
+
+add_filter( 'wpcf7_display_message', 'spouse_validation_messages_fail', 10, 2 );
+
+function spouse_validation_messages_fail( $message, $status ) {
+  $submission = WPCF7_Submission::get_instance();
+
+  if ( $submission->is( 'validation_failed' ) ) {
+    $invalid_fields = $submission->get_invalid_fields();
+    $fields = implode(', ',array_keys($invalid_fields));
+    $message = 'Your form has invalid values in fields: '. $fields;
+
+    return $message;
+  }
+
+  return $message;
 }
 

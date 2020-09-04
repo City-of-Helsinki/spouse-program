@@ -345,13 +345,19 @@ function render_user_message($message, $user) {
     return '';
   }
 
+  $username = $user['real_name'] ? $user['real_name'] : $user['name'];
+  $userInfo = render_userinfo($message, $user);
+  $messageString = replace_slack_tags(sanitize_text_field($message['text']));
+  $date = date('l, F jS \a\t g:i a', $message['ts']);
+  $ariaMessage = "Message from $username on ".$date.": $messageString";
+
   $html .= render_avatar($user);
 
-  $html .= '<div class="content">';
+  $html .= '<div aria-label="'.$ariaMessage.'" class="content">';
 
-  $html .= render_userinfo($message, $user);
+  $html .= $userInfo;
 
-  $html .= '<div class="message">' . replace_slack_tags(sanitize_text_field($message['text'])) . '</div>';
+  $html .= '<div class="message">' . $messageString . '</div>';
 
   if (isset($message['reactions'])) {
     #$html .= render_reactions($message['reactions']);

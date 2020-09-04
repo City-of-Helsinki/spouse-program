@@ -29,24 +29,14 @@
     color: white;
     text-decoration: underline;
   }
-
-  span.wpcf7-not-valid-tip {
-    color: white;
-    &:before {
-      content: "- ";
-      padding-right: 5px;
-      color: $purple;
-    }
-  }
-
 }
+
 .wow-modal-overlay {
 
   .mw-close-btn {
     &:before {
       line-height: 14px !important;
-      font-size: 34px !important;
-      background-color: rgba(0,0,0,0) !important;
+      background: rgba(0,0,0,0) !important;
     }
   }
 

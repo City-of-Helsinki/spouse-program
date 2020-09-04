@@ -54,6 +54,9 @@ foreach($data as $post) {
       $month = ltrim(explode('-', $meta['event_start_date'])[1], '0');
       $count[$year][$month] = is_numeric($count[$year][$month]) ? $count[$year][$month] += 1 : 1;
     }
+    $monthName = date('F', strtotime($month));
+    $day = ltrim(explode('-', $meta['event_start_date'])[2], '0');
+    $event['longTitle'] = "{$post->category}. {$post->post_title} {$monthName} {$day}, {$event['starttime']}. {$event['venue_name']}";
     $events[] = $event;
 }
 
@@ -66,24 +69,23 @@ foreach($data as $post) {
 
 <main class="container-fluid">
   <div class="row">
-      <!--
-    <div class="col-12">
+    <div class="col-12 text-center">
         <h1>Events</h1>
     </div>
-    -->
+
   </div>
 
   <div class="row">
     <div class="d-none d-lg-block order-3 col-lg-3 order-lg-first col-lg-3 col-xl-2">
       <div class="events-date">
           <div class="controls">
-              <div id="spouse-fc-prevyear">
+              <button id="spouse-fc-prevyear" aria-label="previous year">
                   <
-              </div>
+              </button>
               <div id="current-year"><?php echo date('Y'); ?></div>
-              <div id="spouse-fc-nextyear">
+              <button id="spouse-fc-nextyear" aria-label="next year">
                   >
-              </div>
+              </button>
               <i class="clearfix"></i>
           </div>
           <div class="months">
@@ -93,10 +95,11 @@ foreach($data as $post) {
                 $months[] = date('F', mktime(0, 0, 0, $m, 1));
               }
               foreach($months as $key => $month):
-              ?>
-                  <div class="month <?php echo lcfirst($month); ?><?php if(date('F') == $month){ echo ' active';} ?>">
-                    <?php echo $month; ?><span class="count"> <span class="dashicons dashicons-calendar-alt"></span><?php echo $count[date('Y')][$key+1] ?? 0 ?> </span>
-                  </div>
+                $eventCount =  $count[date('Y')][$key+1] ? $count[date('Y')][$key+1] : 'no';
+                ?>
+                  <button class="month <?php echo lcfirst($month); ?><?php if(date('F') == $month){ echo ' active';} ?>">
+                    <?php echo $month; ?><span aria-label="<?php echo ',' . $eventCount . ' events'; ?>" class="count"> <span class="dashicons dashicons-calendar-alt"></span><?php echo $count[date('Y')][$key+1] ?? 0 ?> </span>
+                  </button>
               <?php
               endforeach;
               ?>
@@ -104,7 +107,7 @@ foreach($data as $post) {
       </div>
     </div>
 
-    <div class="col-12 order-2 col-lg-7 col-xl-8">
+    <div class="col-12 order-2 col-lg-7">
       <div id="events-calendar" class="events-calendar">
       </div>
     </div>
@@ -133,7 +136,8 @@ jQuery(document).ready(function(){
     lang: 'en',
     eventLimit: 1,
     fixedWeekCount: false,
-    eventRender: function(event){
+    eventRender: function(event, element){
+      element[0].querySelector('.fc-title').innerHTML = event.longTitle;
       const html = `<a href="${event.url}"><div class="event">
             <div class="event-color" style="background-color:${event.color}"></div>
             <div class="event-content">
@@ -153,7 +157,7 @@ jQuery(document).ready(function(){
     customButtons: {
       customPrev: {
         text: '<',
-        click: function() {
+        click: function(mouseEvent, htmlElement) {
           calendar.fullCalendar('prev');
           $('#current-year').text(calendar.fullCalendar('getDate').year());
           const date = calendar.fullCalendar('getDate');
@@ -251,6 +255,16 @@ function renderEventCounts(year){
 function clearEventList(){
   jQuery('.event-list').empty();
 }
+
+jQuery(document).ready(function(){
+  jQuery('.fc-customPrev-button').attr('aria-label', 'Select previous month');
+  jQuery('.fc-customNext-button').attr('aria-label', 'Select next month');
+  jQuery('#spouse-fc-prevyear').attr('aria-label', 'Select previous year');
+  jQuery('#spouse-fc-nextyear').attr('aria-label', 'Select next year');
+  jQuery('.fc-center').attr('tabindex', -1);
+  jQuery('.fc-customPrev-button').attr('tabindex', -1);
+  jQuery('.fc-customNext-button').attr('tabindex', -1);
+})
 </script>
 
 <?php get_footer();

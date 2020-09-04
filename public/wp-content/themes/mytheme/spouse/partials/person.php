@@ -17,7 +17,7 @@ $image = $values['image'];
 <div class="col-12 person">
     <div class="img person-image pull-left">
   <?php if($image): ?>
-    <img class="img-fluid" src="<?php echo $image ?>">
+    <img class="img-fluid" src="<?php echo $image['url'] ?>" alt="<?php echo $image['alt'] ?>">
     <?php if($values['name']): ?>
       <p class="person-title"><?php echo $values['name']; ?></p>
     <?php endif; ?>
