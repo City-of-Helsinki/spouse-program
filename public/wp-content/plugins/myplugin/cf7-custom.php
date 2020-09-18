@@ -82,9 +82,7 @@ function spouse_create_user_on_signup_form_submission(&$contact_form) {
   $headers = [];
   $headers[] = "From: Spouse-program <noreply@spouseprogram.fi> \r\n";
 
-  if(!wp_mail($email, $subject, $message, $headers)) {
-    // Mails won't go through on dev environment
-  }
+  wp_mail($email, $subject, $message, $headers);
 }
 
 function spouse_create_event_on_form_submission(&$contact_form){
