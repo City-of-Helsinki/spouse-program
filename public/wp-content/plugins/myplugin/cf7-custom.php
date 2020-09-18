@@ -71,25 +71,18 @@ function spouse_create_user_on_signup_form_submission(&$contact_form) {
   $reset_link = wp_login_url() . "\r\n";
 
   $blogName = get_bloginfo('name');
-  $message = "Hi $username,<br>";
-  $message .= "An account has been created on $blogName for email address $email <br>";
-  $message .= "Username for your account: $username <br>";
-  $message .= "Automatically created password for your account: $password <br>";
-  $message .= "You can change your password on the profile <br>";
-  $message .= "You can login here: $reset_link <br>";
+  $message = "Hi $username, \r\n";
+  $message .= "An account has been created on $blogName for email address $email \r\n";
+  $message .= "Username for your account: $username \r\n";
+  $message .= "Automatically created password for your account: $password \r\n";
+  $message .= "You can change your password on the profile \r\n";
+  $message .= "You can login here: $reset_link \r\n";
 
   $subject = __("Your account on ".get_bloginfo( 'name'));
   $headers = [];
-  add_filter('wp_mail_content_type', 'set_html_content_type');
   $headers[] = "From: Spouse-program <noreply@spouseprogram.fi> \r\n";
 
-  if(!wp_mail($email, $subject, $message)) {
-    // Mails won't go through on dev environment
-  }
-
-  // Reset content-type to avoid conflicts -- http://core.trac.wordpress.org/ticket/23578
-  remove_filter( 'wp_mail_content_type', 'set_html_content_type' );
-
+  wp_mail($email, $subject, $message, $headers);
 }
 
 function spouse_create_event_on_form_submission(&$contact_form){

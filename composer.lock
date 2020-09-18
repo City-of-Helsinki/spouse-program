@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4b76640024b8fc5092a59d1a33b5cd2c",
+    "content-hash": "cba8b8def0527e10eaf5c6afc32f11fb",
     "packages": [
         {
             "name": "composer/installers",
@@ -460,24 +460,6 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/modal-window/"
-        },
-        {
-            "name": "wpackagist-plugin/sendgrid-email-delivery-simplified",
-            "version": "1.11.8",
-            "source": {
-                "type": "svn",
-                "url": "https://plugins.svn.wordpress.org/sendgrid-email-delivery-simplified/",
-                "reference": "tags/1.11.8"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/sendgrid-email-delivery-simplified.1.11.8.zip"
-            },
-            "require": {
-                "composer/installers": "~1.0"
-            },
-            "type": "wordpress-plugin",
-            "homepage": "https://wordpress.org/plugins/sendgrid-email-delivery-simplified/"
         },
         {
             "name": "wpackagist-plugin/sharing-plus",
