@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4b76640024b8fc5092a59d1a33b5cd2c",
+    "content-hash": "6c5824e1c92d21f1e9aa98c447d3d736",
     "packages": [
         {
             "name": "composer/installers",
@@ -131,78 +131,34 @@
                 "zend",
                 "zikula"
             ],
+            "funding": [
+                {
+                    "url": "https://packagist.com",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/composer/composer",
+                    "type": "tidelift"
+                }
+            ],
             "time": "2020-04-07T06:57:05+00:00"
         },
         {
-            "name": "drupal-composer/preserve-paths",
-            "version": "0.1.5",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/drupal-composer/preserve-paths.git",
-                "reference": "7f99622800504c058e5230b63d3cd25809fa23ba"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/drupal-composer/preserve-paths/zipball/7f99622800504c058e5230b63d3cd25809fa23ba",
-                "reference": "7f99622800504c058e5230b63d3cd25809fa23ba",
-                "shasum": ""
-            },
-            "require": {
-                "composer-plugin-api": "^1.0"
-            },
-            "require-dev": {
-                "composer/composer": "1.*",
-                "derhasi/tempdirectory": "0.1.*",
-                "escapestudios/symfony2-coding-standard": "2.*",
-                "phpunit/phpunit": "4.*",
-                "squizlabs/php_codesniffer": "2.*"
-            },
-            "type": "composer-plugin",
-            "extra": {
-                "class": "DrupalComposer\\PreservePaths\\Plugin"
-            },
-            "autoload": {
-                "psr-4": {
-                    "DrupalComposer\\PreservePaths\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "GPL-2.0+"
-            ],
-            "authors": [
-                {
-                    "name": "Johannes Haseitl",
-                    "email": "johannes@undpaul.de",
-                    "homepage": "http://www.undpaul.de"
-                }
-            ],
-            "description": "Composer plugin for preserving custom paths and supporting nested packages",
-            "homepage": "https://github.com/drupal-composer/preserve-paths",
-            "keywords": [
-                "composer-plugin",
-                "custom path",
-                "installer",
-                "nested package"
-            ],
-            "time": "2017-07-20T14:32:18+00:00"
-        },
-        {
             "name": "johnpbloch/wordpress",
-            "version": "5.4.2",
+            "version": "5.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/johnpbloch/wordpress.git",
-                "reference": "18c41a328193d6f7425a3cea4e01faa220e90218"
+                "reference": "0973abd5c01ecce0b60bc1c81a6dd072827de930"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/johnpbloch/wordpress/zipball/18c41a328193d6f7425a3cea4e01faa220e90218",
-                "reference": "18c41a328193d6f7425a3cea4e01faa220e90218",
+                "url": "https://api.github.com/repos/johnpbloch/wordpress/zipball/0973abd5c01ecce0b60bc1c81a6dd072827de930",
+                "reference": "0973abd5c01ecce0b60bc1c81a6dd072827de930",
                 "shasum": ""
             },
             "require": {
-                "johnpbloch/wordpress-core": "5.4.2",
+                "johnpbloch/wordpress-core": "5.5.1",
                 "johnpbloch/wordpress-core-installer": "^1.0 || ^2.0",
                 "php": ">=5.6.20"
             },
@@ -224,20 +180,20 @@
                 "cms",
                 "wordpress"
             ],
-            "time": "2020-06-10T22:05:43+00:00"
+            "time": "2020-09-01T19:07:41+00:00"
         },
         {
             "name": "johnpbloch/wordpress-core",
-            "version": "5.4.2",
+            "version": "5.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/johnpbloch/wordpress-core.git",
-                "reference": "3e67d8b6ee6c11e8ce404da4627117fb7fbf9266"
+                "reference": "fa5bcb1579eae33baef6c04355f8d6657e5bd349"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/johnpbloch/wordpress-core/zipball/3e67d8b6ee6c11e8ce404da4627117fb7fbf9266",
-                "reference": "3e67d8b6ee6c11e8ce404da4627117fb7fbf9266",
+                "url": "https://api.github.com/repos/johnpbloch/wordpress-core/zipball/fa5bcb1579eae33baef6c04355f8d6657e5bd349",
+                "reference": "fa5bcb1579eae33baef6c04355f8d6657e5bd349",
                 "shasum": ""
             },
             "require": {
@@ -245,7 +201,7 @@
                 "php": ">=5.6.20"
             },
             "provide": {
-                "wordpress/core-implementation": "5.4.2"
+                "wordpress/core-implementation": "5.5.1"
             },
             "type": "wordpress-core",
             "notification-url": "https://packagist.org/downloads/",
@@ -265,7 +221,7 @@
                 "cms",
                 "wordpress"
             ],
-            "time": "2020-06-10T22:05:38+00:00"
+            "time": "2020-09-01T19:07:35+00:00"
         },
         {
             "name": "johnpbloch/wordpress-core-installer",
@@ -337,15 +293,15 @@
         },
         {
             "name": "wpackagist-plugin/contact-form-7",
-            "version": "5.1.9",
+            "version": "5.2.2",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/contact-form-7/",
-                "reference": "tags/5.1.9"
+                "reference": "tags/5.2.2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/contact-form-7.5.1.9.zip"
+                "url": "https://downloads.wordpress.org/plugin/contact-form-7.5.2.2.zip"
             },
             "require": {
                 "composer/installers": "~1.0"
@@ -373,15 +329,15 @@
         },
         {
             "name": "wpackagist-plugin/flamingo",
-            "version": "2.1.1",
+            "version": "2.2",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/flamingo/",
-                "reference": "tags/2.1.1"
+                "reference": "tags/2.2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/flamingo.2.1.1.zip"
+                "url": "https://downloads.wordpress.org/plugin/flamingo.2.2.zip"
             },
             "require": {
                 "composer/installers": "~1.0"
@@ -391,15 +347,15 @@
         },
         {
             "name": "wpackagist-plugin/google-sitemap-generator",
-            "version": "4.1.0",
+            "version": "4.1.1",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/google-sitemap-generator/",
-                "reference": "tags/4.1.0"
+                "reference": "tags/4.1.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/google-sitemap-generator.4.1.0.zip"
+                "url": "https://downloads.wordpress.org/plugin/google-sitemap-generator.4.1.1.zip"
             },
             "require": {
                 "composer/installers": "~1.0"
@@ -632,16 +588,16 @@
         },
         {
             "name": "symfony/finder",
-            "version": "v5.1.2",
+            "version": "v5.1.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/finder.git",
-                "reference": "4298870062bfc667cb78d2b379be4bf5dec5f187"
+                "reference": "2b765f0cf6612b3636e738c0689b29aa63088d5d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/finder/zipball/4298870062bfc667cb78d2b379be4bf5dec5f187",
-                "reference": "4298870062bfc667cb78d2b379be4bf5dec5f187",
+                "url": "https://api.github.com/repos/symfony/finder/zipball/2b765f0cf6612b3636e738c0689b29aa63088d5d",
+                "reference": "2b765f0cf6612b3636e738c0689b29aa63088d5d",
                 "shasum": ""
             },
             "require": {
@@ -677,7 +633,21 @@
             ],
             "description": "Symfony Finder Component",
             "homepage": "https://symfony.com",
-            "time": "2020-05-20T17:43:50+00:00"
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2020-08-17T10:01:29+00:00"
         },
         {
             "name": "wp-cli/mustangostang-spyc",
@@ -846,5 +816,6 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": [],
-    "platform-dev": []
+    "platform-dev": [],
+    "plugin-api-version": "1.1.0"
 }
