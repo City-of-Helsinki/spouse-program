@@ -11,8 +11,8 @@
     ],
     "require": {
         "composer/installers": "^1.2",
+        "drupal-composer/preserve-paths": "^0.1.5",
         "johnpbloch/wordpress": "^5.4",
-        "wpackagist-plugin/advanced-custom-fields": "5.8.11",
         "wpackagist-plugin/autodescription": "4.0.7",
         "wpackagist-plugin/contact-form-7": "^5.1",
         "wpackagist-plugin/disable-gutenberg": "2.1",
@@ -43,7 +43,13 @@
         },
         "preserve-paths": [
             "public/wp-config.php",
-            "public/wp-content/uploads"
+            "public/wp-content/uploads",
+            "public/wp-content/plugins/uk-cookie-consent",
+            "public/wp-content/plugins/myplugin",
+            "public/wp-content/plugins/advanced-custom-fields",
+            "public/wp-content/plugins/acf-repeater",
+            "public/wp-content/themes/mytheme",
+            "public/wp-content/mu-plugins"
         ],
         "wordpress-install-dir": "public"
     },
