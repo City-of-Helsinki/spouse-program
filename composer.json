@@ -2,7 +2,7 @@
     "name": "druidfi/puoliso-ohjelma",
     "type": "project",
     "description": "Puoliso-ohjelma",
-    "license": "GPL-2.0+",
+    "license": "GPL-2.0-or-later",
     "authors": [
         {
             "name": "Druid.fi",
@@ -20,7 +20,6 @@
         "wpackagist-plugin/import-eventbrite-events": "1.5.8",
         "wpackagist-plugin/lumturio-wp-monitor": "^1.0",
         "wpackagist-plugin/modal-window": "5.0.5",
-        "wpackagist-plugin/sendgrid-email-delivery-simplified": "1.11.8",
         "wpackagist-plugin/sharing-plus": "1.0.1",
         "wpackagist-plugin/site-health-tool-manager": "^1.1",
         "wpackagist-plugin/slicknav-mobile-menu": "^1.8"
