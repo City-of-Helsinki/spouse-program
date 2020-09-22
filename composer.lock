@@ -790,24 +790,6 @@
                 "wordpress"
             ],
             "time": "2020-02-18T08:15:37+00:00"
-        },
-        {
-            "name": "wpackagist-plugin/sendgrid-email-delivery-simplified",
-            "version": "1.11.8",
-            "source": {
-                "type": "svn",
-                "url": "https://plugins.svn.wordpress.org/sendgrid-email-delivery-simplified/",
-                "reference": "tags/1.11.8"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/sendgrid-email-delivery-simplified.1.11.8.zip"
-            },
-            "require": {
-                "composer/installers": "~1.0"
-            },
-            "type": "wordpress-plugin",
-            "homepage": "https://wordpress.org/plugins/sendgrid-email-delivery-simplified/"
         }
     ],
     "aliases": [],
