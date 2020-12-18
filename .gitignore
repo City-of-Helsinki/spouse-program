@@ -1,6 +1,6 @@
 /.idea/
 /vendor
-/public/*.php
+/public/*.*
 /public/wp-admin
 /public/wp-content/index.php
 /public/wp-content/plugins/*
@@ -10,6 +10,7 @@
 /public/wp-includes
 /uploads
 debug.log
+*.sql
 
 # Add here custom plugin(s)
 !/public/wp-content/plugins/myplugin

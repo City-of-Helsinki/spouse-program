@@ -2,7 +2,7 @@
     "name": "druidfi/puoliso-ohjelma",
     "type": "project",
     "description": "Puoliso-ohjelma",
-    "license": "GPL-2.0+",
+    "license": "GPL-2.0-or-later",
     "authors": [
         {
             "name": "Druid.fi",
@@ -11,7 +11,6 @@
     ],
     "require": {
         "composer/installers": "^1.2",
-        "drupal-composer/preserve-paths": "^0.1.5",
         "johnpbloch/wordpress": "^5.4",
         "wpackagist-plugin/autodescription": "4.0.7",
         "wpackagist-plugin/contact-form-7": "^5.1",
@@ -40,17 +39,7 @@
                 "type:wordpress-theme"
             ]
         },
-        "preserve-paths": [
-            "public/wp-config.php",
-            "public/wp-content/uploads",
-            "public/wp-content/plugins/uk-cookie-consent",
-            "public/wp-content/plugins/myplugin",
-            "public/wp-content/plugins/advanced-custom-fields",
-            "public/wp-content/plugins/acf-repeater",
-            "public/wp-content/themes/mytheme",
-            "public/wp-content/mu-plugins"
-        ],
-        "wordpress-install-dir": "public"
+        "wordpress-install-dir": "vendor/wordpress"
     },
     "repositories": [
         {
@@ -59,5 +48,16 @@
         }
     ],
     "minimum-stability": "dev",
-    "prefer-stable": true
+    "prefer-stable": true,
+    "scripts": {
+        "post-install-cmd": [
+            "@copy-wordpress"
+        ],
+        "post-update-cmd": [
+            "@copy-wordpress"
+        ],
+        "copy-wordpress": [
+            "cp -fR vendor/wordpress/* public"
+        ]
+    }
 }

@@ -14,9 +14,13 @@ define dbg
 endef
 
 define step
-	@printf "\n${YELLOW}${1}${NO_COLOR}\n\n"
+	@printf "\n⚡ ${YELLOW}${1}${NO_COLOR}\n\n"
+endef
+
+define sub_step
+	@printf "\n   ${YELLOW}${1}${NO_COLOR}\n\n"
 endef
 
 define warn
-	@printf "\n${YELLOW}[warning]${NO_COLOR} ${1}\n\n"
+	@printf "\n⚠️  ${1}\n\n"
 endef
