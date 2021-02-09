@@ -1,7 +1,6 @@
 <?php
 get_header();
 ?>
-
 <main id="main-content" role="main">
     <div class="container-fluid">
         <div class="row">
@@ -19,6 +18,5 @@ get_header();
         </div>
     </div>
 </main>
-
 <?php
 get_footer();

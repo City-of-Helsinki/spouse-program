@@ -87,6 +87,11 @@ iframe {
   height: auto;
 }
 
+.sharing_plus_buttons.sharing-plus-social-round-icon button:focus, .sharing_plus_buttons.sharing-plus-social-round-icon button:active {
+  background: #0077B5;
+  color: white !important;
+}
+
 .ui-widget-content {
   background-color: white;
 }
@@ -314,6 +319,7 @@ header .header-main-content ul li {
 header .header-main-content ul li.current_page_item a {
   text-decoration: underline;
   text-underline: black;
+  color: white;
 }
 
 .mob-menu-logo-holder {
@@ -361,12 +367,16 @@ header .header-main-content ul li.current_page_item a {
   color: black;
 }
 
+.single-event-meta a {
+  color: #005EC2;
+}
+
 .iee_event_meta div.titlemain {
   color: black;
 }
 
 a:hover {
-  color: #007bff;
+  color: #006CE0;
 }
 
 .post-template-default .hero-image,
@@ -376,7 +386,8 @@ a:hover {
 .archive .hero-image,
 .error404 .hero-image,
 .page-template-archives .hero-image,
-.page-id-179 .hero-image {
+.page-id-179 .hero-image,
+.single-eventbrite_events .hero-image {
   background-repeat: no-repeat;
   background-size: cover;
   height: 60vh;
@@ -392,7 +403,8 @@ a:hover {
 .archive .hero-image .wave,
 .error404 .hero-image .wave,
 .page-template-archives .hero-image .wave,
-.page-id-179 .hero-image .wave {
+.page-id-179 .hero-image .wave,
+.single-eventbrite_events .hero-image .wave {
   position: absolute;
   z-index: 1;
   bottom: -200px;
@@ -413,7 +425,8 @@ a:hover {
 .archive h1,
 .error404 h1,
 .page-template-archives h1,
-.page-id-179 h1 {
+.page-id-179 h1,
+.single-eventbrite_events h1 {
   color: #01a090;
   text-align: center;
 }
@@ -425,7 +438,8 @@ a:hover {
 .archive img,
 .error404 img,
 .page-template-archives img,
-.page-id-179 img {
+.page-id-179 img,
+.single-eventbrite_events img {
   max-width: 100%;
   height: auto;
 }
@@ -437,7 +451,8 @@ a:hover {
 .archive a.content-cta,
 .error404 a.content-cta,
 .page-template-archives a.content-cta,
-.page-id-179 a.content-cta {
+.page-id-179 a.content-cta,
+.single-eventbrite_events a.content-cta {
   font-weight: bold;
   display: block;
   height: 60px;
@@ -458,7 +473,8 @@ a:hover {
 .archive .person,
 .error404 .person,
 .page-template-archives .person,
-.page-id-179 .person {
+.page-id-179 .person,
+.single-eventbrite_events .person {
   font-size: 16px;
   height: auto;
   margin-bottom: 20px;
@@ -471,7 +487,8 @@ a:hover {
 .archive .person p,
 .error404 .person p,
 .page-template-archives .person p,
-.page-id-179 .person p {
+.page-id-179 .person p,
+.single-eventbrite_events .person p {
   margin-bottom: 2px;
 }
 
@@ -482,7 +499,8 @@ a:hover {
 .archive .person .person-image,
 .error404 .person .person-image,
 .page-template-archives .person .person-image,
-.page-id-179 .person .person-image {
+.page-id-179 .person .person-image,
+.single-eventbrite_events .person .person-image {
   font-weight: bold;
   text-align: center;
   height: 100%;
@@ -496,7 +514,8 @@ a:hover {
 .archive .person .person-image img,
 .error404 .person .person-image img,
 .page-template-archives .person .person-image img,
-.page-id-179 .person .person-image img {
+.page-id-179 .person .person-image img,
+.single-eventbrite_events .person .person-image img {
   width: 100%;
   height: auto;
 }
@@ -508,7 +527,8 @@ a:hover {
 .archive .person .person-content,
 .error404 .person .person-content,
 .page-template-archives .person .person-content,
-.page-id-179 .person .person-content {
+.page-id-179 .person .person-content,
+.single-eventbrite_events .person .person-content {
   margin-left: 10px;
   width: 75%;
 }
@@ -520,7 +540,8 @@ a:hover {
 .archive main.sidewave,
 .error404 main.sidewave,
 .page-template-archives main.sidewave,
-.page-id-179 main.sidewave {
+.page-id-179 main.sidewave,
+.single-eventbrite_events main.sidewave {
   background-position: right -150px bottom -300px;
   background-repeat: no-repeat;
   overflow: hidden;
@@ -533,7 +554,8 @@ a:hover {
 .archive .sidebar-menu,
 .error404 .sidebar-menu,
 .page-template-archives .sidebar-menu,
-.page-id-179 .sidebar-menu {
+.page-id-179 .sidebar-menu,
+.single-eventbrite_events .sidebar-menu {
   text-decoration: none;
   color: black;
   font-size: 24px;
@@ -546,7 +568,8 @@ a:hover {
 .archive .sidebar-menu ul,
 .error404 .sidebar-menu ul,
 .page-template-archives .sidebar-menu ul,
-.page-id-179 .sidebar-menu ul {
+.page-id-179 .sidebar-menu ul,
+.single-eventbrite_events .sidebar-menu ul {
   list-style: none;
   padding-left: 0px;
 }
@@ -558,7 +581,8 @@ a:hover {
 .archive .sidebar-menu ul li a,
 .error404 .sidebar-menu ul li a,
 .page-template-archives .sidebar-menu ul li a,
-.page-id-179 .sidebar-menu ul li a {
+.page-id-179 .sidebar-menu ul li a,
+.single-eventbrite_events .sidebar-menu ul li a {
   color: black;
 }
 
@@ -569,7 +593,8 @@ a:hover {
 .archive .sidebar-menu .current-menu-item,
 .error404 .sidebar-menu .current-menu-item,
 .page-template-archives .sidebar-menu .current-menu-item,
-.page-id-179 .sidebar-menu .current-menu-item {
+.page-id-179 .sidebar-menu .current-menu-item,
+.single-eventbrite_events .sidebar-menu .current-menu-item {
   font-weight: bold;
 }
 

@@ -3,9 +3,9 @@
 <?php get_header(); ?>
 
 <?php if(get_field('additional_graphical_elements')): ?>
-<main id="main-content" class="container-fluid sidewave" style="background-image:url(<?php echo get_template_directory_uri(); ?>/src/scss/icons/sidedecoration.svg)" role="main">
+<main class="container-fluid sidewave" style="background-image:url(<?php echo get_template_directory_uri(); ?>/src/scss/icons/sidedecoration.svg)" role="main">
 <?php else: ?>
-<main id="main-content" class="container-fluid" role="main">
+<main class="container-fluid" role="main">
 <?php endif; ?>
     <div class="row">
         <?php if($thumbnail = get_the_post_thumbnail_url(get_the_ID(), 'full')):
@@ -39,9 +39,9 @@
         ?>
 
         <?php if(is_user_logged_in()): ?>
-            <div class="col-12 offset-0 col-sm-12 col-md-12 col-lg-6 offset-lg-0 col-xl-7">
+            <div id="main-content" class="col-12 offset-0 col-sm-12 col-md-12 col-lg-6 offset-lg-0 col-xl-7">
         <?php else: ?>
-            <div class="col-12 offset-0 col-lg-6 offset-lg-3">
+            <div id="main-content" class="col-12 offset-0 col-lg-6 offset-lg-3">
         <?php endif; ?>
         <?php
         // center

@@ -8,3 +8,13 @@ function spouse_focus(event){
     1000
   )
 }
+
+// if link has class wow-modal-id-x, add spouse focus event to it automatically.
+(jQuery('document').ready(function(){
+  jQuery("[class*=wow-modal-id-]").each(function(index, value){
+    if(jQuery(this).closest('a').length){
+      jQuery(this).on('click', spouse_focus);
+    }
+  })
+}))
+

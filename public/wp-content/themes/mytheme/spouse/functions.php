@@ -69,7 +69,10 @@ function spouse_add_shortcodes() {
 }
 
 function spouse_login_form_shortcode() {
-  return wp_login_form( array( 'echo' => false ) );
+  $form = wp_login_form( array( 'echo' => false ) );
+  $form = str_replace('type="password"', 'type="password" autocomplete="password"', $form);
+  $form = str_replace('name="log"', 'name="log" autocomplete="username"', $form);
+  return $form;
 }
 
 function spouse_get_template_part($slug, $name = null) {
