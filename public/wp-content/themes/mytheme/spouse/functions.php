@@ -19,6 +19,7 @@ function spouse_enqueue_scripts() {
     wp_enqueue_script('news-visited', get_template_directory_uri() . '/js/news-visited.js');
   }
   wp_enqueue_script('wow-modal-focus', get_template_directory_uri() . '/js/wow-modal-focus.js');
+  wp_enqueue_script('target-blank-accessible', get_template_directory_uri() . '/js/targetblank.js');
 }
 add_action('wp_enqueue_scripts', 'spouse_enqueue_scripts');
 
@@ -69,7 +70,10 @@ function spouse_add_shortcodes() {
 }
 
 function spouse_login_form_shortcode() {
-  return wp_login_form( array( 'echo' => false ) );
+  $form = wp_login_form( array( 'echo' => false ) );
+  $form = str_replace('type="password"', 'type="password" autocomplete="password"', $form);
+  $form = str_replace('name="log"', 'name="log" autocomplete="username"', $form);
+  return $form;
 }
 
 function spouse_get_template_part($slug, $name = null) {
