@@ -8,7 +8,6 @@
 /public/wp-content/themes/mytheme/*/node_modules
 /public/wp-content/uploads
 /public/wp-includes
-/public/wp-includes/*
 /uploads
 debug.log
 *.sql
