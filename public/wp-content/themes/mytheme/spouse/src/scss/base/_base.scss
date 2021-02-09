@@ -76,3 +76,11 @@ iframe {
   }
 }
 
+.sharing_plus_buttons.sharing-plus-social-round-icon button {
+  &:focus,
+  &:active {
+    background: #0077B5;
+    color: white !important;
+  }
+}
+

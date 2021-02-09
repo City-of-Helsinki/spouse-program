@@ -53,13 +53,9 @@ function ctccGetCookie(cname='catAccCookies') {
 	return "";
 }
 
-jQuery(document).ready(function($){
-
-	if(ctccGetCookie()){
-		$('#catapult-cookie-bar').remove()
-	}
-
-	$('.x_close').on('click', function(){
-		catapultAcceptCookies();
+jQuery(document).ready(function(){
+	jQuery('#catapultCookie').on('click', function(){
+		jQuery('#catapult-cookie-bar').remove();
+		jQuery('body').css('margin-top', '0px');
 	});
 });
