@@ -75,7 +75,19 @@ foreach($data as $post) {
   </div>
 
   <div class="row">
-    <div class="d-none d-lg-block order-3 col-lg-3 order-lg-first col-lg-3 col-xl-2">
+    <aside class="d-none d-md-none d-lg-block order-lg-first order-1 col-lg-3 col-xl-2 menu">
+      <div class="sidebar-menu-wrap">
+        <h2>Menu</h2>
+        <nav aria-label="Submenu">
+            <?php
+            wp_nav_menu( array(
+                'theme_location' => 'sidebar-menu',
+                'container_class' => 'sidebar-menu' ) );
+            ?>
+        </nav>
+      </div>
+    </aside>
+    <div class="d-none d-lg-block order-3 order-lg-first order-2 col-lg-2 col-xl-2">
       <div class="events-date">
           <div class="controls">
               <h2>Calendar control</h2>
@@ -108,7 +120,7 @@ foreach($data as $post) {
       </div>
     </div>
 
-    <div class="col-12 order-2 col-lg-7">
+    <div class="col-12 order-2 col-lg-4 col-xl-5">
       <div id="events-calendar" class="events-calendar">
       </div>
     </div>
@@ -137,6 +149,7 @@ jQuery(document).ready(function(){
     lang: 'en',
     eventLimit: 1,
     fixedWeekCount: false,
+    height: "auto",
     eventRender: function(event, element){
       element[0].querySelector('.fc-title').innerHTML = event.longTitle;
       const html = `<a href="${event.url}"><div class="event">
