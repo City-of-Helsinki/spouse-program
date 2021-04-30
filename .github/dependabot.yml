@@ -8,4 +8,5 @@ updates:
     timezone: "Europe/Helsinki"
   open-pull-requests-limit: 10
   labels:
-    - "wordpress dependencies"
+    - "dependencies"
+    - "php"
