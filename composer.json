@@ -12,7 +12,7 @@
     "require": {
         "composer/installers": "^1.2",
         "johnpbloch/wordpress": "^5.4",
-        "wpackagist-plugin/autodescription": "4.0.7",
+        "wpackagist-plugin/autodescription": "4.2.0",
         "wpackagist-plugin/contact-form-7": "^5.1",
         "wpackagist-plugin/disable-gutenberg": "2.1",
         "wpackagist-plugin/flamingo": "^2.1",
