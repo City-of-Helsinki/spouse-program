@@ -23,7 +23,7 @@
 		"gulp-rename": "^1.2.2",
 		"gulp-sass": "git+https://github.com/demurgos/gulp-sass.git#issue-646",
 		"gulp-sass-glob": "^1.0.8",
-		"gulp-uglify": "3.0.0"
+		"gulp-uglify": "3.0.2"
 	},
 	"devDependencies": {
 		"ansi-colors": "1.0.1",
