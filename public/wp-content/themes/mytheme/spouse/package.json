@@ -17,7 +17,7 @@
 		"gulp": "git+https://github.com/gulpjs/gulp.git#v4.0.0",
 		"gulp-autoprefixer": "4.1.0",
 		"gulp-clean-css": "^3.9.2",
-		"gulp-cli": "2.0.0",
+		"gulp-cli": "2.3.0",
 		"gulp-if": "^2.0.2",
 		"gulp-noop": "1.0.0",
 		"gulp-rename": "^1.2.2",
