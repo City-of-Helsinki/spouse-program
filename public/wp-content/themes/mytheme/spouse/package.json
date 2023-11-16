@@ -12,7 +12,7 @@
 		"postinstall": "find node_modules/ -name \"*.info\" -type f -delete"
 	},
 	"dependencies": {
-		"bootstrap": "^4.5.0",
+		"bootstrap": "^4.6.2",
 		"breakpoint-sass": "^2.7.1",
 		"gulp": "git+https://github.com/gulpjs/gulp.git#v4.0.0",
 		"gulp-autoprefixer": "4.1.0",
