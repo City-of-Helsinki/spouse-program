@@ -19,7 +19,7 @@
 		"gulp-clean-css": "^3.9.2",
 		"gulp-cli": "2.0.0",
 		"gulp-if": "^2.0.2",
-		"gulp-noop": "1.0.0",
+		"gulp-noop": "1.0.1",
 		"gulp-rename": "^1.2.2",
 		"gulp-sass": "git+https://github.com/demurgos/gulp-sass.git#issue-646",
 		"gulp-sass-glob": "^1.0.8",
